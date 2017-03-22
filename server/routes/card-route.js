@@ -26,8 +26,8 @@ router.route('/')
 			priority: req.body.priority,
 			status: req.body.status
 		})
-		.then((created) => {
-			console.log(created);
+		.then((newTask) => {
+			console.log(newTask);
 			res.send('success');
 		})
 		.catch((err) => {
@@ -36,8 +36,20 @@ router.route('/')
 });
 
 router.route('/:id')
+	.put((req, res) => {
+		Card.findById(req.params.id)
+			.then((task) => {
+				task.update({
+					title: req.body.title,
+					priority: req.body.priority,
+					status: req.body.status
+				})
+				.then((task) => {
+					res.send('updated successfuly');
+				});
+			});
+	})
 	.delete((req, res) => {
-		console.log('id: ', req.params.id);
 		Card.destroy({
 			where: { id: `${req.params.id}`}
 		})
