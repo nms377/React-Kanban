@@ -35,4 +35,19 @@ router.route('/')
 		});
 });
 
+router.route('/:id')
+	.delete((req, res) => {
+		console.log('id: ', req.params.id);
+		Card.destroy({
+			where: { id: `${req.params.id}`}
+		})
+		.then((removed) => {
+			res.send('sucessfully deleted');
+		})
+		.catch((err) => {
+			console.log('err', err);
+			res.send('error', err);
+		});
+});
+
 module.exports = router;
