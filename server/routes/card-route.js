@@ -1,6 +1,4 @@
-const server = require('../server');
 const express = require('express');
-const bp = require('body-parser');
 const db = require('../models');
 const { Card } = db;
 
@@ -11,7 +9,10 @@ router.route('/')
 	.get((req, res) => {
 		Card.findAll()
 			.then((cards => {
-				res.json({cards});
+				res.json({
+					list:
+						{cards}
+					});
 				// res.send('sanity');
 			}))
 			.catch((err) => {
@@ -20,7 +21,6 @@ router.route('/')
 			});
 })
 	.post((req, res) => {
-		console.log('req', req.body.title);
 		Card.create({
 			title: req.body.title,
 			priority: req.body.priority,
