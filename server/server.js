@@ -11,13 +11,14 @@ app.use(bp.urlencoded({
 	extended: true
 }));
 
-app.use((req,res,next) => {
-	next('route');
-});
+// app.use((req,res,next) => {
+// 	next('route');
+// });
 
 app.use('/api', card);
 
 app.listen(PORT, function() {
+	db.sequelize.sync();
 	console.log('Server started on Port ', PORT);
 });
 
