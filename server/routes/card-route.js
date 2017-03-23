@@ -13,7 +13,6 @@ router.route('/')
 					list:
 						{cards}
 					});
-				// res.send('sanity');
 			}))
 			.catch((err) => {
 				console.log('err', err);
