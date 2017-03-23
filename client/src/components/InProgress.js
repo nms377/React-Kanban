@@ -4,8 +4,8 @@ const InProgress = (props) => (
 
 	<div className="InProgress-header">
 		<h2>{props.title}</h2>
-		<p> {props.priority} </p>
-		<p> {props.status} </p>
+		<p> Priority: {props.priority} </p>
+		<p> Status: {props.status} </p>
 	</div>
 
 );
