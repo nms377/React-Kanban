@@ -10,10 +10,7 @@ router.route('/')
 		Card.findAll()
 			.then((cards => {
 				console.log('this', cards);
-				res.json({
-					list:
-						{cards}
-					});
+				res.json(cards);
 			}))
 			.catch((err) => {
 				console.log('err', err);

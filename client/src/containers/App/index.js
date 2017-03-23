@@ -4,29 +4,30 @@ import InProgress from '../../components/InProgress.js';
 import './styles.css';
 
 class App extends Component {
-  constructor(props){
-    super(props);
+  constructor(){
+    super();
     this.state = {
       mainTitle: 'React Kanban',
-      list:
-        {
-          title: 'sanity',
-          priority: 'high',
-          status: 'queue'
-        }
+        cards: []
     }
   }
 
- componentWillMount() {
+  componentDidMount() {
+
+    var that = this;
 
     function reqListener(){
       console.log('what is this? ', this.responseText)
+      var data = JSON.parse(this.responseText);
+      that.setState({
+        cards: data
+      })
     }
-   var oReq = new XMLHttpRequest();
-   oReq.addEventListener("load", reqListener);
-   oReq.open("GET", "/api/board");
-   oReq.send();
- }
+    var oReq = new XMLHttpRequest();
+    oReq.addEventListener("load", reqListener);
+    oReq.open("GET", "/api/board");
+    oReq.send();
+  }
 
   render() {
     return (
@@ -35,11 +36,16 @@ class App extends Component {
          <MainBoard
           mainTitle={this.state.mainTitle}
          />
-         <InProgress
-           title={this.state.list.title}
-           priority={this.state.list.priority}
-           status={this.state.list.status}         
-         />
+        { 
+          this.state.cards.map( ( { title, priority, status }) =>
+            <InProgress
+              key={title}
+              title={title}
+              priority={priority}
+              status={status}
+            />
+          )
+        }  
         </div>
       </div>
     );
