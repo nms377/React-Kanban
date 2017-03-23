@@ -6,6 +6,7 @@ class App extends Component {
   constructor(){
     super();
     this.state = {
+      mainTitle: 'React Kanban'
     }
   }
 
@@ -13,7 +14,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className="Main-header">
-         <MainBoard/>
+         <MainBoard title={this.state.mainTitle}/>
         </div>
       </div>
     );
