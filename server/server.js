@@ -10,7 +10,7 @@ app.use(bp.urlencoded({
 	extended: true
 }));
 
-app.use('/api', cardRoute);
+app.use('/api/board', cardRoute);
 
 app.listen(PORT, (req, res) => {
 	console.log('Server started on Port ', PORT);
