@@ -7,7 +7,7 @@ const router = express.Router();
 
 router.route('/')
 	.get((req, res) => {
-		Card.findAll()
+		Card.findAll({order: 'id ASC'})
 			.then((cards => {
 				console.log('this', cards);
 				res.json(cards);
