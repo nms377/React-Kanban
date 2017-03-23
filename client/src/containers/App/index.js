@@ -37,12 +37,14 @@ class App extends Component {
           mainTitle={this.state.mainTitle}
          />
         { 
-          this.state.cards.map( ( { title, priority, status }) =>
+          this.state.cards.map( ( { title, priority, status, createdBy, assignedTo }) =>
             <InProgress
               key={title}
               title={title}
               priority={priority}
               status={status}
+              createdBy={createdBy}
+              assignedTo={assignedTo}
             />
           )
         }  
