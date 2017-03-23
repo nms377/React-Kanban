@@ -4,7 +4,7 @@ const bp = require('body-parser');
 const db = require('./models');
 const cardRoute = require('./routes/card-route');
 
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 9000;
 
 app.use(bp.urlencoded({
 	extended: true
