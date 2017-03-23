@@ -9,6 +9,7 @@ router.route('/')
 	.get((req, res) => {
 		Card.findAll()
 			.then((cards => {
+				console.log('this', cards);
 				res.json({
 					list:
 						{cards}
@@ -27,7 +28,7 @@ router.route('/')
 		})
 		.then((newTask) => {
 			console.log(newTask);
-			res.send('success');
+			res.redirect(200,'/');
 		})
 		.catch((err) => {
 			res.send('error', err);
