@@ -1,15 +1,19 @@
 import React, { Component } from 'react';
 import MainBoard from '../../components/MainBoard.js';
+import NewCard from '../../components/NewCard.js';
 import InProgress from '../../components/InProgress.js';
 import './styles.css';
 
 class App extends Component {
   constructor(){
     super();
+    this.title ='React Kanban'
     this.state = {
-      mainTitle: 'React Kanban',
-        cards: []
+      cards: []
     }
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -29,13 +33,26 @@ class App extends Component {
     oReq.send();
   }
 
+  handleChange(event) {
+    this.setState({cards: event.tareget.cards});
+  }
+
+  handleSubmit(event) {
+    alert('A card was added: ' + this.state.cards);
+    event.preventDefault();
+  }
+
   render() {
     return (
       <div className="App">
         <div className="Main-header">
          <MainBoard
-          mainTitle={this.state.mainTitle}
+           mainTitle={this.title}
          />
+        </div>
+
+        <NewCard/>
+
         { 
           this.state.cards.map( ( { title, priority, status, createdBy, assignedTo }) =>
             <InProgress
@@ -48,7 +65,6 @@ class App extends Component {
             />
           )
         }  
-        </div>
       </div>
     );
   }
