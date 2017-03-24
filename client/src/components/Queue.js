@@ -2,7 +2,7 @@ import React from 'react';
 
 const Queue = ( props ) => (
 
-	<div className="Queue-header">
+	<div className="Queue">
 		<h2>{props.title}</h2>
 		<p> Priority: {props.priority}</p>
 		<p> Status: {props.status}</p>
