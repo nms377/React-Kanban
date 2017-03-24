@@ -9,7 +9,8 @@ class App extends Component {
     super();
     this.title ='React Kanban'
     this.state = {
-      cards: []
+      cards: [],
+      inProgress: 'true'
     }
 
     this.handleChange = this.handleChange.bind(this);
@@ -34,7 +35,7 @@ class App extends Component {
   }
 
   handleChange(event) {
-    this.setState({cards: event.tareget.cards});
+    this.setState({cards: event.target.cards});
   }
 
   handleSubmit(event) {
@@ -54,7 +55,7 @@ class App extends Component {
         <NewCard/>
 
         { 
-          this.state.cards.map( ( { title, priority, status, createdBy, assignedTo }) =>
+          this.state.cards.filter(({status}) => status === 'in progress').map( ( { title, priority, status, createdBy, assignedTo }) =>
             <InProgress
               key={title}
               title={title}
