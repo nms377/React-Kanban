@@ -3,6 +3,7 @@ import MainBoard from '../../components/MainBoard.js';
 import NewCard from '../../components/NewCard.js';
 import InProgress from '../../components/InProgress.js';
 import Queue from '../../components/Queue.js';
+import Done from '../../components/Done.js';
 import './styles.css';
 
 class App extends Component {
@@ -55,31 +56,54 @@ class App extends Component {
 
         <NewCard/>
 
-        { 
-          this.state.cards.filter(({status}) => status === 'in progress').map( ( { title, priority, status, createdBy, assignedTo }) =>
-            <InProgress
-              key={title}
-              title={title}
-              priority={priority}
-              status={status}
-              createdBy={createdBy}
-              assignedTo={assignedTo}
-            />
-          )
-        }
+        <div className="InProgress-header">
+          <h1>In Progress</h1>
+          { 
+            this.state.cards.filter(({status}) => status === 'in progress').map( ( { title, priority, status, createdBy, assignedTo }) =>
+              <InProgress
+                key={title}
+                title={title}
+                priority={priority}
+                status={status}
+                createdBy={createdBy}
+                assignedTo={assignedTo}
+              />
+            )
+          }
+        </div>  
 
-        {
-          this.state.cards.filter(({status}) => status === 'queue').map( ( {title, priority, status, createdBy, assignedTo}) => 
-            <Queue
-              key={title}
-              title={title}
-              priority={priority}
-              status={status}
-              createdBy={createdBy}
-              assignedTo={assignedTo}
-            />
-          )
-        }
+        <div className="Queue-header">
+          <h1>Queue</h1>
+          {
+            this.state.cards.filter(({status}) => status === 'queue').map( ( {title, priority, status, createdBy, assignedTo}) => 
+              <Queue
+                key={title}
+                title={title}
+                priority={priority}
+                status={status}
+                createdBy={createdBy}
+                assignedTo={assignedTo}
+              />
+            )
+          }
+        </div>
+
+        <div className="Done-header">
+          <h1>Done</h1>
+          {
+            this.state.cards.filter(({status}) => status === 'done').map(({title, priority, status, createdBy, assignedTo}) =>
+                <Done
+                  key={title}
+                  title={title}
+                  priority={priority}
+                  status={status}
+                  createdBy={createdBy}
+                  assignedTo={assignedTo}
+                />
+              )
+          }
+        </div>
+
       </div>
     );
   }
