@@ -2,7 +2,7 @@ import React from 'react';
 
 const InProgress = (props) => (
 
-	<div className="InProgress-header">
+	<div className="InProgress">
 		<h2>{props.title}</h2>
 		<p> Priority: {props.priority} </p>
 		<p> Status: {props.status} </p>
