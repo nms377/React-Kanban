@@ -1,10 +1,14 @@
 import React from 'react';
 
-const ToDo = ( props ) => {
+const Queue = ( props ) => (
 
-	<div className="Columns-header">
-
+	<div className="Queue-header">
+		<h2>{props.title}</h2>
+		<p> Priority: {props.priority}</p>
+		<p> Status: {props.status}</p>
+		<p> Created By: {props.createdBy}</p>
+		<p> Assigned To: {props.assignedTo}</p>
 	</div>
-};
+);
 
-export default ToDo;
+export default Queue;

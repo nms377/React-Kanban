@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import MainBoard from '../../components/MainBoard.js';
 import NewCard from '../../components/NewCard.js';
 import InProgress from '../../components/InProgress.js';
+import Queue from '../../components/Queue.js';
 import './styles.css';
 
 class App extends Component {
@@ -65,7 +66,20 @@ class App extends Component {
               assignedTo={assignedTo}
             />
           )
-        }  
+        }
+
+        {
+          this.state.cards.filter(({status}) => status === 'queue').map( ( {title, priority, status, createdBy, assignedTo}) => 
+            <Queue
+              key={title}
+              title={title}
+              priority={priority}
+              status={status}
+              createdBy={createdBy}
+              assignedTo={assignedTo}
+            />
+          )
+        }
       </div>
     );
   }
