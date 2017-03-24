@@ -4,9 +4,7 @@ const MainBoard = (props) => (
 
 	<div className="Main-header">
 		<h2>{props.mainTitle}</h2>
-		<p> { props.title }</p>
-		<p> { props.priority }</p>
-		<p> { props.status }</p>
+		<button type="submit">Create New Card</button>
 	</div>
 
 );
