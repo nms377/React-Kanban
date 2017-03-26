@@ -7,6 +7,7 @@ const initialState = {
 function cards( state = initialState, action) {
 	switch(action.type) {
 		case SHOW_TASK:
+			console.log('TASKS WERE DISPLAYED')
 			return Object.assign({}, state, {
 				cards: [
 					...state.cards,
@@ -18,7 +19,7 @@ function cards( state = initialState, action) {
 						assignedTo: action.assignedTo
 					}
 				]
-			})
+			})			
 		default:
 			return state;
 	}
