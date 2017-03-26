@@ -1,6 +1,12 @@
-const SHOW_TASK = 'SHOW_TASK'
+export const SHOW_TASK = 'SHOW_TASK'
 
-{
-	type: SHOW_TASK,
-	text: 'Build my first Redux app'
+export function showTasks(title, priority, status, createdBy, assignedTo) {
+	return {
+		type: SHOW_TASK,
+		title,
+		priority,
+		status,
+		createdBy,
+		assignedTo
+	}
 }
