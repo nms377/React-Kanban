@@ -10,6 +10,10 @@ app.use(bp.urlencoded({
 	extended: true
 }));
 
+app.use(bp.json({
+	extended: true
+}));
+
 app.use('/api/board', cardRoute);
 
 app.listen(PORT, (req, res) => {
