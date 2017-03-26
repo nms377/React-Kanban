@@ -6,7 +6,6 @@ import { createdDevTools } from 'redux-devtools';
 import App from './containers/App';
 import './index.css';
 import cards from './reducers';
-import {getCardsReq} from './lib';
 
 let store = createStore(cards);
 
