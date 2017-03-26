@@ -7,15 +7,17 @@ import Done from '../../components/Done.js';
 import './styles.css';
 
 class App extends Component {
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
     this.title ='React Kanban'
     this.state = {
       cards: [],
-      inProgress: 'true'
+      title: "",
+      priority: "",
+      status: ""
     }
 
-    this.handleChange = this.handleChange.bind(this);
+    this.addNewCard = this.addNewCard.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -30,20 +32,29 @@ class App extends Component {
         cards: data
       })
     }
-    var oReq = new XMLHttpRequest();
+    let oReq = new XMLHttpRequest();
     oReq.addEventListener("load", reqListener);
     oReq.open("GET", "/api/board");
     oReq.send();
   }
 
-  handleChange(event) {
-    this.setState({cards: event.target.cards});
-  }
+    addNewCard(){
+      let newReq = new XMLHttpRequest();
+      newReq.open("POST", "/api/board")
+      newReq.setRequestHeader("Content-Type", "application/json");
+      newReq.send(JSON.stringify(this.responseText))
+    }
 
-  handleSubmit(event) {
-    alert('A card was added: ' + this.state.cards);
-    event.preventDefault();
-  }
+    handleSubmit(event){
+      event.preventDefault();
+  
+      this.addNewCard({
+        title: this.state.title,
+        priority: this.state.priority,
+        status: this.state.status
+      })
+
+    }
 
   render() {
     return (
@@ -54,7 +65,7 @@ class App extends Component {
          />
         </div>
 
-        <NewCard/>
+        <NewCard />
 
         <div className="InProgress-header">
           <h1>In Progress</h1>
