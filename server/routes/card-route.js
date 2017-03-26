@@ -9,7 +9,6 @@ router.route('/')
 	.get((req, res) => {
 		Card.findAll({order: 'id ASC'})
 			.then((cards => {
-				console.log('this', cards);
 				res.json(cards);
 			}))
 			.catch((err) => {
@@ -25,7 +24,7 @@ router.route('/')
 		})
 		.then((newTask) => {
 			console.log(newTask);
-			res.redirect(200,'/');
+			res.redirect(200,'/api/board');
 		})
 		.catch((err) => {
 			res.send('error', err);
