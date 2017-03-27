@@ -1,34 +1,122 @@
-import React from 'react';
+import React, { Component } from 'react';
+import addCardReq from '../lib/addTask.js';
+import { connect } from 'react-redux';
+import { addTask } from '../actions';
 
-const NewCard = (props) => (
+class NewCard extends Component {
 
-	<form onSubmit={props.handleSubmit}>
+	constructor (props) {
+		super(props);
+	
+		this.state = {
+			title: '',
+			priority: 'low',
+			status: 'in progress',
+			assignedTo: ''
+		};
 
-		<label>
-			Task:
-				<input type="text" value={props.title} onChange={props.addNewCard}/>
-		</label>
-		<label>
-			Priority:
-				<select defaultValue="Low" value={props.priority} onChange={props.addNewCard}>
-					<option value="Low">Low</option>
-					<option value="High">High</option>
-				</select>
-		</label>
-		<label>
-			Status:
-				<select defaultValue="In Progress" value={props.status} onChange={props.addNewCard}>
-					<option value="In Progress">In Progress</option>
-					<option value="Queue">Queue</option>
-					<option value="Done">Done</option>
-				</select>
-		</label>
-		<label>
-			Assigned To:
-				<input type="text" value={props.assignedTo} onChange={props.addNewCard}/>
-		</label>
-		<input type="submit" value="Add Task"/>
-	</form>
-);
+		this.handleSubmit = this.handleSubmit.bind(this);
+		this.handleTitle = this.handleTitle.bind(this);
+		this.handlePriority = this.handlePriority.bind(this);
+		this.handleStatus = this.handleStatus.bind(this);
+		this.handleAssignedTo = this.handleAssignedTo.bind(this);
+	}
 
-export default NewCard;
+
+	addTask(card){
+		addCardReq(card)
+			.then(card => {
+				console.log('Card added: ', card)
+				this.props.onAddTask(card.title, card.status, card.priority, card.assignTo)
+			})
+	}
+
+	handleSubmit(event){
+		event.preventDefault();
+		this.addTask({
+			title: this.state.title,
+			priority: this.state.priority,
+			status: this.state.status,
+			assignedTo: this.state.assignedTo
+		})
+	}
+
+	handleTitle(event){
+		this.setState({
+			title: event.target.value
+		})
+	}
+
+	handlePriority(event){
+		this.setState({
+			priority: event.target.value
+		})
+	}
+
+	handleStatus(event){
+		this.setState({
+			status: event.target.value
+		})
+	}
+
+	handleAssignedTo(event){
+		this.setState({
+			assignedTo: event.target.value
+		})
+	}
+
+	render(){
+		return(
+			<form onSubmit={this.handleSubmit}>
+
+					<label>
+						Task:
+							<input type="text" value={this.state.value} onChange={this.handleTitle}/>
+					</label>
+					<label>
+						Priority:
+							<select name="priority" value={this.state.value} onChange={this.handlePriority}>
+								<option value="Low">Low</option>
+								<option value="High">High</option>
+							</select>
+					</label>
+					<label>
+						Status:
+							<select name="status" value={this.state.value} onChange={this.handleStatus}>
+								<option value="In Progress">In Progress</option>
+								<option value="Queue">Queue</option>
+								<option value="Done">Done</option>
+							</select>
+					</label>
+					<label>
+						Assigned To:
+							<input name="assignedTo" type="text" value={this.state.value} onChange={this.handleAssignedTo}/>
+					</label>
+					<input type="submit" value="Add Task"/>
+				</form>
+		)
+	}
+}
+
+const mapStateToProps = (state) => {
+	return({
+		cards: state.cards
+	})
+};
+
+const mapDispatchToProps = (dispatch) => {
+	return({
+		onAddTask: (title, priority, status, assignedTo) => {
+			dispatch(addTask(title, priority, status, assignedTo));
+		}
+	})
+}
+
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(NewCard);
+
+	
+
+
