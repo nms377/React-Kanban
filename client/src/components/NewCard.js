@@ -75,17 +75,17 @@ class NewCard extends Component {
 					</label>
 					<label>
 						Priority:
-							<select name="priority" value={this.state.value} onChange={this.handlePriority}>
-								<option value="Low">Low</option>
-								<option value="High">High</option>
+							<select value={this.state.value} onChange={this.handlePriority}>
+								<option value="low">Low</option>
+								<option value="high">High</option>
 							</select>
 					</label>
 					<label>
 						Status:
-							<select name="status" value={this.state.value} onChange={this.handleStatus}>
-								<option value="In Progress">In Progress</option>
-								<option value="Queue">Queue</option>
-								<option value="Done">Done</option>
+							<select value={this.state.value} onChange={this.handleStatus}>
+								<option value="in progress">In Progress</option>
+								<option value="queue">Queue</option>
+								<option value="done">Done</option>
 							</select>
 					</label>
 					<label>
