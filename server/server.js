@@ -10,9 +10,7 @@ app.use(bp.urlencoded({
 	extended: true
 }));
 
-app.use(bp.json({
-	extended: true
-}));
+app.use(bp.json({type: 'application/json'}));
 
 app.use('/api/board', cardRoute);
 
