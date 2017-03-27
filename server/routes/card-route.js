@@ -20,11 +20,12 @@ router.route('/')
 		Card.create({
 			title: req.body.title,
 			priority: req.body.priority,
-			status: req.body.status
+			status: req.body.status,
+			assignedTo: req.body.assignedTo
 		})
 		.then((newTask) => {
 			console.log(newTask);
-			res.redirect(200,'/api/board');
+			res.json(newTask);
 		})
 		.catch((err) => {
 			res.send('error', err);
