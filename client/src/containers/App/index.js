@@ -13,7 +13,7 @@ import './styles.css';
 import getCardsReq from '../../lib';
 
 //  actions
-import { showTasks } from '../../actions';
+import { showTasks, addTask } from '../../actions';
 
 class App extends Component {
   constructor(props){
@@ -29,27 +29,10 @@ class App extends Component {
         data.forEach(cards => {
           console.log('cards', cards)
           this.props.onShowTasks(cards.title, cards.priority, cards.status);
+          this.props.onAddTask(cards.title, cards.priority, cards.status);
         });
       })
   }
-
-    // addNewCard(){
-    //   let newReq = new XMLHttpRequest();
-    //   newReq.open("POST", "/api/board")
-    //   newReq.setRequestHeader("Content-Type", "application/json");
-    //   newReq.send(JSON.stringify(this.responseText))
-    // }
-
-    // handleSubmit(event){
-    //   event.preventDefault();
-  
-    //   this.addNewCard({
-    //     title: this.state.title,
-    //     priority: this.state.priority,
-    //     status: this.state.status
-    //   })
-
-    // }
 
   render() {
     console.log('props', this.props)
@@ -82,7 +65,7 @@ class App extends Component {
         <div className="Queue-header">
           <h1>Queue</h1>
           {
-            this.props.cards.filter(({status}) => status === 'queue').map( ( {title, priority, status, createdBy, assignedTo}) => 
+            this.props.cards.filter(({status}) => status === 'Queue').map( ( {title, priority, status, createdBy, assignedTo}) => 
               <Queue
                 key={title}
                 title={title}
@@ -126,6 +109,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     onShowTasks: (title, priority, status, createdBy, assignedTo) => {
       dispatch(showTasks(title, priority, status, createdBy, assignedTo));
+    },
+    onAddTask: (title, priority, status, createdBy, assignedTo) => {
+      dispatch(addTask(title, priority, status, createdBy, assignedTo));
     }
   }
 };
