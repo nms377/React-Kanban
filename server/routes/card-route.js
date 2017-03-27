@@ -25,7 +25,7 @@ router.route('/')
 		})
 		.then((newTask) => {
 			console.log(newTask);
-			res.json(newTask);
+			res.send(newTask);
 		})
 		.catch((err) => {
 			res.send('error', err);
