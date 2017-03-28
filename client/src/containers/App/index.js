@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 //  components
 import MainBoard from '../../components/MainBoard.js';
-import NewCard from '../../components/NewCard.js';
+import NewCard from '../NewCard/NewCard.js';
 import InProgress from '../../components/InProgress.js';
 import Queue from '../../components/Queue.js';
 import Done from '../../components/Done.js';
