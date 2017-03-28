@@ -8,7 +8,7 @@ module.exports = function getCardsReq() {
 
 		const oReq = new XMLHttpRequest();
 		oReq.addEventListener('load', reqListener);
-		oReq.open('GET', 'api/board');
+		oReq.open('GET', 'api/board', true);
 		oReq.send();
 	});
 };

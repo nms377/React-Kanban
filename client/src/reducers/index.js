@@ -1,4 +1,4 @@
-import { SHOW_TASK } from '../actions'
+import { ADD_TASK } from '../actions'
 
 const initialState = {
 	cards: []
@@ -6,7 +6,7 @@ const initialState = {
 
 function cards( state = initialState, action) {
 	switch(action.type) {
-		case SHOW_TASK:
+		case ADD_TASK:
 			console.log('TASKS WERE DISPLAYED')
 			return Object.assign({}, state, {
 				cards: [

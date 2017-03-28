@@ -13,7 +13,7 @@ import './styles.css';
 import getCardsReq from '../../lib';
 
 //  actions
-import { showTasks, addTask } from '../../actions';
+import { addTask } from '../../actions';
 
 class App extends Component {
   constructor(props){
@@ -22,14 +22,13 @@ class App extends Component {
   }
 
 
-  componentDidMount() {
+  componentWillMount() {
    getCardsReq()
       .then( data => {
         console.log('data: ', data)
         data.forEach(cards => {
           console.log('cards', cards)
-          this.props.onShowTasks(cards.title, cards.priority, cards.status);
-          this.props.onAddTask(cards.title, cards.priority, cards.status);
+          this.props.onAddTask(cards.title, cards.priority, cards.status, cards.assignedTo);
         });
       })
   }
@@ -65,7 +64,7 @@ class App extends Component {
         <div className="Queue-header">
           <h1>Queue</h1>
           {
-            this.props.cards.filter(({status}) => status === 'Queue').map( ( {title, priority, status, createdBy, assignedTo}) => 
+            this.props.cards.filter(({status}) => status === 'queue').map( ( {title, priority, status, createdBy, assignedTo}) => 
               <Queue
                 key={title}
                 title={title}
@@ -107,9 +106,6 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onShowTasks: (title, priority, status, createdBy, assignedTo) => {
-      dispatch(showTasks(title, priority, status, createdBy, assignedTo));
-    },
     onAddTask: (title, priority, status, createdBy, assignedTo) => {
       dispatch(addTask(title, priority, status, createdBy, assignedTo));
     }

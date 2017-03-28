@@ -71,18 +71,18 @@ class NewCard extends Component {
 
 					<label>
 						Task:
-							<input type="text" value={this.state.value} onChange={this.handleTitle}/>
+							<input type="text" value={this.state.title} onChange={this.handleTitle}/>
 					</label>
 					<label>
 						Priority:
-							<select value={this.state.value} onChange={this.handlePriority}>
+							<select value={this.state.priority} onChange={this.handlePriority}>
 								<option value="low">Low</option>
 								<option value="high">High</option>
 							</select>
 					</label>
 					<label>
 						Status:
-							<select value={this.state.value} onChange={this.handleStatus}>
+							<select value={this.state.status} onChange={this.handleStatus}>
 								<option value="in progress">In Progress</option>
 								<option value="queue">Queue</option>
 								<option value="done">Done</option>
@@ -90,7 +90,7 @@ class NewCard extends Component {
 					</label>
 					<label>
 						Assigned To:
-							<input name="assignedTo" type="text" value={this.state.value} onChange={this.handleAssignedTo}/>
+							<input type="text" value={this.state.assignedTo} onChange={this.handleAssignedTo}/>
 					</label>
 					<input type="submit" value="Add Task"/>
 				</form>
@@ -116,7 +116,3 @@ export default connect(
 	mapStateToProps,
 	mapDispatchToProps
 )(NewCard);
-
-	
-
-
