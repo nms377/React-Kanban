@@ -16,6 +16,8 @@ router.route('/')
 				res.send('error', err);
 			});
 })
+
+router.route('/new')
 	.post((req, res) => {
 		Card.create({
 			title: req.body.title,
