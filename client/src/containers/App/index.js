@@ -11,28 +11,21 @@ import Done from '../../components/Done.js';
 
 //  misc
 import './styles.css';
-import request from '../../lib';
+import getCardsReq from '../../lib';
+import updateCardsReq from '../../lib/updateTask.js';
 // import updateCardReq from '../../lib/updateTask.js';
 
 //  actions
-import { addTask } from '../../actions';
+import { addTask, updateTask } from '../../actions';
 
 class App extends Component {
   constructor(props){
     super(props);
     this.title ='React Kanban'
-
   }
 
   componentWillMount() {
-
-    this.getCardsReq();
-    // this.updateCardReq();
-
-  }
-
-  getCardsReq(){
-    request('GET', 'api/board')
+    getCardsReq()
       .then( data => {
         console.log('data: ', data)
         data.forEach(cards => {
@@ -42,22 +35,8 @@ class App extends Component {
       })
   }
 
-
-
-  // updateCardReq(url){
-  //   request('PUT', url)
-  //   .then(data => {
-  //     console.log('Data updated: ', data)
-  //     data.forEach(cards => {
-  //     console.log('cards updated: ', cards)
-  //     this.props.onUpdateTask(cards.id, cards.status)          
-  //     });
-  //   })
-  // }
-
-
   render() {
-    console.log('props', this.props.cards)
+    console.log('props', this.props)
     return (
       <div className="App">
         <div className="Main-header">
@@ -68,11 +47,11 @@ class App extends Component {
 
         <NewCard />
 
-        <Queue cards={this.props.cards}/>
+        <Queue cards={this.props.cards} updateTask={this.updateTask}/>
 
-        <InProgress cards={this.props.cards}/>
+        <InProgress cards={this.props.cards} updateTask={this.updateTask}/>
 
-        <Done cards={this.props.cards}/>
+        <Done cards={this.props.cards} updateTask={this.updateTask}/>
 
       </div>
     );
@@ -89,10 +68,10 @@ const mapDispatchToProps = (dispatch) => {
   return {
     onAddTask: (id, title, priority, status, createdBy, assignedTo) => {
       dispatch(addTask(id, title, priority, status, createdBy, assignedTo));
+    },
+    onUpdateTask: (id, status) => {
+      dispatch(updateTask(id, status));
     }
-    // onUpdateTask: (id, status) => {
-    //   dispatch(updateTask(id, status));
-    // }
   }
 };
 
