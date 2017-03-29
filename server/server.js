@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const methodOverride = require('method-override');
 const bp = require('body-parser');
 const db = require('./models');
 const cardRoute = require('./routes/card-route');
@@ -11,6 +12,8 @@ app.use(bp.urlencoded({
 }));
 
 app.use(bp.json({type: 'application/json'}));
+
+app.use(methodOverride('_method'));
 
 app.use('/api/board', cardRoute);
 
