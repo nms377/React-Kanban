@@ -39,12 +39,12 @@ router.route('/:id')
 		Card.findById(req.params.id)
 			.then((task) => {
 				task.update({
-					title: req.body.title,
-					priority: req.body.priority,
+					// title: req.body.title,
+					// priority: req.body.priority,
 					status: req.body.status
 				})
 				.then((task) => {
-					res.send('updated successfuly');
+					res.send(task);
 				});
 			});
 	})
