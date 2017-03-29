@@ -3,7 +3,7 @@ module.exports = function addCardReq(card) {
 		function reqListener(){
 			console.log('response text: ', this.responseText);
 			let data = JSON.parse(this.responseText);
-			console.log('data in add task', data);
+			// console.log('data in add task', data);
 			resolve(data);
 		}
 
