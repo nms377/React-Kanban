@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import addCardReq from '../../lib/addTask.js';
 import { connect } from 'react-redux';
 import { addTask } from '../../actions';
+import './styles.css';
 
 class NewCard extends Component {
 
@@ -26,7 +27,7 @@ class NewCard extends Component {
 	addTask(card){
 		addCardReq(card)
 			.then(card => {
-				console.log('Card added: ', card)
+				// console.log('Card added: ', card)
 				this.props.onAddTask(card.title, card.status, card.priority, card.assignTo)
 			})
 	}
@@ -73,6 +74,7 @@ class NewCard extends Component {
 						Task:
 							<input type="text" value={this.state.title} onChange={this.handleTitle}/>
 					</label>
+					<br/>
 					<label>
 						Priority:
 							<select value={this.state.priority} onChange={this.handlePriority}>
@@ -80,6 +82,7 @@ class NewCard extends Component {
 								<option value="high">High</option>
 							</select>
 					</label>
+					<br/>
 					<label>
 						Status:
 							<select value={this.state.status} onChange={this.handleStatus}>
@@ -88,10 +91,12 @@ class NewCard extends Component {
 								<option value="done">Done</option>
 							</select>
 					</label>
+					<br/>
 					<label>
 						Assigned To:
 							<input type="text" value={this.state.assignedTo} onChange={this.handleAssignedTo}/>
 					</label>
+					<br/>
 					<input type="submit" value="Add Task"/>
 				</form>
 		)
