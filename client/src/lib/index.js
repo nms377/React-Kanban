@@ -1,4 +1,4 @@
-module.exports = function reuqest(header, url) {
+module.exports = function getCardsReq() {
 	return new Promise( (resolve, reject) => {
 		function reqListener(){
 			let data = JSON.parse(this.responseText);
@@ -8,7 +8,7 @@ module.exports = function reuqest(header, url) {
 	
 		const oReq = new XMLHttpRequest();
 		oReq.addEventListener('load', reqListener);
-		oReq.open(header, url);
+		oReq.open('GET', 'api/board');
 		oReq.send();
-	});
+	}); 
 };
