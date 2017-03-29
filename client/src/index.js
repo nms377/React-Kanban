@@ -1,13 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import ReduxThunk from 'redux-thunk';
 import { createdDevTools } from 'redux-devtools';
 import App from './containers/App';
 import './index.css';
 import cards from './reducers';
 
-let store = createStore(cards);
+let store = createStore(cards,
+	window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+	applyMiddleware(ReduxThunk)
+);
 
 	console.log('store', store)
 
