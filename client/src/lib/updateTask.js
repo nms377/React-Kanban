@@ -9,7 +9,7 @@ module.exports = function updateCardReq(card) {
 
 		const oReq = new XMLHttpRequest();
 		oReq.addEventListener('load', reqListener);
-		oReq.open('PUT', `api/board/`);
+		oReq.open('PUT', `api/board/edit`);
 		oReq.setRequestHeader("Content-Type", "application/json");
 		oReq.send(JSON.stringify(card));
 	});
