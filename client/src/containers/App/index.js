@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 //  components
+// import Card from '../../components/Card.js';
 import MainBoard from '../../components/MainBoard.js';
 import NewCard from '../NewCard/NewCard.js';
 import InProgress from '../../components/InProgress.js';
@@ -10,7 +11,8 @@ import Done from '../../components/Done.js';
 
 //  misc
 import './styles.css';
-import getCardsReq from '../../lib';
+import request from '../../lib';
+// import updateCardReq from '../../lib/updateTask.js';
 
 //  actions
 import { addTask } from '../../actions';
@@ -19,22 +21,43 @@ class App extends Component {
   constructor(props){
     super(props);
     this.title ='React Kanban'
+
   }
 
-
   componentWillMount() {
-   getCardsReq()
+
+    this.getCardsReq();
+    // this.updateCardReq();
+
+  }
+
+  getCardsReq(){
+    request('GET', 'api/board')
       .then( data => {
         console.log('data: ', data)
         data.forEach(cards => {
           console.log('cards', cards)
-          this.props.onAddTask(cards.title, cards.priority, cards.status, cards.assignedTo);
+          this.props.onAddTask(cards.id, cards.title, cards.priority, cards.status, cards.assignedTo);
         });
       })
   }
 
+
+
+  // updateCardReq(url){
+  //   request('PUT', url)
+  //   .then(data => {
+  //     console.log('Data updated: ', data)
+  //     data.forEach(cards => {
+  //     console.log('cards updated: ', cards)
+  //     this.props.onUpdateTask(cards.id, cards.status)          
+  //     });
+  //   })
+  // }
+
+
   render() {
-    console.log('props', this.props)
+    console.log('props', this.props.cards)
     return (
       <div className="App">
         <div className="Main-header">
@@ -45,53 +68,11 @@ class App extends Component {
 
         <NewCard />
 
-        <div className="InProgress-header">
-          <h1>In Progress</h1>
-          { 
-            this.props.cards.filter(({status}) => status === 'in progress').map( ( { title, priority, status, createdBy, assignedTo }) =>
-              <InProgress
-                key={title}
-                title={title}
-                priority={priority}
-                status={status}
-                createdBy={createdBy}
-                assignedTo={assignedTo}
-              />
-            )
-          }
-        </div>  
+        <Queue cards={this.props.cards}/>
 
-        <div className="Queue-header">
-          <h1>Queue</h1>
-          {
-            this.props.cards.filter(({status}) => status === 'queue').map( ( {title, priority, status, createdBy, assignedTo}) => 
-              <Queue
-                key={title}
-                title={title}
-                priority={priority}
-                status={status}
-                createdBy={createdBy}
-                assignedTo={assignedTo}
-              />
-            )
-          }
-        </div>
+        <InProgress cards={this.props.cards}/>
 
-        <div className="Done-header">
-          <h1>Done</h1>
-          {
-            this.props.cards.filter(({status}) => status === 'done').map(({title, priority, status, createdBy, assignedTo}) =>
-                <Done
-                  key={title}
-                  title={title}
-                  priority={priority}
-                  status={status}
-                  createdBy={createdBy}
-                  assignedTo={assignedTo}
-                />
-              )
-          }
-        </div>
+        <Done cards={this.props.cards}/>
 
       </div>
     );
@@ -106,9 +87,12 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onAddTask: (title, priority, status, createdBy, assignedTo) => {
-      dispatch(addTask(title, priority, status, createdBy, assignedTo));
+    onAddTask: (id, title, priority, status, createdBy, assignedTo) => {
+      dispatch(addTask(id, title, priority, status, createdBy, assignedTo));
     }
+    // onUpdateTask: (id, status) => {
+    //   dispatch(updateTask(id, status));
+    // }
   }
 };
 
