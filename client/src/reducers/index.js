@@ -29,15 +29,15 @@ function cards( state = initialState, action) {
 					cards.status = action.status;
 					return cards;
 				}else {
-					return cards
+					return cards;
 				}
-			})
-			console.log('TASKS WERE UDPATED');
+			});
+			console.log('TASKS WERE UDPATED', cards);
 			return Object.assign({}, state, {
 				cards: [
 					...updatedCard
 				]
-			})
+			});
 
 		default:
 			return state;
