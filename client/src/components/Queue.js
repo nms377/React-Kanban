@@ -11,12 +11,13 @@ class Queue extends Component {
 				{
 					this.props.cards.filter(({status}) => status === 'queue').map(cards => {
 						return <Card 
-							key={cards.title}
+							key={cards.id}
 							title={cards.title}
 							priority={cards.priority}
 							status={cards.status}
 							createdBy={cards.createdBy}
 							assignedTo={cards.assignedTo}
+							updateTask={this.props.updateTask}
 						/>
 					})
 				}
