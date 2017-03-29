@@ -34,20 +34,29 @@ router.route('/new')
 		});
 });
 
-router.route('/:id')
-	.put((req, res) => {
-		Card.findById(req.params.id)
-			.then((task) => {
-				task.update({
-					// title: req.body.title,
-					// priority: req.body.priority,
-					status: req.body.status
-				})
-				.then((task) => {
-					res.send(task);
-				});
-			});
-	})
+router.route('/edit')
+	.put((req,res) => {
+    Card.update({
+      priority: req.body.priority,
+      status: req.body.status,
+      title: req.body.title,
+      assignedTo: req.body.assignedTo
+    },
+      {where: {
+        title: req.body.title
+      }
+    })    
+    .then(() => {
+      Card.findById(req.params.id)
+        .then(card => {
+          res.send(card);
+        });
+      
+    })
+    .catch(err => {
+      res.send(err);
+    });
+  })
 	.delete((req, res) => {
 		Card.destroy({
 			where: { id: `${req.params.id}`}
