@@ -12,11 +12,9 @@ import Done from '../../components/Done.js';
 //  misc
 import './styles.css';
 import getCardsReq from '../../lib';
-import updateCardsReq from '../../lib/updateTask.js';
-// import updateCardReq from '../../lib/updateTask.js';
 
 //  actions
-import { addTask, updateTask } from '../../actions';
+import { addTask, updateTask, deleteTask } from '../../actions';
 
 class App extends Component {
   constructor(props){
@@ -71,6 +69,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     onUpdateTask: (id, status) => {
       dispatch(updateTask(id, status));
+    },
+    onDeleteTask: (id) => {
+      dispatch(deleteTask(id));
     }
   }
 };
