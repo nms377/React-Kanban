@@ -7,6 +7,8 @@ const cardRoute = require('./routes/card-route');
 
 const PORT = process.env.PORT || 9000;
 
+app.use(express.static('public'));
+
 app.use(bp.urlencoded({
 	extended: true
 }));
