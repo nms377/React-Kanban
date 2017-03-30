@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { updateTask } from '../actions';
+import { updateTask, deleteTask } from '../actions';
 import updateCardReq from '../lib/updateTask.js';
+import deleteCardReq from '../lib/deleteTask.js';
 
 
 class Card extends Component {
@@ -10,6 +11,7 @@ class Card extends Component {
 		super(props);
 
 		this.handleStatus = this.handleStatus.bind(this);
+		this.handleDelete = this.handleDelete.bind(this);
 	}
 
 	handleStatus(event){
@@ -22,12 +24,30 @@ class Card extends Component {
 		})
 	}
 
+	handleDelete(event){
+		event.preventDefault();
+			this.deleteTask({
+				title: this.props.title,
+				status: this.props.status,
+				priority: this.props.priority,
+				assignedTo: this.props.assignedTo
+			})
+	}
+
   updateTask(card){
     updateCardReq(card)
       .then(card => {
       	console.log('WHAT UPDATED:', card)
         this.props.onUpdateTask(card.id, card.status)          
       })
+  }
+
+  deleteTask(card){
+  	deleteCardReq(card)
+  		.then(card => {
+  			console.log('WHAT DELETED: ', card)
+  			this.props.onDeleteTask(card.id);
+  		})
   }
 
 	render(){
@@ -43,9 +63,9 @@ class Card extends Component {
 						<option value="done">Done</option>
 					</select>
 				</label>
-				<p>Status: {this.props.status}</p>
 				<p>Created By: {this.props.createdBy}</p>
 				<p>Assign To: {this.props.assignedTo}</p>
+				<input type="submit" value="Delete" onClick={this.handleDelete}/>
 			</div>
 		)
 	}
@@ -61,6 +81,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     onUpdateTask: (id, status) => {
       dispatch(updateTask(id, status));
+    },
+    onDeleteTask: (id) => {
+    	dispatch(deleteTask(id));
     }
   }
 };
