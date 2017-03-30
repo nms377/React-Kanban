@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 //  components
-// import Card from '../../components/Card.js';
+import Card from '../../components/Card.js';
 import MainBoard from '../../components/MainBoard.js';
 import NewCard from '../NewCard/NewCard.js';
 import InProgress from '../../components/InProgress.js';
