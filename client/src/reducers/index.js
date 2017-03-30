@@ -1,4 +1,4 @@
-import { ADD_TASK, UPDATE_TASK } from '../actions'
+import { ADD_TASK, UPDATE_TASK, DELETE_TASK } from '../actions'
 
 const initialState = {
 	cards: []
@@ -36,6 +36,21 @@ function cards( state = initialState, action) {
 			return Object.assign({}, state, {
 				cards: [
 					...updatedCard
+				]
+			});
+
+		case DELETE_TASK:
+			let deleteCard = state.cards.map(card => {
+				if(cards.id === action.id){
+					return cards;
+				}else{
+					return cards;
+				}
+			});
+			console.log('TASKS WERE DELETED');
+			return Object.assign({}, state, {
+				cards: [
+					...deleteCard
 				]
 			});
 
