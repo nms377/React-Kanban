@@ -18,33 +18,24 @@
   font-size: large;
 }
 
-.card {
+.Cards {
   border: 2px solid black;
+  margin: 5px 0;
 }
 
-.InProgress {
+#InProgress {
   background-color: pink;
 }
 
-.InProgress-header {
-  border: 2px solid black;
-}
-
-.Queue {
+#Queue {
   background-color: powderblue;
 }
 
-.Queue-header {
-  border: 3px dotted green;
-}
 
-.Done {
+#Done {
   background-color: yellow;
 }
 
-.Done-header {
-  border: 2px dashed red;
-}
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
