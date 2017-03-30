@@ -46,7 +46,7 @@ router.route('/edit')
         title: req.body.title
       }
     })    
-    .then(() => {
+    .then((udpate) => {
       Card.findById(req.params.id)
         .then(card => {
           res.send(card);
@@ -59,7 +59,7 @@ router.route('/edit')
   })
 	.delete((req, res) => {
 		Card.destroy({
-			where: { id: `${req.params.id}`}
+			where: { title: req.body.title}
 		})
 		.then((removed) => {
 			res.send('sucessfully deleted');
