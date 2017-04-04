@@ -28,7 +28,7 @@ class App extends Component {
         console.log('data: ', data)
         data.forEach(cards => {
           console.log('cards', cards)
-          this.props.onAddTask(cards.id, cards.title, cards.priority, cards.status, cards.assignedTo);
+          this.props.onAddTask(cards.id, cards.title, cards.priority, cards.status, cards.createdBy, cards.assignedTo);
         });
       })
   }

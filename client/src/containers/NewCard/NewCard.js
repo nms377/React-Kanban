@@ -27,8 +27,9 @@ class NewCard extends Component {
 	addTask(card){
 		addCardReq(card)
 			.then(card => {
-				// console.log('Card added: ', card)
-				this.props.onAddTask(card.title, card.status, card.priority, card.assignTo)
+				console.log('Card added: ', card)
+				console.log('this.props', this.props);
+				this.props.onAddTask(card.id, card.title, card.priority, card.status, card.createdBy, card.assignedTo)
 			})
 	}
 
@@ -111,8 +112,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
 	return({
-		onAddTask: (title, priority, status, assignedTo) => {
-			dispatch(addTask(title, priority, status, assignedTo));
+		onAddTask: (id, title, priority, status, createdBy, assignedTo) => {
+			dispatch(addTask(id, title, priority, status, createdBy, assignedTo));
 		}
 	})
 }
