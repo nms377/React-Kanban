@@ -1,4 +1,4 @@
-module.exports = function getCardsReq() {
+module.exports = function getCardsReq(data) {
 	return new Promise( (resolve, reject) => {
 		function reqListener(){
 			let data = JSON.parse(this.responseText);
