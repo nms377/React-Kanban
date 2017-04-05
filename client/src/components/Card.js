@@ -18,19 +18,14 @@ class Card extends Component {
 		event.preventDefault();
 		this.updateTask({
 			title: this.props.title,
-			status: event.target.value,
-			priority: this.props.priority,
-			assignedTo: this.props.assignedTo
+			status: event.target.value
 		})
 	}
 
 	handleDelete(event){
 		event.preventDefault();
 			this.deleteTask({
-				title: this.props.title,
-				status: this.props.status,
-				priority: this.props.priority,
-				assignedTo: this.props.assignedTo
+				title: this.props.title
 			})
 	}
 
@@ -38,7 +33,7 @@ class Card extends Component {
     updateCardReq(card)
       .then(card => {
       	console.log('WHAT UPDATED:', card)
-        this.props.onUpdateTask(card.id, card.status)          
+        this.props.onUpdateTask(card.title, card.status)          
       })
   }
 
@@ -46,7 +41,7 @@ class Card extends Component {
   	deleteCardReq(card)
   		.then(card => {
   			console.log('WHAT DELETED: ', card)
-  			this.props.onDeleteTask(card.id);
+  			this.props.onDeleteTask(card.title);
   		})
   }
 
@@ -79,11 +74,11 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onUpdateTask: (id, status) => {
-      dispatch(updateTask(id, status));
+    onUpdateTask: (title, status) => {
+      dispatch(updateTask(title, status));
     },
-    onDeleteTask: (id) => {
-    	dispatch(deleteTask(id));
+    onDeleteTask: (title) => {
+    	dispatch(deleteTask(title));
     }
   }
 };
