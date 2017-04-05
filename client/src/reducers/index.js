@@ -24,8 +24,8 @@ function cards( state = initialState, action) {
 			});
 
 		case UPDATE_TASK:
-			let updatedCard = state.cards.map(card => {
-				if(cards.id === action.id){
+			let updatedCard = state.cards.map(cards => {
+				if(cards.title === action.title){
 					cards.status = action.status;
 					return cards;
 				}else {
@@ -40,12 +40,8 @@ function cards( state = initialState, action) {
 			});
 
 		case DELETE_TASK:
-			let deleteCard = state.cards.map(card => {
-				if(cards.id === action.id){
-					return cards;
-				}else{
-					return cards;
-				}
+			let deleteCard = state.cards.filter(cards => { 
+				return cards.title !== action.title;
 			});
 			console.log('TASKS WERE DELETED');
 			return Object.assign({}, state, {
