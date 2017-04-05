@@ -7,7 +7,7 @@ module.exports = function deleteCardReq(card) {
 		}
 
 		const oReq = new XMLHttpRequest();
-		oReq.addEventListener('progress', reqListener);
+		oReq.addEventListener('load', reqListener);
 		oReq.open('DELETE', `api/board/delete`);
 		oReq.setRequestHeader("Content-Type", "application/json");
 		oReq.send(JSON.stringify(card));

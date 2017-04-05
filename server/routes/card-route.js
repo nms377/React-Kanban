@@ -59,9 +59,7 @@ router.route('/delete')
 			}
 		})
 		.then((removed) => {
-			if(removed >= 200 && removed < 600){
-			res.send(removed);
-			}
+			res.redirect('/');
 		})
 		.catch((err) => {
 			console.log('err', err);
