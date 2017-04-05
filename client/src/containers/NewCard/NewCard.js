@@ -27,8 +27,8 @@ class NewCard extends Component {
 	addTask(card){
 		addCardReq(card)
 			.then(card => {
-				console.log('Card added: ', card)
-				console.log('this.props', this.props);
+				// console.log('Card added: ', card)
+				// console.log('this.props', this.props);
 				this.props.onAddTask(card.id, card.title, card.priority, card.status, card.createdBy, card.assignedTo)
 			})
 	}
