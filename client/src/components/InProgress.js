@@ -6,7 +6,7 @@ class InProgress extends Component {
 	
 
 render(){
-		console.log('In Progress: ', this.props)
+		// console.log('In Progress: ', this.props)
 		return(
 			<div id="InProgress">
 				<h1>In Progress</h1>
@@ -20,6 +20,7 @@ render(){
 							createdBy={cards.createdBy}
 							assignedTo={cards.assignedTo}
 							updateTask={this.props.udpateTask}
+							deleteTask={this.props.deleteTask}
 						/>
 					})
 				}

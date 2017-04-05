@@ -4,7 +4,7 @@ import Card from './Card.js';
 class Done extends Component {
 
 	render(){
-		console.log('Done: ', this.props)
+		// console.log('Done: ', this.props)
 		return(
 			<div id="Done">
 				<h1>Done</h1>
@@ -18,6 +18,7 @@ class Done extends Component {
 							createdBy={cards.createdBy}
 							assignedTo={cards.assignedTo}
 							updateTask={this.props.updateTask}
+							deleteTask={this.props.deleteTask}
 						/>
 					})
 				}
