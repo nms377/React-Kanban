@@ -15,28 +15,17 @@ export function addTask(id, title, priority, status, createdBy, assignedTo) {
 };
 
 
-export function updateTask(id, title, priority, status, createdBy, assignedTo) {
+export function updateTask(title,status) {
 	return {
-
 		type: 'UPDATE_TASK',
-		id,
 		title,
-		priority,
-		status,
-		createdBy,
-		assignedTo
+		status
 	};
 };
 
-export function deleteTask(id, title, priority, status, createdBy, assignedTo) {
+export function deleteTask(title) {
 	return {
-
-		type: 'UPDATE_TASK',
-		id,
-		title,
-		priority,
-		status,
-		createdBy,
-		assignedTo
+		type: 'DELETE_TASK',
+		title
 	};
 };
