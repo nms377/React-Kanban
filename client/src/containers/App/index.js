@@ -45,11 +45,11 @@ class App extends Component {
 
         <NewCard />
 
-        <Queue cards={this.props.cards} updateTask={this.updateTask}/>
+        <Queue cards={this.props.cards} updateTask={this.updateTask} deleteTask={this.deleteTask}/>
 
-        <InProgress cards={this.props.cards} updateTask={this.updateTask}/>
+        <InProgress cards={this.props.cards} updateTask={this.updateTask} deleteTask={this.deleteTask}/>
 
-        <Done cards={this.props.cards} updateTask={this.updateTask}/>
+        <Done cards={this.props.cards} updateTask={this.updateTask} deleteTask={this.deleteTask}/>
 
       </div>
     );
@@ -67,11 +67,11 @@ const mapDispatchToProps = (dispatch) => {
     onAddTask: (id, title, priority, status, createdBy, assignedTo) => {
       dispatch(addTask(id, title, priority, status, createdBy, assignedTo));
     },
-    onUpdateTask: (id, status) => {
-      dispatch(updateTask(id, status));
+    onUpdateTask: (title, status) => {
+      dispatch(updateTask(title, status));
     },
-    onDeleteTask: (id) => {
-      dispatch(deleteTask(id));
+    onDeleteTask: (title) => {
+      dispatch(deleteTask(title));
     }
   }
 };
