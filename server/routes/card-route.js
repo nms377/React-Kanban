@@ -37,36 +37,35 @@ router.route('/new')
 router.route('/edit')
 	.put((req,res) => {
     Card.update({
-      priority: req.body.priority,
-      status: req.body.status,
-      title: req.body.title,
-      assignedTo: req.body.assignedTo
+      status: req.body.status
     },
       {where: {
         title: req.body.title
       }
     })    
     .then((udpate) => {
-      Card.findById(req.params.id)
-        .then(card => {
-          res.send(card);
-        });
-      
+          res.send(update);    
     })
     .catch(err => {
       res.send(err);
     });
   })
+
+router.route('/delete')
 	.delete((req, res) => {
 		Card.destroy({
-			where: { title: req.body.title}
+			where: { 
+				title: req.body.title
+			}
 		})
 		.then((removed) => {
-			res.send('sucessfully deleted');
+			if(removed >= 200 && removed < 600){
+			res.send(removed);
+			}
 		})
 		.catch((err) => {
 			console.log('err', err);
-			res.send('error', err);
+			res.send(err);
 		});
 });
 
