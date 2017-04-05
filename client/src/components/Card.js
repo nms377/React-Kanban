@@ -14,15 +14,6 @@ class Card extends Component {
 		this.handleDelete = this.handleDelete.bind(this);
 	}
 
-	// componentWillUpdate(nextProps, nextState) {
-	// 	deleteCardReq()
-	// 		.then(card => {
-	// 			card.forEach(cards => {
-	// 				this.props.onDeleteTask(cards.title);
-	// 			});
-	// 		});
-	// }
-
 	handleStatus(event){
 		event.preventDefault();
 		this.updateTask({
