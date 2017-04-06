@@ -12,7 +12,7 @@ class NewCard extends Component {
 		this.state = {
 			title: '',
 			priority: 'low',
-			status: 'in progress',
+			status: 'queue',
 			assignedTo: ''
 		};
 
@@ -87,8 +87,8 @@ class NewCard extends Component {
 					<label>
 						Status:
 							<select value={this.state.status} onChange={this.handleStatus}>
-								<option value="in progress">In Progress</option>
 								<option value="queue">Queue</option>
+								<option value="in progress">In Progress</option>
 								<option value="done">Done</option>
 							</select>
 					</label>
