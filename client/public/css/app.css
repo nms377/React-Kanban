@@ -1,40 +1,80 @@
 body {
   font-family: sans-serif;
-  background-color: orange; }
-
-h1 {
-  color: black; }
+  margin: 0; }
 
 .App {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
-  background-color: violet; }
+  text-align: center;
+  background-color: #0066cc;
+  padding-bottom: 25px; }
 
 .Main-header {
   flex: 0 0 100%;
   order: 0; }
+  .Main-header h1 {
+    color: #66b2ff; }
 
 form {
   flex: 0 0 100%;
-  order: 1; }
+  order: 1;
+  color: white; }
+  form select {
+    background: #cce5ff;
+    border: none;
+    margin-bottom: 5px; }
+  form input[type=text] {
+    margin-bottom: 5px; }
+
+input[type=submit] {
+  border: none;
+  background-color: #66b2ff;
+  color: white;
+  margin-bottom: 10px; }
 
 .Cards {
   border: 2px solid black;
   background-color: white;
   margin: 5px 0; }
+  .Cards .title {
+    font-weight: bold; }
 
 #Queue {
   flex: 0 0 30%;
-  order: 2;
-  background-color: powderblue; }
+  order: 2; }
+  #Queue h2 {
+    flex: 0 0 auto;
+    background-color: #e0e0e0;
+    height: 25px;
+    padding: 25px; }
+  #Queue select {
+    background: #e0e0e0;
+    border: none;
+    margin-bottom: 5px; }
 
 #InProgress {
   flex: 0 0 30%;
-  order: 2;
-  background-color: pink; }
+  order: 2; }
+  #InProgress h2 {
+    flex: 0 0 auto;
+    background-color: #ffff99;
+    height: 25px;
+    padding: 25px; }
+  #InProgress select {
+    background: #ffff99;
+    border: none;
+    margin-bottom: 5px; }
 
 #Done {
   flex: 0 0 30%;
-  order: 2;
-  background-color: yellow; }
+  order: 2; }
+  #Done h2 {
+    flex: 0 0 auto;
+    background-color: #66cc00;
+    height: 25px;
+    padding: 25px; }
+  #Done select {
+    background: #66cc00;
+    border: none;
+    margin-bottom: 5px; }
