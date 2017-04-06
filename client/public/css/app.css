@@ -1,0 +1,40 @@
+body {
+  font-family: sans-serif;
+  background-color: orange; }
+
+h1 {
+  color: black; }
+
+.App {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  background-color: violet; }
+
+.Main-header {
+  flex: 0 0 100%;
+  order: 0; }
+
+form {
+  flex: 0 0 100%;
+  order: 1; }
+
+.Cards {
+  border: 2px solid black;
+  background-color: white;
+  margin: 5px 0; }
+
+#Queue {
+  flex: 0 0 30%;
+  order: 2;
+  background-color: powderblue; }
+
+#InProgress {
+  flex: 0 0 30%;
+  order: 2;
+  background-color: pink; }
+
+#Done {
+  flex: 0 0 30%;
+  order: 2;
+  background-color: yellow; }

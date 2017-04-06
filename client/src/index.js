@@ -5,7 +5,7 @@ import { createStore, applyMiddleware } from 'redux';
 import ReduxThunk from 'redux-thunk';
 import { createdDevTools } from 'redux-devtools';
 import App from './containers/App';
-import './index.css';
+import '../public/css/app.css';
 import cards from './reducers';
 
 let store = createStore(cards,
