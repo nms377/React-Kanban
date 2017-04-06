@@ -7,7 +7,7 @@ class Queue extends Component {
 		// console.log('Queue: ', this.props)
 		return(
 			<div id="Queue">
-				<h1>Queue</h1>
+				<h2>Queue</h2>
 				{
 					this.props.cards.filter(({status}) => status === 'queue').map(cards => {
 						return <Card 

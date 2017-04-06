@@ -7,7 +7,7 @@ class Done extends Component {
 		// console.log('Done: ', this.props)
 		return(
 			<div id="Done">
-				<h1>Done</h1>
+				<h2>Done</h2>
 				{
 					this.props.cards.filter(({status}) => status === 'done').map(cards => {
 						return <Card 
