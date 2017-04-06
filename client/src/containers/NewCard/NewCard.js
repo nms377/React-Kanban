@@ -72,7 +72,7 @@ class NewCard extends Component {
 			<form onSubmit={this.handleSubmit}>
 
 					<label>
-						Task:
+						Task: 
 							<input type="text" value={this.state.title} onChange={this.handleTitle}/>
 					</label>
 					<br/>
