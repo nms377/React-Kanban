@@ -5,7 +5,7 @@ const bp = require('body-parser');
 const db = require('./models');
 const cardRoute = require('./routes/card-route');
 
-const PORT = process.env.PORT || 9000;
+const PORT = 9000;
 
 app.use(express.static('public'));
 
