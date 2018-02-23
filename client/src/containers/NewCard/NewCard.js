@@ -40,7 +40,13 @@ class NewCard extends Component {
 			priority: this.state.priority,
 			status: this.state.status,
 			assignedTo: this.state.assignedTo
-		})
+		});
+		this.setState({
+			title: '',
+			priority: 'low',
+			status: 'qeue',
+			assignedTo: ''
+		});
 	}
 
 	handleTitle(event){
