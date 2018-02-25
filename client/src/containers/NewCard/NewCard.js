@@ -44,7 +44,7 @@ class NewCard extends Component {
 		this.setState({
 			title: '',
 			priority: 'low',
-			status: 'qeue',
+			status: 'queue',
 			assignedTo: ''
 		});
 	}
