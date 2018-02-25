@@ -13,9 +13,6 @@ import getCardsReq from '../lib';
 import { addTask, updateTask, deleteTask } from '../actions';
 
 class MainBoard extends Component {
-  constructor(props){
-    super(props);
-  }
 
   componentWillMount() {
     getCardsReq()
