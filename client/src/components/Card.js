@@ -48,9 +48,9 @@ class Card extends Component {
 	render(){
 		return(
 			<div className="Cards">
-				<p className="title">{this.props.title}</p>
-				<p>Priority: {this.props.priority}</p>
-				<label>
+				<p className="Title">{this.props.title}</p>
+				<p className="Priority">Priority: {this.props.priority}</p>
+				<label className="Status">
 					Status:
 					<select defaultValue={this.props.status} onChange={this.handleStatus}>
 						<option value="queue">Queue</option>
@@ -58,8 +58,8 @@ class Card extends Component {
 						<option value="done">Done</option>
 					</select>
 				</label>
-				<p>Created By: {this.props.createdBy}</p>
-				<p>Assign To: {this.props.assignedTo}</p>
+				<p className="CreatedBy">Created By: {this.props.createdBy}</p>
+				<p className="AssignTo">Assign To: {this.props.assignedTo}</p>
 				<input type="submit" value="Delete" onClick={this.handleDelete}/>
 			</div>
 		)
