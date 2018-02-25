@@ -10,7 +10,7 @@ body {
 .App {
 	display: flex;
 	flex-flow: row wrap;
-	justify-content: space-around;
+	justify-content: center;
 
 	text-align: center;
 	background-color: rgb(0,174,204);
@@ -48,7 +48,7 @@ form {
 	box-shadow: 0 1px 1px rgb(0,130,160);
 	padding: 1rem 0 .75rem 0;
 	margin: 1.5rem 0 1.5rem 0;
-	
+
 	select {
 		background:  rgb(228,247,250);
 		border: none;
@@ -73,7 +73,7 @@ input[type=submit] {
 //	Card Component
 
 .Cards {
-  /*border: 1px solid black;*/
+	order: 1;
   border-radius: .25rem;
   margin: 0 0 1rem 0;
   width: 90%;
@@ -96,8 +96,15 @@ input[type=submit] {
 	}
 }
 
-// Mobile
-@media screen and (max-width: 799px) {
+	.MainBoard {
+		order: 2;
+		
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: center;
+		/*height: auto;*/
+	}
+
 	#Queue,#InProgress,#Done {
 		flex: 0 0 90%;
 		order: 2;
@@ -109,9 +116,11 @@ input[type=submit] {
 		// Flexbox on cards
 		display: flex;
 		flex-flow: column nowrap;
-		justify-content: center;
+		justify-content: flex-start;
 
 		h2 {
+			flex: 0 0 auto;
+			order: 0;
 			font-size: 1.25rem;
 			font-weight: bold;
 			padding: 1rem 0;
@@ -121,70 +130,22 @@ input[type=submit] {
   		box-shadow: 0 1px 1px #ccc;
 		}
 	}
-}
 
 // Desktop
-@media screen and (min-width: 800px) {
-//	Queue Component
+@media screen and (min-width: 600px) {
 
-#Queue {
-
-	flex: 0 0 30%;
-	order: 2;
-
-  h2 {
-  	flex: 0 0 auto;
-		background-color: rgb(224,224,224);
-		height: 1.5rem;
-		padding: 1.5rem;
+	form {
+		flex: 0 0 18rem;
+		margin: 1.5rem 45%;
 	}
 
-	select {
-		background: rgb(224,224,224);
-		border: none;
-		margin-bottom: .25rem;
-	}
-}
-
-//	InProgress Component
-
-#InProgress {
-
-	flex: 0 0 30%;
-	order: 2;
-
-  h2 {
-  	flex: 0 0 auto;
-  	background-color: rgb(255,255,153);
-		height: 1.5rem;
-		padding: 1.5rem;
+	.MainBoard {
+		flex: 0 0 58rem;
+		flex-flow: row wrap;
+		justify-content: space-around;
 	}
 
-	select {
-		background: rgb(255,255,153);
-		border: none;
-		margin-bottom: .25rem;
+	#Queue,#InProgress,#Done {
+		flex: 0 0 18rem;
 	}
-}
-
-//	Done Component
-
-#Done {
-
-	flex: 0 0 30%;
-	order: 2;
-
-  h2 {
-  	flex: 0 0 auto;
-  	background-color: rgb(102,204,0);
-		height: 1.5rem;
-		padding: 1.5rem;
-	}
-
-	select {
-		background: rgb(102,204,0);
-		border: none;
-		margin-bottom: .25rem;
-	}
-}
 }

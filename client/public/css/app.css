@@ -71,7 +71,7 @@ body {
 .App {
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-around;
+  justify-content: center;
   text-align: center;
   background-color: #00aecc;
   padding-bottom: 1.5rem; }
@@ -114,7 +114,7 @@ input[type=submit] {
   font-size: .75rem; }
 
 .Cards {
-  /*border: 1px solid black;*/
+  order: 1;
   border-radius: .25rem;
   margin: 0 0 1rem 0;
   width: 90%;
@@ -130,60 +130,41 @@ input[type=submit] {
     border: none;
     background: #e4f7fa; }
 
-@media screen and (max-width: 799px) {
-  #Queue, #InProgress, #Done {
-    flex: 0 0 90%;
-    order: 2;
-    background-color: #e0e0e0;
-    height: auto;
-    border-radius: .5rem;
-    margin-bottom: 1rem;
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center; }
-    #Queue h2, #InProgress h2, #Done h2 {
-      font-size: 1.25rem;
-      font-weight: bold;
-      padding: 1rem 0;
-      margin-bottom: 1rem;
-      background-color: white;
-      border-radius: .5rem .5rem 0 0;
-      box-shadow: 0 1px 1px #ccc; } }
+.MainBoard {
+  order: 2;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  /*height: auto;*/ }
 
-@media screen and (min-width: 800px) {
-  #Queue {
-    flex: 0 0 30%;
-    order: 2; }
-    #Queue h2 {
-      flex: 0 0 auto;
-      background-color: #e0e0e0;
-      height: 1.5rem;
-      padding: 1.5rem; }
-    #Queue select {
-      background: #e0e0e0;
-      border: none;
-      margin-bottom: .25rem; }
-  #InProgress {
-    flex: 0 0 30%;
-    order: 2; }
-    #InProgress h2 {
-      flex: 0 0 auto;
-      background-color: #ffff99;
-      height: 1.5rem;
-      padding: 1.5rem; }
-    #InProgress select {
-      background: #ffff99;
-      border: none;
-      margin-bottom: .25rem; }
-  #Done {
-    flex: 0 0 30%;
-    order: 2; }
-    #Done h2 {
-      flex: 0 0 auto;
-      background-color: #66cc00;
-      height: 1.5rem;
-      padding: 1.5rem; }
-    #Done select {
-      background: #66cc00;
-      border: none;
-      margin-bottom: .25rem; } }
+#Queue, #InProgress, #Done {
+  flex: 0 0 90%;
+  order: 2;
+  background-color: #e0e0e0;
+  height: auto;
+  border-radius: .5rem;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start; }
+  #Queue h2, #InProgress h2, #Done h2 {
+    flex: 0 0 auto;
+    order: 0;
+    font-size: 1.25rem;
+    font-weight: bold;
+    padding: 1rem 0;
+    margin-bottom: 1rem;
+    background-color: white;
+    border-radius: .5rem .5rem 0 0;
+    box-shadow: 0 1px 1px #ccc; }
+
+@media screen and (min-width: 600px) {
+  form {
+    flex: 0 0 18rem;
+    margin: 1.5rem 45%; }
+  .MainBoard {
+    flex: 0 0 58rem;
+    flex-flow: row wrap;
+    justify-content: space-around; }
+  #Queue, #InProgress, #Done {
+    flex: 0 0 18rem; } }
