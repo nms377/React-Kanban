@@ -1,25 +1,36 @@
+@import "./partials/reset";
+@import "./partials/_clearfix";
+
 body {
-	font-family: sans-serif;
-	margin: 0;
+	font-family: Arial, Helvetica, sans-serif;
+	background-color: rgb(0,174,204);
 }
 
+// Root Container
 .App {
 	display: flex;
-	flex-flow:  row wrap;
+	flex-flow: row wrap;
 	justify-content: space-around;
 
 	text-align: center;
-	background-color: rgb(0,102,204);
-	padding-bottom: 25px;
+	background-color: rgb(0,174,204);
+	padding-bottom: 1.5rem;
 }
 
+// Header of Kanban
 .Main-header {
 
 	flex: 0 0 100%;
 	order: 0;
+	background-color: rgb(0,152,183);
+	box-shadow: 0 0 2px rgb(0,130,160);
 
 	h1 {
-		color: rgb(102,178,255);
+		font-family: 'Aladin', cursive;
+		color: rgb(41,204,229);
+		font-size: 1.5rem;
+		padding: 1rem 0;
+		letter-spacing: .125rem;
 	}
 }
 
@@ -27,42 +38,93 @@ body {
 
 form {
 
-	flex: 0 0 100%;
+	flex: 0 0 90%;
 	order: 1;
+	background-color: rgb(255,255,255);
 
-	color: rgb(255,255,255);
+	color: rgb(0,0,0);
+	/*border: 1px solid black;*/
+	border-radius: .5rem;
+	box-shadow: 0 1px 1px rgb(0,130,160);
+	padding: 1rem 0 .75rem 0;
+	margin: 1.5rem 0 1.5rem 0;
 	
 	select {
-		background: rgb(204,229,255);
+		background:  rgb(228,247,250);
 		border: none;
-		margin-bottom: 5px;
+		margin-bottom: .5rem;
 	}
 
 	input[type=text] {
-		margin-bottom: 5px;
+		margin-bottom: .5rem;
 	}
 }
 
 input[type=submit] {
 
 	border: none;
-	background-color: rgb(102,178,255);
+	background-color: rgb(0,194,224);
+	border-radius: 2px;
 	color: rgb(255,255,255);
-	margin-bottom: 10px;
+	margin: .5rem 0;
+	font-size: .75rem;
 }
 
 //	Card Component
 
 .Cards {
-  border: 2px solid black;
+  /*border: 1px solid black;*/
+  border-radius: .25rem;
+  margin: 0 0 1rem 0;
+  width: 90%;
+  align-self: center;
   background-color: rgb(255,255,255);
-  margin: 5px 0;
+  box-shadow: 0 1px 1px #ccc;
+  padding: .625rem 0;
 
-  .title {
+  .Title {
 		font-weight: bold;
+	}
+
+	.Title, .Priority, .Status, .CreatedBy, .AssignedTo {
+		padding: .25rem 0;
+	}
+
+	select {
+		border: none;
+		background:  rgb(228,247,250);
 	}
 }
 
+// Mobile
+@media screen and (max-width: 799px) {
+	#Queue,#InProgress,#Done {
+		flex: 0 0 90%;
+		order: 2;
+		background-color: rgb(224,224,224);
+		height: auto;
+		border-radius: .5rem;
+		margin-bottom: 1rem;
+
+		// Flexbox on cards
+		display: flex;
+		flex-flow: column nowrap;
+		justify-content: center;
+
+		h2 {
+			font-size: 1.25rem;
+			font-weight: bold;
+			padding: 1rem 0;
+			margin-bottom: 1rem;
+			background-color: rgb(255,255,255);
+			border-radius: .5rem .5rem 0 0;
+  		box-shadow: 0 1px 1px #ccc;
+		}
+	}
+}
+
+// Desktop
+@media screen and (min-width: 800px) {
 //	Queue Component
 
 #Queue {
@@ -73,14 +135,14 @@ input[type=submit] {
   h2 {
   	flex: 0 0 auto;
 		background-color: rgb(224,224,224);
-		height: 25px;
-		padding: 25px;
+		height: 1.5rem;
+		padding: 1.5rem;
 	}
 
 	select {
 		background: rgb(224,224,224);
 		border: none;
-		margin-bottom: 5px;
+		margin-bottom: .25rem;
 	}
 }
 
@@ -94,14 +156,14 @@ input[type=submit] {
   h2 {
   	flex: 0 0 auto;
   	background-color: rgb(255,255,153);
-		height: 25px;
-		padding: 25px;
+		height: 1.5rem;
+		padding: 1.5rem;
 	}
 
 	select {
 		background: rgb(255,255,153);
 		border: none;
-		margin-bottom: 5px;
+		margin-bottom: .25rem;
 	}
 }
 
@@ -115,13 +177,14 @@ input[type=submit] {
   h2 {
   	flex: 0 0 auto;
   	background-color: rgb(102,204,0);
-		height: 25px;
-		padding: 25px;
+		height: 1.5rem;
+		padding: 1.5rem;
 	}
 
 	select {
 		background: rgb(102,204,0);
 		border: none;
-		margin-bottom: 5px;
+		margin-bottom: .25rem;
 	}
+}
 }
