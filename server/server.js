@@ -15,7 +15,7 @@ app.use(bp.urlencoded({
 
 app.use(bp.json({type: 'application/json'}));
 
-// app.use(methodOverride('_method'));
+app.use(methodOverride('_method'));
 
 app.use('/api/board', cardRoute);
 

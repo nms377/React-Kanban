@@ -7,7 +7,7 @@ const router = express.Router();
 
 router.route('/')
 	.get((req, res) => {
-		Card.findAll({order: 'id ASC'})
+		Card.findAll()
 			.then((cards => {
 				res.json(cards);
 			}))
@@ -19,7 +19,7 @@ router.route('/')
 
 router.route('/new')
 	.post((req, res) => {
-		Card.create({
+		return Card.create({
 			title: req.body.title,
 			priority: req.body.priority,
 			status: req.body.status,
@@ -33,6 +33,7 @@ router.route('/new')
 			res.send('error', err);
 		});
 });
+
 
 router.route('/edit')
 	.put((req,res) => {
