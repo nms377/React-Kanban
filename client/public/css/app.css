@@ -134,12 +134,10 @@ input[type=submit] {
   order: 2;
   display: flex;
   flex-flow: row wrap;
-  justify-content: center;
-  /*height: auto;*/ }
+  justify-content: center; }
 
 #Queue, #InProgress, #Done {
   flex: 0 0 90%;
-  order: 2;
   background-color: #e0e0e0;
   height: auto;
   border-radius: .5rem;
@@ -165,6 +163,11 @@ input[type=submit] {
   .MainBoard {
     flex: 0 0 58rem;
     flex-flow: row wrap;
-    justify-content: space-around; }
+    justify-content: space-around;
+    max-height: 40rem; }
   #Queue, #InProgress, #Done {
-    flex: 0 0 18rem; } }
+    flex: 0 0 18rem;
+    overflow: scroll; }
+    #Queue h2, #InProgress h2, #Done h2 {
+      position: sticky;
+      top: 0; } }

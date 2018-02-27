@@ -102,12 +102,10 @@ input[type=submit] {
 		display: flex;
 		flex-flow: row wrap;
 		justify-content: center;
-		/*height: auto;*/
 	}
 
 	#Queue,#InProgress,#Done {
 		flex: 0 0 90%;
-		order: 2;
 		background-color: rgb(224,224,224);
 		height: auto;
 		border-radius: .5rem;
@@ -143,9 +141,16 @@ input[type=submit] {
 		flex: 0 0 58rem;
 		flex-flow: row wrap;
 		justify-content: space-around;
+		max-height: 40rem;
 	}
 
 	#Queue,#InProgress,#Done {
 		flex: 0 0 18rem;
+		overflow: scroll;
+
+		h2 {
+			position: sticky;
+			top: 0;
+		}
 	}
 }
