@@ -4,6 +4,7 @@
 body {
 	font-family: Arial, Helvetica, sans-serif;
 	background-color: rgb(0,174,204);
+	width: 100%;
 }
 
 // Root Container
@@ -20,30 +21,47 @@ body {
 // Header of Kanban
 .Main-header {
 
+	display: flex;
+	flex-flow: row wrap;
+
 	flex: 0 0 100%;
 	order: 0;
 	background-color: rgb(0,152,183);
 	box-shadow: 0 0 2px rgb(0,130,160);
 
 	h1 {
+		width: 90%;
 		font-family: 'Aladin', cursive;
 		color: rgb(41,204,229);
 		font-size: 1.5rem;
 		padding: 1rem 0;
 		letter-spacing: .125rem;
+
+		background-color: orange;
 	}
+}
+
+#addCard {
+	width: 10%;
+	background-color: rgb(255,255,255);
+	font-size: 1.75rem;
+
+	color: rgb(0,0,0);
+	/*border-radius: .5rem;*/
+	/*box-shadow: 0 1px 1px rgb(0,130,160);*/
+	padding: 1rem 0;
+	/*margin: 1.5rem 0 1.5rem 0;*/
 }
 
 //	NewCard Component
 
 form {
 
-	flex: 0 0 90%;
+	flex: 0 0 22rem;
 	order: 1;
 	background-color: rgb(255,255,255);
 
 	color: rgb(0,0,0);
-	/*border: 1px solid black;*/
 	border-radius: .5rem;
 	box-shadow: 0 1px 1px rgb(0,130,160);
 	padding: 1rem 0 .75rem 0;
@@ -132,20 +150,29 @@ input[type=submit] {
 // Desktop
 @media screen and (min-width: 600px) {
 
+	body {
+		overflow-x: scroll;
+	}
+
 	form {
-		flex: 0 0 18rem;
+		flex: 0 0 27%;
+		max-width: 17rem;
 		margin: 1.5rem 45%;
 	}
 
 	.MainBoard {
-		flex: 0 0 58rem;
-		flex-flow: row wrap;
+		flex: 0 0 90%;
+		flex-flow: row nowrap;
 		justify-content: space-around;
+		max-width: 58rem;
 		max-height: 40rem;
+		overflow-x: auto;
+		overflow-y: hidden;
+		position: relative;
 	}
 
 	#Queue,#InProgress,#Done {
-		flex: 0 0 18rem;
+		flex: 0 0 30%;
 		overflow: scroll;
 
 		h2 {

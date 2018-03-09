@@ -66,7 +66,8 @@ table {
 /* close commented backslash hack */
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background-color: #00aecc; }
+  background-color: #00aecc;
+  width: 100%; }
 
 .App {
   display: flex;
@@ -77,23 +78,36 @@ body {
   padding-bottom: 1.5rem; }
 
 .Main-header {
+  display: flex;
+  flex-flow: row wrap;
   flex: 0 0 100%;
   order: 0;
   background-color: #0098b7;
   box-shadow: 0 0 2px #0082a0; }
   .Main-header h1 {
+    width: 90%;
     font-family: 'Aladin', cursive;
     color: #29cce5;
     font-size: 1.5rem;
     padding: 1rem 0;
-    letter-spacing: .125rem; }
+    letter-spacing: .125rem;
+    background-color: orange; }
+
+#addCard {
+  width: 10%;
+  background-color: white;
+  font-size: 1.75rem;
+  color: black;
+  /*border-radius: .5rem;*/
+  /*box-shadow: 0 1px 1px rgb(0,130,160);*/
+  padding: 1rem 0;
+  /*margin: 1.5rem 0 1.5rem 0;*/ }
 
 form {
-  flex: 0 0 90%;
+  flex: 0 0 22rem;
   order: 1;
   background-color: white;
   color: black;
-  /*border: 1px solid black;*/
   border-radius: .5rem;
   box-shadow: 0 1px 1px #0082a0;
   padding: 1rem 0 .75rem 0;
@@ -157,16 +171,23 @@ input[type=submit] {
     box-shadow: 0 1px 1px #ccc; }
 
 @media screen and (min-width: 600px) {
+  body {
+    overflow-x: scroll; }
   form {
-    flex: 0 0 18rem;
+    flex: 0 0 27%;
+    max-width: 17rem;
     margin: 1.5rem 45%; }
   .MainBoard {
-    flex: 0 0 58rem;
-    flex-flow: row wrap;
+    flex: 0 0 90%;
+    flex-flow: row nowrap;
     justify-content: space-around;
-    max-height: 40rem; }
+    max-width: 58rem;
+    max-height: 40rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    position: relative; }
   #Queue, #InProgress, #Done {
-    flex: 0 0 18rem;
+    flex: 0 0 30%;
     overflow: scroll; }
     #Queue h2, #InProgress h2, #Done h2 {
       position: sticky;
