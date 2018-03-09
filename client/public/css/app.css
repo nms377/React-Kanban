@@ -77,14 +77,14 @@ body {
   background-color: #00aecc;
   padding-bottom: 1.5rem; }
 
-.Main-header {
+.MainHeader {
   display: flex;
   flex-flow: row nowrap;
   flex: 0 0 100%;
   order: 0;
   background-color: #0098b7;
   box-shadow: 0 0 2px #0082a0; }
-  .Main-header h1 {
+  .MainHeader h1 {
     width: 100%;
     font-family: 'Aladin', cursive;
     color: #29cce5;

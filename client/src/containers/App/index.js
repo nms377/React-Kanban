@@ -27,7 +27,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="Main-header">
+        <div className="MainHeader">
           <h1>{this.title}</h1>
 
           <div id="addCard" onClick={()=>this.operation()}>
