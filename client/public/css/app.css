@@ -14,7 +14,7 @@ table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+time, mark, audio, video, #root {
   margin: 0;
   padding: 0;
   border: 0;
@@ -79,29 +79,25 @@ body {
 
 .Main-header {
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: row nowrap;
   flex: 0 0 100%;
   order: 0;
   background-color: #0098b7;
   box-shadow: 0 0 2px #0082a0; }
   .Main-header h1 {
-    width: 90%;
+    width: 100%;
     font-family: 'Aladin', cursive;
     color: #29cce5;
     font-size: 1.5rem;
     padding: 1rem 0;
-    letter-spacing: .125rem;
-    background-color: orange; }
+    letter-spacing: .125rem; }
 
 #addCard {
-  width: 10%;
-  background-color: white;
+  width: 4rem;
+  background: #e4f7fa;
   font-size: 1.75rem;
   color: black;
-  /*border-radius: .5rem;*/
-  /*box-shadow: 0 1px 1px rgb(0,130,160);*/
-  padding: 1rem 0;
-  /*margin: 1.5rem 0 1.5rem 0;*/ }
+  padding: 1rem 0; }
 
 form {
   flex: 0 0 22rem;
@@ -111,7 +107,7 @@ form {
   border-radius: .5rem;
   box-shadow: 0 1px 1px #0082a0;
   padding: 1rem 0 .75rem 0;
-  margin: 1.5rem 0 1.5rem 0; }
+  margin-top: 1.5rem; }
   form select {
     background: #e4f7fa;
     border: none;
@@ -148,7 +144,8 @@ input[type=submit] {
   order: 2;
   display: flex;
   flex-flow: row wrap;
-  justify-content: center; }
+  justify-content: center;
+  margin-top: 1.5rem; }
 
 #Queue, #InProgress, #Done {
   flex: 0 0 90%;
@@ -176,7 +173,7 @@ input[type=submit] {
   form {
     flex: 0 0 27%;
     max-width: 17rem;
-    margin: 1.5rem 45%; }
+    margin: 1.5rem 45% 0 45%; }
   .MainBoard {
     flex: 0 0 90%;
     flex-flow: row nowrap;
@@ -185,7 +182,8 @@ input[type=submit] {
     max-height: 40rem;
     overflow-x: auto;
     overflow-y: hidden;
-    position: relative; }
+    position: relative;
+    margin-top: 1.5rem; }
   #Queue, #InProgress, #Done {
     flex: 0 0 30%;
     overflow: scroll; }

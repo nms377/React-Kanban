@@ -22,7 +22,7 @@ body {
 .Main-header {
 
 	display: flex;
-	flex-flow: row wrap;
+	flex-flow: row nowrap;
 
 	flex: 0 0 100%;
 	order: 0;
@@ -30,27 +30,23 @@ body {
 	box-shadow: 0 0 2px rgb(0,130,160);
 
 	h1 {
-		width: 90%;
+		width: 100%;
 		font-family: 'Aladin', cursive;
 		color: rgb(41,204,229);
 		font-size: 1.5rem;
 		padding: 1rem 0;
 		letter-spacing: .125rem;
-
-		background-color: orange;
 	}
 }
 
+// Button to add new card to Kanban
 #addCard {
-	width: 10%;
-	background-color: rgb(255,255,255);
+	width: 4rem;
+	background:  rgb(228,247,250);
 	font-size: 1.75rem;
 
 	color: rgb(0,0,0);
-	/*border-radius: .5rem;*/
-	/*box-shadow: 0 1px 1px rgb(0,130,160);*/
 	padding: 1rem 0;
-	/*margin: 1.5rem 0 1.5rem 0;*/
 }
 
 //	NewCard Component
@@ -65,7 +61,7 @@ form {
 	border-radius: .5rem;
 	box-shadow: 0 1px 1px rgb(0,130,160);
 	padding: 1rem 0 .75rem 0;
-	margin: 1.5rem 0 1.5rem 0;
+	margin-top: 1.5rem;
 
 	select {
 		background:  rgb(228,247,250);
@@ -120,6 +116,7 @@ input[type=submit] {
 		display: flex;
 		flex-flow: row wrap;
 		justify-content: center;
+		margin-top: 1.5rem;
 	}
 
 	#Queue,#InProgress,#Done {
@@ -157,7 +154,7 @@ input[type=submit] {
 	form {
 		flex: 0 0 27%;
 		max-width: 17rem;
-		margin: 1.5rem 45%;
+		margin: 1.5rem 45% 0 45%;
 	}
 
 	.MainBoard {
@@ -169,6 +166,7 @@ input[type=submit] {
 		overflow-x: auto;
 		overflow-y: hidden;
 		position: relative;
+		margin-top: 1.5rem;
 	}
 
 	#Queue,#InProgress,#Done {
