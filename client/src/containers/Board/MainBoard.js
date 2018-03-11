@@ -2,34 +2,34 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 //  components
-import InProgress from '../components/InProgress.js';
-import Queue from '../components/Queue.js';
-import Done from '../components/Done.js';
+import InProgress from '../../components/InProgress.js';
+import Queue from '../../components/Queue.js';
+import Done from '../../components/Done.js';
+import NewCard from '../NewCard/NewCard.js';
 
 //  misc
-import getCardsReq from '../lib';
+import getCardsReq from '../../lib';
 
 //  actions
-import { addTask, updateTask, deleteTask } from '../actions';
+import { addTask, updateTask, deleteTask } from '../../actions';
 
 class MainBoard extends Component {
 
   componentWillMount() {
     getCardsReq()
       .then( data => {
-        console.log('data: ', data)
+        console.log('data: ', data);
         data.forEach(cards => {
-          console.log('cards', cards)
+          console.log('cards', cards);
           this.props.onAddTask(cards.id, cards.title, cards.priority, cards.status, cards.createdBy, cards.assignedTo);
         });
-      })
+      });
   }
 
   render() {
-    console.log('props', this.props)
+    console.log('props', this.props);
     return (
       <div className="MainBoard">
-
         <Queue cards={this.props.cards} updateTask={this.updateTask} deleteTask={this.deleteTask}/>
 
         <InProgress cards={this.props.cards} updateTask={this.updateTask} deleteTask={this.deleteTask}/>
