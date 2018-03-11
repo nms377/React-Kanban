@@ -51,7 +51,7 @@ body {
 
 //	NewCard Component
 
-form {
+#newCard {
 
 	flex: 0 0 22rem;
 	order: 1;
@@ -141,6 +141,15 @@ input[type=submit] {
 			background-color: rgb(255,255,255);
 			border-radius: .5rem .5rem 0 0;
   		box-shadow: 0 1px 1px #ccc;
+		}
+	}
+
+	#User {
+		background-color: orange;
+		width: 100%;
+
+		form {
+			width: 100%;
 		}
 	}
 
