@@ -75,7 +75,7 @@ class NewCard extends Component {
 
 	render(){
 		return(
-			<form onSubmit={this.handleSubmit}>
+			<form id="newCard" onSubmit={this.handleSubmit}>
 
 					<label>
 						Task: 
