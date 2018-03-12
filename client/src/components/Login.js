@@ -12,7 +12,7 @@ class Login extends Component {
   render() {
     return (
 			
-			<form onSubmit={this.handleSubmit}>
+			<form className="UserInfo" onSubmit={this.handleSubmit}>
 				<label>
 					Username:
 						<input type="text" />

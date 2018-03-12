@@ -12,7 +12,7 @@ class NewUser extends Component {
   render() {
     return (
 			
-			<form onSubmit={this.handleSubmit}>
+			<form className="UserInfo" onSubmit={this.handleSubmit}>
 				<label>
 					First Name: 
 						<input type="text" onChange={this.handleFirstName}/>
