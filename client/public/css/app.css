@@ -85,19 +85,27 @@ body {
   background-color: #0098b7;
   box-shadow: 0 0 2px #0082a0; }
   .MainHeader h1 {
+    text-align: center;
     width: 100%;
     font-family: 'Aladin', cursive;
     color: #29cce5;
     font-size: 1.5rem;
     padding: 1rem 0;
     letter-spacing: .125rem; }
-
-#addCard {
-  width: 4rem;
-  background: #e4f7fa;
-  font-size: 1.75rem;
-  color: black;
-  padding: 1rem 0; }
+  .MainHeader a {
+    border: 2px solid green;
+    flex: 0 0 auto;
+    align-self: center;
+    margin: .5rem; }
+    .MainHeader a input[type=text] {
+      margin-bottom: .5rem; }
+  .MainHeader #addCard {
+    text-align: center;
+    width: 4rem;
+    background: #e4f7fa;
+    font-size: 1.75rem;
+    color: black;
+    padding: 1rem 0; }
 
 #newCard {
   flex: 0 0 22rem;
@@ -166,12 +174,6 @@ input[type=submit] {
     background-color: white;
     border-radius: .5rem .5rem 0 0;
     box-shadow: 0 1px 1px #ccc; }
-
-#User {
-  background-color: orange;
-  width: 100%; }
-  #User form {
-    width: 100%; }
 
 @media screen and (min-width: 600px) {
   body {

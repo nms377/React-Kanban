@@ -30,6 +30,7 @@ body {
 	box-shadow: 0 0 2px rgb(0,130,160);
 
 	h1 {
+		text-align: center;
 		width: 100%;
 		font-family: 'Aladin', cursive;
 		color: rgb(41,204,229);
@@ -37,17 +38,31 @@ body {
 		padding: 1rem 0;
 		letter-spacing: .125rem;
 	}
+
+	a {
+			border: 2px solid green;
+			flex: 0 0 auto;
+			align-self: center;
+			margin: .5rem;
+
+			input[type=text] {
+				margin-bottom: .5rem;
+			}
+		}
+
+
+	// Button to add new card to Kanban
+	#addCard {
+		text-align: center;
+		width: 4rem;
+		background:  rgb(228,247,250);
+		font-size: 1.75rem;
+
+		color: rgb(0,0,0);
+		padding: 1rem 0;
+	}
 }
 
-// Button to add new card to Kanban
-#addCard {
-	width: 4rem;
-	background:  rgb(228,247,250);
-	font-size: 1.75rem;
-
-	color: rgb(0,0,0);
-	padding: 1rem 0;
-}
 
 //	NewCard Component
 
@@ -141,15 +156,6 @@ input[type=submit] {
 			background-color: rgb(255,255,255);
 			border-radius: .5rem .5rem 0 0;
   		box-shadow: 0 1px 1px #ccc;
-		}
-	}
-
-	#User {
-		background-color: orange;
-		width: 100%;
-
-		form {
-			width: 100%;
 		}
 	}
 
