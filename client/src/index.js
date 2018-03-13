@@ -10,6 +10,7 @@ import cards from './reducers';
 // containers
 import App from './containers/App';
 import Nav from './containers/Nav/Nav.js';
+import Board from './containers/Board/MainBoard.js';
 
 // components
 import LogIn from './components/Login.js';
@@ -41,6 +42,7 @@ ReactDOM.render(
 					<Route exact path='/' component={ App } />
         	<Route path='/login' component={ LogIn } />
         	<Route path='/newuser' component={ NewUser } />
+        	<Route path='/board' component={ Board } />
 				</div>
 			</Router>
 		</Provider>,
