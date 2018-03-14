@@ -15,6 +15,7 @@ import Board from './containers/Board/MainBoard.js';
 // components
 import LogIn from './components/Login.js';
 import NewUser from './components/NewUser.js';
+import Profile from './components/Profile.js';
 
 
 import {
@@ -42,6 +43,7 @@ ReactDOM.render(
 					<Route exact path='/' component={ App } />
         	<Route path='/login' component={ LogIn } />
         	<Route path='/newuser' component={ NewUser } />
+        	<Route path='/profile' component={ Profile } />
         	<Route path='/board' component={ Board } />
 				</div>
 			</Router>
