@@ -1,15 +1,22 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+
+// actions
+import { logOutUserFromState } from '../../actions/userAction';
 
 // components
 import NewCard from '../NewCard/NewCard.js';
 
 class Nav extends Component {
-		constructor(props){
-      super(props);
+		constructor(props, context){
+      super(props, context);
       this.state = {
        showForm: false
       };
+
+      this.logOut = this.logOut.bind(this);
   }
 
 
@@ -20,6 +27,32 @@ class Nav extends Component {
     });
   }
 
+  // Connect to Server to Call Log Out Route
+  xhrLogOut() {
+    return new Promise(function(res,rej){
+      function reqListener(){
+        res(this.responseText);
+      }
+      let oReq = new XMLHttpRequest();
+      oReq.open('GET', '/api/user/logout');
+      oReq.addEventListener('load', reqListener);
+      oReq.send();
+    });
+  }
+
+  // Function to log user out
+  logOut(event) {
+    event.preventDefault();
+    this.xhrLogOut()
+    .then(() => {
+      this.props.onLogOut();
+      this.context.router.history.push('/login');
+    })
+    .catch(err => {
+      console.log('error user not logged in', err);
+    });
+  }
+
 	render() {
 		return (
 			<div className="Nav">
@@ -27,6 +60,7 @@ class Nav extends Component {
 					<h1>React Kanban</h1>
 					<Link to="/login">Log In</Link>
 					<Link to="/newuser">Sign Up</Link>
+          <a href="#" onClick={this.logOut}>Sign Out</a>
 					<div id="addCard" onClick={()=>this.operation()}>
             +
           </div>
@@ -42,4 +76,25 @@ class Nav extends Component {
 
 }
 
-export default Nav;
+const mapStateToProps = (state) => {
+  return {
+    users: state.users
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onLogOut: () => {
+      dispatch(logOutUserFromState())
+    }
+  }
+}
+
+Nav.contextTypes = {
+  router: PropTypes.object.isRequired
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+  )(Nav)
