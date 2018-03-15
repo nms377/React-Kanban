@@ -41,12 +41,25 @@ router.route('/new')
 
 router.route('/login')
 	.get((req, res) => {
-		res.send('Login here');
+		res.send(req.user);
 	})
-	.post(passport.authenticate('local', {
-		successRedirect: 'profile',
-		failureRedirect: 'login'
-	}));
+	.post(passport.authenticate('local'), function(req,res){
+    User.find({
+      where: {
+        username: req.body.username
+      }
+    })
+    .then(result => {
+      res.send({
+        id:result.dataValues.id,
+        email:result.dataValues.email
+    });
+
+    })
+    .catch(err => {
+      console.log('error',err);
+    });
+  });
 
 function isAuthenticated(req,res, next) {
 	console.log('running is authenticated');
@@ -64,11 +77,11 @@ router.get('/profile', isAuthenticated, (req,res) => {
 	res.send('Hello', req.user);
 });
 
-router.route('logout')
+router.route('/logout')
 	.get((req, res) => {
-		console.log(req.user.username, 'successfully logged out');
+		console.log('logged out')
 		req.logout();
-		res.redirext('login');
+		res.redirect('/api/user/login');
 	});
 
 module.exports = router;
