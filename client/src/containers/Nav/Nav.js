@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 // actions
-import { logOutUserFromState } from '../../actions/userAction';
+import { logOutUserFromState } from '../../redux/actions/userAction';
 
 // components
 import NewCard from '../NewCard/NewCard.js';
