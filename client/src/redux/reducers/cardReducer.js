@@ -1,11 +1,11 @@
-import { ADD_TASK, UPDATE_TASK, DELETE_TASK } from '../actions'
+import { ADD_TASK, UPDATE_TASK, DELETE_TASK } from '../actions/cardAction'
 
 const initialState = {
 	cards: []
 };
 
 function cards( state = initialState, action) {
-	console.log('which action: ', action.type);
+	console.log('which card action: ', action.type);
 	switch(action.type) {
 		case ADD_TASK:
 			console.log('TASKS WERE DISPLAYED')
