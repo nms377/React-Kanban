@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 // actions
-import { addUser, userErrMsg } from '../actions/userAction';
+import { addUser, userErrMsg } from '../redux/actions/userAction';
 
 // misc
 import signUpReq from '../lib/userReq';
@@ -25,7 +25,7 @@ class NewUser extends Component {
 
 	}
 
-	// XHR Request
+	// XHR Request to connect to server
 	addUser(user){
 		signUpReq(user)
 		.then(user => {
@@ -42,7 +42,7 @@ class NewUser extends Component {
 		let password = document.getElementById("password");
 
 		// validate all input fields are not empty strings
-		if (name.value === '' || username === '' || password === '') {
+		if (name.value === '' || username.value === '' || password.value === '') {
 			return this.props.onUserErrMsg('All fields are requried');
 		}
 
@@ -52,7 +52,7 @@ class NewUser extends Component {
 		}
 
 		this.addUser({
-			name: this.state.first_name,
+			name: this.state.name,
 			username: this.state.username,
 			password: this.state.password
 		});
@@ -85,7 +85,8 @@ class NewUser extends Component {
 
   render() {
     return (
-			
+    	<div>
+			<p>{this.props.userErrMsg}</p>
 			<form className="UserInfo" onSubmit={this.handleSubmit} ref="reset">
 				<label htmlFor="name">
 					Name: 
@@ -104,6 +105,7 @@ class NewUser extends Component {
 				<br/>
 				<input type="submit" value="Sign Up"/>
 			</form>
+			</div>
 
     );
   }

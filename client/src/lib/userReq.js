@@ -2,7 +2,7 @@ module.exports = function signUpReq(user){
 	return new Promise (function(res,rej) {
 		function reqListener(){
 			console.log('user responseText', this.responseText);
-			let data = this.responseText;
+			let data = JSON.parse(this.responseText);
 
 			res(data);
 		}

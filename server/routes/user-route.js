@@ -19,24 +19,26 @@ router.route('/new')
 	.get((req, res) => {
 		res.send('Create a user on this page');
 	})
-	.post((req, res) => {
-		req.params.username;
-		req.params.password;
+	.post(function (req, res) {
+		console.log('Body', req.body);
+		if (req.body.name !== '' && req.body.username !== '' && req.body.password !== '') {
 
-		console.log('test', req.params.username);
-
-		bcrypt.genSalt(saltRounds, function(err, salt) {
-			bcrypt.hash(req.body.password, salt, function(err, hash) {
-				User.create({
-					username: req.body.username,
-					password: hash
-				})
-				.then ( _ => {
-					console.log(req.params.username, req.params.password);
-					res.redirect('login');
+			bcrypt.genSalt(saltRounds, function(err, salt) {
+				bcrypt.hash(req.body.password, salt, function(err, hash) {
+					User.create({
+						name: req.body.name,
+						username: req.body.username,
+						password: hash
+					})
+					.then ( (users) => {
+						console.log('Server User: ', users);
+						res.send(users);
+					});
 				});
 			});
-		});
+		}	 else {
+			console.log('All fields required');
+		}
 	});
 
 router.route('/login')
