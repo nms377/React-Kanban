@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import addCardReq from '../../lib/addTask.js';
 import { connect } from 'react-redux';
-import { addTask } from '../../actions';
+import { addTask } from '../../redux/actions/cardAction';
 import './styles.css';
 
 class NewCard extends Component {

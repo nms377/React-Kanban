@@ -11,7 +11,7 @@ import NewCard from '../NewCard/NewCard.js';
 import getCardsReq from '../../lib';
 
 //  actions
-import { addTask, updateTask, deleteTask } from '../../actions';
+import { addTask, updateTask, deleteTask } from '../../redux/actions/cardAction';
 
 class MainBoard extends Component {
 

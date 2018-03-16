@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { updateTask, deleteTask } from '../actions';
+import { updateTask, deleteTask } from '../redux/actions/cardAction';
 import updateCardReq from '../lib/updateTask.js';
 import deleteCardReq from '../lib/deleteTask.js';
 

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 //  actions
-import { addUserToState, userErrMsg } from '../actions/userAction';
+import { addUserToState, userErrMsg } from '../redux/actions/userAction';
 
 class Login extends Component {
 	constructor(props){
@@ -34,8 +34,7 @@ class Login extends Component {
 		})
 		.then((data) => {
 			if(data) {
-				let userInfo = data;
-				this.props.onSignIn(userInfo.id, userInfo.username);
+				this.props.onSignIn(data.id, data.username);
 				this.props.history.push('/profile');
 			}
 		})

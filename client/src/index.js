@@ -1,11 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
 import ReduxThunk from 'redux-thunk';
 import { createdDevTools } from 'redux-devtools';
 import '../public/css/app.css';
-import cards from './reducers';
+
+// reducers
+import cards from './redux/reducers/cardReducer';
+import users from './redux/reducers/userReducer';
 
 // containers
 import App from './containers/App';
@@ -17,7 +20,6 @@ import LogIn from './components/Login.js';
 import NewUser from './components/NewUser.js';
 import Profile from './components/Profile.js';
 
-
 import {
   BrowserRouter as Router,
   Route
@@ -27,7 +29,12 @@ import createHistory from 'history/createBrowserHistory';
 
 const history = createHistory();
 
-let store = createStore(cards,
+const allReducers = combineReducers({
+	users,
+	cards
+});
+
+let store = createStore(allReducers,
 	window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
 	applyMiddleware(ReduxThunk)
 );

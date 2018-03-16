@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 
-//  components
-import Nav from '../Nav/Nav.js';
-
 //  misc
 import './styles.css';
 
