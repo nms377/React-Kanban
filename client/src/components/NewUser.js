@@ -13,13 +13,17 @@ class NewUser extends Component {
 		super(props);
 
 			this.state = {
-				name: '',
+				first_name: '',
+				last_name: '',
+				email: '',
 				username: '',
 				password: ''
 			};
 	
 		this.handleSubmit = this.handleSubmit.bind(this);
-		this.handleName = this.handleName.bind(this);
+		this.handleFirstName = this.handleFirstName.bind(this);
+		this.handleLastName = this.handleLastName.bind(this);
+		this.handleEmail = this.handleEmail.bind(this);
 		this.handleUsername = this.handleUsername.bind(this);
 		this.handlePassword = this.handlePassword.bind(this);
 
@@ -37,12 +41,14 @@ class NewUser extends Component {
 	handleSubmit(event){
 		event.preventDefault();
 
-		let name = document.getElementById("name");
+		let first_name = document.getElementById("first_name");
+		let last_name = document.getElementById("last_name");
+		let email = document.getElementById("email");
 		let username = document.getElementById("username");
 		let password = document.getElementById("password");
 
 		// validate all input fields are not empty strings
-		if (name.value === '' || username.value === '' || password.value === '') {
+		if (first_name.value === '' || last_name.value === '' || email.value === '' || username.value === '' || password.value === '') {
 			return this.props.onUserErrMsg('All fields are requried');
 		}
 
@@ -52,22 +58,38 @@ class NewUser extends Component {
 		}
 
 		this.addUser({
-			name: this.state.name,
+			first_name: this.state.first_name,
+			last_name: this.state.last_name,
+			email: this.state.email,
 			username: this.state.username,
 			password: this.state.password
 		});
 
 		// clears form after submit
 		this.setState({
-			name: '',
+			first_name: '',
+			last_name: '',
+			email: '',
 			username: '',
 			password: ''
 		});
 	}
 
-	handleName(event){
+	handleFirstName(event){
 		this.setState({
-			name: event.target.value
+			first_name: event.target.value
+		});
+	}
+
+	handleLastName(event){
+		this.setState({
+			last_name: event.target.value
+		});
+	}
+
+	handleEmail(event){
+		this.setState({
+			email: event.target.value
 		});
 	}
 
@@ -88,9 +110,19 @@ class NewUser extends Component {
     	<div>
 			<p>{this.props.userErrMsg}</p>
 			<form className="UserInfo" onSubmit={this.handleSubmit} ref="reset">
-				<label htmlFor="name">
-					Name: 
-						<input id="name" type="text" value={this.state.name} onChange={this.handleName}/>
+				<label htmlFor="first_name">
+					First Name: 
+						<input id="first_name" type="text" value={this.state.first_name} onChange={this.handleFirstName}/>
+				</label>
+				<br/>
+				<label htmlFor="last_name">
+					Last Name: 
+						<input id="last_name" type="text" value={this.state.last_name} onChange={this.handleLastName}/>
+				</label>
+				<br/>
+				<label htmlFor="email">
+					Email: 
+						<input id="email" type="email" value={this.state.email} onChange={this.handleEmail}/>
 				</label>
 				<br/>
 				<label htmlFor="username">
