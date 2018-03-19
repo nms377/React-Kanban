@@ -26,7 +26,9 @@ router.route('/new')
 			bcrypt.genSalt(saltRounds, function(err, salt) {
 				bcrypt.hash(req.body.password, salt, function(err, hash) {
 					User.create({
-						name: req.body.name,
+						first_name: req.body.first_name,
+						last_name: req.body.last_name,
+						email: req.body.email,
 						username: req.body.username,
 						password: hash
 					})
@@ -52,11 +54,8 @@ router.route('/login')
       }
     })
     .then(result => {
-      res.send({
-        id:result.dataValues.id,
-        email:result.dataValues.email
-    });
-
+    	console.log('result ', result);
+      res.send(result);
     })
     .catch(err => {
       console.log('error',err);

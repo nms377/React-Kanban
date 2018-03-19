@@ -13,9 +13,9 @@ class Login extends Component {
 			password: ''
 		};
 
-		this.handleSubmit = this.handleSubmit.bind(this)
-		this.handleUsername = this.handleUsername.bind(this)
-		this.handlePassword = this.handlePassword.bind(this)
+		this.handleSubmit = this.handleSubmit.bind(this);
+		this.handleUsername = this.handleUsername.bind(this);
+		this.handlePassword = this.handlePassword.bind(this);
 	}
 
 	handleSubmit(event) {
@@ -54,8 +54,8 @@ class Login extends Component {
 
 	userIsLoggedIn(user) {
 		return new Promise(function(res,rej) {
-			function reqLIstener(userData) {
-				let results = this.responseText;
+			function reqListener(userData) {
+				let results = JSON.parse(this.responseText);
 				if (results === null) {
 					rej(results);
 				} else {
@@ -64,7 +64,7 @@ class Login extends Component {
 			}
 
 			var oReq = new XMLHttpRequest();
-			oReq.addEventListener("load", reqLIstener);
+			oReq.addEventListener("load", reqListener);
 			oReq.open('POST', 'api/user/login');
 			oReq.setRequestHeader('Content-type', 'application/json');
 			oReq.send(JSON.stringify(user));
