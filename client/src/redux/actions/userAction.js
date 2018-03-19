@@ -4,11 +4,13 @@ export const LOG_OUT_USER_FROM_STATE = 'LOG_OUT_USER_FROM_STATE'
 export const USER_ERROR_MESSAGE = 'USER_ERROR_MESSAGE'
 
 
-export function addUser(id, name, username, password) {
+export function addUser(id, first_name, last_name, email, username, password) {
 	return {
 		type: ADD_USER,
 		id,
-		name,
+		first_name,
+		last_name,
+		email,
 		username,
 		password
 	};

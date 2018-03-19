@@ -14,7 +14,9 @@ function users( state = initialState, action) {
 					...state.users,
 				 {
 				 		id: action.id,
-						name: action.name,
+						first_name: action.first_name,
+						last_name: action.last_name,
+						email: action.email,
 						username: action.username,
 						password: action.password
 					}
