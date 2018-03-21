@@ -65,8 +65,10 @@ passport.use(new LocalStrategy(
 			console.log('user failed');
 			return done(null, false, {message: 'bad username'});
 		} else {
-			bcrypt.compare(password, user.password).then(res => {
+			bcrypt.compare(password, user.password)
+			.then(res => {
 				if(res){
+					console.log('user logged in');
 					return done(null, user);
 				} else {
 					return done(null, false, {message: 'bad password'});
