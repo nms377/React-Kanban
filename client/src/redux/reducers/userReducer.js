@@ -39,8 +39,9 @@ function users( state = initialState, action) {
 		});
 
 		case USER_ERROR_MESSAGE:
-		return Object.assign({}, state, {
-			userErrMsg: action.userErrMsg
+		return Object.assign({}, state, 
+			{
+			userErrorMsg: action.userErrorMsg
 		});
 
 		default:

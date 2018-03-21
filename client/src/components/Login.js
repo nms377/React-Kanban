@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 //  actions
-import { addUserToState, userErrMsg } from '../redux/actions/userAction';
+import { addUserToState, userErrorMsg } from '../redux/actions/userAction';
 
 class Login extends Component {
 	constructor(props){
@@ -25,7 +25,7 @@ class Login extends Component {
 		let password = document.getElementById('password').value;
 
 		if (username === '' || password === '') {
-			return this.props.onUserErrMsg('Please enter your email and password');
+			return this.props.onUserErrorMsg('Please enter your email and password');
 		}
 
 		this.userIsLoggedIn({
@@ -34,10 +34,14 @@ class Login extends Component {
 		})
 		.then((data) => {
 			if(data) {
-				this.props.onSignIn(data.id, data.username);
-				this.props.history.push('/profile');
+				let userInfo = JSON.parse(data);
+				this.props.onSignIn(userInfo.id, userInfo.username);
+				this.props.history.push('/board');
 			}
 		})
+		.catch(err => {
+			return this.props.onUserErrorMsg('Username or Password is invalid. Please try again.');
+		});
 	}
 
 	handleUsername(event) {
@@ -55,7 +59,7 @@ class Login extends Component {
 	userIsLoggedIn(user) {
 		return new Promise(function(res,rej) {
 			function reqListener(userData) {
-				let results = JSON.parse(this.responseText);
+				let results = this.responseText;
 				if (results === null) {
 					rej(results);
 				} else {
@@ -74,7 +78,7 @@ class Login extends Component {
   render() {
     return (
 			<div>
-			<p>{this.props.userErrMsg}</p>
+			<p>{ this.props.users.userErrorMsg }</p>
 			<form className="UserInfo" onSubmit={this.handleSubmit}>
 				<label>
 					Username:
@@ -104,8 +108,8 @@ const mapDispatchToProps = (dispatch) => {
 		onSignIn: (id, username, loggedIn) => {
 			dispatch(addUserToState(id, username, loggedIn))
 		},
-		onUserErrMsg: (userErrMsg) => {
-			dispatch(userErrMsg(userErrMsg))
+		onUserErrorMsg: (userErrorMessage) => {
+			dispatch(userErrorMsg(userErrorMessage))
 		}
 	}
 }
