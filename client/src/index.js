@@ -7,8 +7,8 @@ import { createdDevTools } from 'redux-devtools';
 import '../public/css/app.css';
 
 // reducers
-import cards from './redux/reducers/cardReducer';
-import users from './redux/reducers/userReducer';
+import cards from './redux/reducers/cardReducer.js';
+import users from './redux/reducers/userReducer.js';
 
 // containers
 import App from './containers/App';
