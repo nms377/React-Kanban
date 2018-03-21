@@ -21,7 +21,7 @@ router.route('/new')
 	})
 	.post(function (req, res) {
 		console.log('Body', req.body);
-		if (req.body.name !== '' && req.body.username !== '' && req.body.password !== '') {
+		if (req.body.first_name !== '' && req.body.last_name !== '' && req.body.email !== '' && req.body.username !== '' && req.body.password !== '') {
 
 			bcrypt.genSalt(saltRounds, function(err, salt) {
 				bcrypt.hash(req.body.password, salt, function(err, hash) {
@@ -55,7 +55,10 @@ router.route('/login')
     })
     .then(result => {
     	console.log('result ', result);
-      res.send(result);
+      res.send({
+      	id: result.dataValues.id,
+      	username: result.dataValues.username
+      });
     })
     .catch(err => {
       console.log('error',err);
@@ -69,7 +72,7 @@ function isAuthenticated(req,res, next) {
 		next();
 	} else {
 		console.log('NOPE');
-		res.redirect('login');
+		res.redirect(303, 'login');
 	}
 }
 
