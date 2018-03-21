@@ -1,29 +1,31 @@
 const express = require('express');
 const db = require('../models');
-const { Card } = db;
+const { Card, User } = db;
 
 const app = express();
 const router = express.Router();
 
-router.route('/')
-	.get((req, res) => {
+router.get('/', (req, res) => {
 		Card.findAll()
-			.then((cards => {
+		.then((cards => {
 				res.json(cards);
 			}))
-			.catch((err) => {
+			.catch((err, status) => {
 				console.log('err', err);
-				res.send('error', err);
+				res.status(500).send({err});
 			});
 })
 
 router.route('/new')
 	.post((req, res) => {
+		console.log('body', req.body);
 		return Card.create({
 			title: req.body.title,
 			priority: req.body.priority,
 			status: req.body.status,
-			assignedTo: req.body.assignedTo
+			assignedTo: req.body.assignedTo,
+			createdBy: req.body.createdBy,
+			user: req.body.user
 		})
 		.then((newTask) => {
 			console.log(newTask);
