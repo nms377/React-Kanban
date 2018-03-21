@@ -2,7 +2,7 @@ export const ADD_TASK = 'ADD_TASK'
 export const UPDATE_TASK = 'UPDATE_TASK'
 export const DELETE_TASK = 'DELETE_TASK'
 
-export function addTask(id, title, priority, status, createdBy, assignedTo) {
+export function addTask(id, title, priority, status, createdBy, assignedTo, user) {
 	return {
 		type: 'ADD_TASK',
 		id,
@@ -10,7 +10,8 @@ export function addTask(id, title, priority, status, createdBy, assignedTo) {
 		priority,
 		status,
 		createdBy,
-		assignedTo
+		assignedTo,
+		user
 	};
 };
 

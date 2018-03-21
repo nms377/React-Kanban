@@ -18,7 +18,8 @@ function cards( state = initialState, action) {
 						priority: action.priority,
 						status: action.status,
 						createdBy: action.createdBy,
-						assignedTo: action.assignedTo
+						assignedTo: action.assignedTo,
+						user: action.user
 					}
 				]
 			});
