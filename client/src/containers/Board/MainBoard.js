@@ -21,7 +21,7 @@ class MainBoard extends Component {
         console.log('data: ', data);
         data.forEach(cards => {
           console.log('cards', cards);
-          this.props.onAddTask(cards.id, cards.title, cards.priority, cards.status, cards.createdBy, cards.assignedTo);
+          this.props.onAddTask(cards.id, cards.title, cards.priority, cards.status, cards.createdBy, cards.assignedTo, cards.user);
         });
       });
   }
@@ -48,8 +48,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onAddTask: (id, title, priority, status, createdBy, assignedTo) => {
-      dispatch(addTask(id, title, priority, status, createdBy, assignedTo));
+    onAddTask: (id, title, priority, status, createdBy, assignedTo, user) => {
+      dispatch(addTask(id, title, priority, status, createdBy, assignedTo, user));
     },
     onUpdateTask: (title, status) => {
       dispatch(updateTask(title, status));
