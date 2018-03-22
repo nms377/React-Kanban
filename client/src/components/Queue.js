@@ -9,7 +9,7 @@ class Queue extends Component {
 			<div id="Queue">
 				<h2>Queue</h2>
 				{
-					this.props.cards.filter(({status}) => status === 'queue').map(cards => {
+					this.props.cards.cards.filter(({status}) => status === 'queue').map(cards => {
 						return <Card 
 							key={cards.id}
 							title={cards.title}

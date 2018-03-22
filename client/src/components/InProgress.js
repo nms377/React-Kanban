@@ -3,15 +3,13 @@ import Card from './Card.js';
 
 class InProgress extends Component {
 
-	
-
 render(){
 		// console.log('In Progress: ', this.props)
 		return(
 			<div id="InProgress">
 				<h2>In Progress</h2>
 				{
-					this.props.cards.filter(({status}) => status === 'in progress').map(cards => {
+					this.props.cards.cards.filter(({status}) => status === 'in progress').map(cards => {
 						return <Card 
 							key={cards.id}
 							title={cards.title}
