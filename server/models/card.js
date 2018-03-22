@@ -5,11 +5,13 @@ module.exports = function(sequelize, DataTypes) {
     priority: DataTypes.STRING,
     status: DataTypes.STRING,
     createdBy: DataTypes.STRING,
-    assignedTo: DataTypes.STRING
+    assignedTo: DataTypes.STRING,
+    user: DataTypes.INTEGER
   }, {
     classMethods: {
       associate: function(models) {
         // associations can be defined here
+        Card.belongsTo(models.User, { foreignKey: 'user' });
       }
     }
   });
