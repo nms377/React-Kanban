@@ -1,6 +1,6 @@
 const express = require('express');
 const db = require('../models');
-const { Card, User } = db;
+const { Card } = db;
 
 const app = express();
 const router = express.Router();
@@ -8,13 +8,14 @@ const router = express.Router();
 router.get('/', (req, res) => {
 		Card.findAll()
 		.then((cards => {
+			console.log('cards', cards);
 				res.json(cards);
 			}))
-			.catch((err, status) => {
+			.catch((err) => {
 				console.log('err', err);
 				res.status(500).send({err});
 			});
-})
+});
 
 router.route('/new')
 	.post((req, res) => {
@@ -24,8 +25,7 @@ router.route('/new')
 			priority: req.body.priority,
 			status: req.body.status,
 			assignedTo: req.body.assignedTo,
-			createdBy: req.body.createdBy,
-			user: req.body.user
+			createdBy: req.body.createdBy
 		})
 		.then((newTask) => {
 			console.log(newTask);
