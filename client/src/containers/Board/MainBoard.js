@@ -5,13 +5,13 @@ import { connect } from 'react-redux';
 import InProgress from '../../components/InProgress.js';
 import Queue from '../../components/Queue.js';
 import Done from '../../components/Done.js';
-import NewCard from '../NewCard/NewCard.js';
+// import NewCard from '../NewCard/NewCard.js';
 
 //  misc
 import getCardsReq from '../../lib';
 
 //  actions
-import { addTask, updateTask, deleteTask } from '../../redux/actions/cardAction';
+import { addTask, updateTask, deleteTask } from '../../redux/actions/cardAction.js';
 
 class MainBoard extends Component {
 
@@ -20,14 +20,14 @@ class MainBoard extends Component {
       .then( data => {
         console.log('data: ', data);
         data.forEach(cards => {
-          console.log('cards', cards);
-          this.props.onAddTask(cards.id, cards.title, cards.priority, cards.status, cards.createdBy, cards.assignedTo, cards.user);
+          console.log('queue cards', cards);
+          this.props.onAddTask(cards.id, cards.title, cards.priority, cards.status, cards.createdBy, cards.assignedTo);
         });
       });
   }
 
   render() {
-    console.log('props', this.props);
+    console.log('props', this.props.cards);
     return (
       <div className="MainBoard">
         <Queue cards={this.props.cards} updateTask={this.updateTask} deleteTask={this.deleteTask}/>
@@ -48,8 +48,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onAddTask: (id, title, priority, status, createdBy, assignedTo, user) => {
-      dispatch(addTask(id, title, priority, status, createdBy, assignedTo, user));
+    onAddTask: (id, title, priority, status, createdBy, assignedTo) => {
+      dispatch(addTask(id, title, priority, status, createdBy, assignedTo));
     },
     onUpdateTask: (title, status) => {
       dispatch(updateTask(title, status));
