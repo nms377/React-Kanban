@@ -27,7 +27,7 @@ class MainBoard extends Component {
   }
 
   render() {
-    console.log('props', this.props.cards);
+    console.log('props cards', this.props.users.loggedInUser.id);
     return (
       <div className="MainBoard">
         <Queue cards={this.props.cards} updateTask={this.updateTask} deleteTask={this.deleteTask}/>
@@ -42,7 +42,8 @@ class MainBoard extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    cards: state.cards
+    cards: state.cards,
+    users: state.users
   }
 };
 

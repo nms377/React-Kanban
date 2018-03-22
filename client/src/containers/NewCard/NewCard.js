@@ -13,7 +13,9 @@ class NewCard extends Component {
 			title: '',
 			priority: 'low',
 			status: 'queue',
-			assignedTo: ''
+			assignedTo: '',
+			createdBy: '',
+			user: ''
 		};
 
 		this.handleSubmit = this.handleSubmit.bind(this);
@@ -29,7 +31,7 @@ class NewCard extends Component {
 			.then(card => {
 				// console.log('Card added: ', card)
 				// console.log('this.props', this.props);
-				this.props.onAddTask(card.id, card.title, card.priority, card.status, card.createdBy, card.assignedTo)
+				this.props.onAddTask(card.id, card.title, card.priority, card.status, card.createdBy, card.assignedTo, card.user)
 			})
 	}
 
@@ -39,13 +41,17 @@ class NewCard extends Component {
 			title: this.state.title,
 			priority: this.state.priority,
 			status: this.state.status,
-			assignedTo: this.state.assignedTo
+			assignedTo: this.state.assignedTo,
+			createdBy: this.props.users.loggedInUser.username,
+			user: this.props.users.loggedInUser.id
 		});
 		this.setState({
 			title: '',
 			priority: 'low',
 			status: 'queue',
-			assignedTo: ''
+			assignedTo: '',
+			createdBy: '',
+			user: ''
 		});
 	}
 
@@ -112,14 +118,15 @@ class NewCard extends Component {
 
 const mapStateToProps = (state) => {
 	return({
-		cards: state.cards
+		cards: state.cards,
+		users: state.users
 	})
 };
 
 const mapDispatchToProps = (dispatch) => {
 	return({
-		onAddTask: (id, title, priority, status, createdBy, assignedTo) => {
-			dispatch(addTask(id, title, priority, status, createdBy, assignedTo));
+		onAddTask: (id, title, priority, status, createdBy, assignedTo, user) => {
+			dispatch(addTask(id, title, priority, status, createdBy, assignedTo, user));
 		}
 	})
 }

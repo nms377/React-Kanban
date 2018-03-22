@@ -1,11 +1,12 @@
 const express = require('express');
 const db = require('../models');
-const { Card } = db;
+const { Card, User } = db;
 
 const app = express();
 const router = express.Router();
 
 router.get('/', (req, res) => {
+	console.log('cards get', req.body);
 		Card.findAll()
 		.then((cards => {
 			console.log('cards', cards);
@@ -25,7 +26,8 @@ router.route('/new')
 			priority: req.body.priority,
 			status: req.body.status,
 			assignedTo: req.body.assignedTo,
-			createdBy: req.body.createdBy
+			createdBy: req.body.createdBy,
+			user: req.body.user
 		})
 		.then((newTask) => {
 			console.log(newTask);
