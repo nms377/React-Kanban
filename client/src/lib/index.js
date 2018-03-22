@@ -9,6 +9,6 @@ module.exports = function getCardsReq(data) {
 		const oReq = new XMLHttpRequest();
 		oReq.addEventListener('load', reqListener);
 		oReq.open('GET', 'api/board');
-		oReq.send();
+		oReq.send(JSON.stringify(data));
 	}); 
 };
