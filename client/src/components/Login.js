@@ -19,6 +19,25 @@ class Login extends Component {
 		this.handlePassword = this.handlePassword.bind(this);
 	}
 
+	userIsLoggedIn(user) {
+		return new Promise(function(res,rej) {
+			function reqListener(userData) {
+				let results = this.responseText;
+				if (results === null) {
+					rej(results);
+				} else {
+					res(results);
+				}
+			}
+
+			var oReq = new XMLHttpRequest();
+			oReq.addEventListener("load", reqListener);
+			oReq.open('POST', 'api/user/login');
+			oReq.setRequestHeader('Content-type', 'application/json');
+			oReq.send(JSON.stringify(user));
+		});
+	}
+
 	handleSubmit(event) {
 		event.preventDefault();
 
@@ -54,25 +73,6 @@ class Login extends Component {
 	handlePassword(event) {
 		this.setState({
 			password: event.target.value
-		});
-	}
-
-	userIsLoggedIn(user) {
-		return new Promise(function(res,rej) {
-			function reqListener(userData) {
-				let results = this.responseText;
-				if (results === null) {
-					rej(results);
-				} else {
-					res(results);
-				}
-			}
-
-			var oReq = new XMLHttpRequest();
-			oReq.addEventListener("load", reqListener);
-			oReq.open('POST', 'api/user/login');
-			oReq.setRequestHeader('Content-type', 'application/json');
-			oReq.send(JSON.stringify(user));
 		});
 	}
 
