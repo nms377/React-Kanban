@@ -24,13 +24,15 @@ function users( state = initialState, action) {
 			});
 
 		case ADD_USER_TO_STATE:
-			return Object.assign({}, state, 
-				{
-					loggedInUser: {
-						id: action.id,
-						username: action.username,
-						loggedIn: action.loggedIn
-					}
+			console.log('USERS LOGGED IN AND ADDED TO STATE')
+			return Object.assign({}, state, {
+					users: [
+						...state.users,
+						{	id: action.id,
+							username: action.username,
+							loggedIn: action.loggedIn
+						}
+					]
 			});
 
 		case LOG_OUT_USER_FROM_STATE:
