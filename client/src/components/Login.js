@@ -81,15 +81,9 @@ class Login extends Component {
 			<div>
 			<p>{ this.props.users.userErrorMsg }</p>
 			<form className="UserInfo" onSubmit={this.handleSubmit}>
-				<label>
-					Username:
-						<input id="username" type="text" value={this.state.username} onChange={this.handleUsername} />
-				</label>
+				<input id="username" placeholder="Username" type="text" value={this.state.username} onChange={this.handleUsername} />
 				<br/>
-				<label>
-					Password:
-						<input id="password" type="password" value={this.state.password} onChange={this.handlePassword} />
-				</label>
+				<input id="password" placeholder="Password" type="password" value={this.state.password} onChange={this.handlePassword} />
 				<br/>
 				<input type="submit" value="Log In"/>
 			</form>

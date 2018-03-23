@@ -109,31 +109,16 @@ class NewUser extends Component {
     return (
     	<div>
 			<p>{this.props.userErrMsg}</p>
-			<form className="UserInfo" onSubmit={this.handleSubmit} ref="reset">
-				<label htmlFor="first_name">
-					First Name: 
-						<input id="first_name" type="text" value={this.state.first_name} onChange={this.handleFirstName}/>
-				</label>
+			<form className="UserInfo" onSubmit={this.handleSubmit} ref="reset"> 
+				<input id="first_name" placeholder="First Name" type="text" value={this.state.first_name} onChange={this.handleFirstName}/>
 				<br/>
-				<label htmlFor="last_name">
-					Last Name: 
-						<input id="last_name" type="text" value={this.state.last_name} onChange={this.handleLastName}/>
-				</label>
+				<input id="last_name" placeholder="Last Name" type="text" value={this.state.last_name} onChange={this.handleLastName}/>
 				<br/>
-				<label htmlFor="email">
-					Email: 
-						<input id="email" type="email" value={this.state.email} onChange={this.handleEmail}/>
-				</label>
+				<input id="email" placeholder="Email" type="email" value={this.state.email} onChange={this.handleEmail}/>
 				<br/>
-				<label htmlFor="username">
-					Username:
-						<input id="username" type="text" value={this.state.username} onChange={this.handleUsername}/>
-				</label>
+				<input id="username" placeholder="Username" type="text" value={this.state.username} onChange={this.handleUsername}/>
 				<br/>
-				<label htmlFor="password">
-					Password:
-						<input id="password" type="password" value={this.state.password} onChange={this.handlePassword}/>
-				</label>
+				<input id="password" placeholder="Password" type="password" value={this.state.password} onChange={this.handlePassword}/>
 				<br/>
 				<input type="submit" value="Sign Up"/>
 			</form>
