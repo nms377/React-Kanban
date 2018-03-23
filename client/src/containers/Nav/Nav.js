@@ -54,26 +54,35 @@ class Nav extends Component {
   }
 
 	render() {
-		return (
-			<div className="Nav">
-				<div className="MainHeader">
-					<h1>React Kanban</h1>
-					<Link to="/login">Log In</Link>
-					<Link to="/newuser">Sign Up</Link>
-          <a href="#" onClick={this.logOut}>Sign Out</a>
-					<div id="addCard" onClick={()=>this.operation()}>
-            +
+    if (this.props.users.loggedInUser) {
+      return (
+        <div className="Nav">
+          <div className="MainHeader">
+            <h1>React Kanban</h1>
+            <a href="#" onClick={this.logOut}>Sign Out</a>
+            <div id="addCard" onClick={()=>this.operation()}>
+              +
+            </div>
+          </div> 
+        {
+          this.state.showForm?
+            <NewCard />
+          :null
+        }
+        </div>
+      )  
+    } else {
+      return (
+        <div className="Nav">
+          <div className="MainHeader">
+            <h1>React Kanban</h1>
+            <Link to="/login">Log In</Link>
+            <Link to="/newuser">Sign Up</Link>
           </div>
-				</div>
-		 	{
-        this.state.showForm?
-          <NewCard />
-        :null
-      }
-			</div>
-		)
+        </div>
+      )      
+    } 
 	}
-
 }
 
 const mapStateToProps = (state) => {
