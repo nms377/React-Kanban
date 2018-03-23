@@ -3,7 +3,7 @@ const app = express();
 const methodOverride = require('method-override');
 const bp = require('body-parser');
 const cardRoute = require('./routes/card-route');
-const user = require('./routes/user-route');
+const userRoute = require('./routes/user-route');
 const bcrypt = require('bcrypt');
 
 const PORT = 9000;
@@ -11,11 +11,11 @@ const PORT = 9000;
 const saltRounds = 10; // defaults to 10 regardless
 
 // Password middleware for User auth
-const passport = require('passport');
 const	LocalStrategy = require('passport-local').Strategy;
 const session = require('express-session');
-const cookieParser = require('cookie-parser');
 const RedisStore = require('connect-redis')(session);
+const passport = require('passport');
+const cookieParser = require('cookie-parser');
 
 app.use(express.static('public'));
 
@@ -35,14 +35,14 @@ app.use(cookieParser());
 // express-session
 app.use(session({
 	store: new RedisStore(),
-		secret: 'session',
-		resave: false,
-		saveUninitialized: false
+	secret: 'letitstand',
+	saveUninitialized: true,
+	resave: true
 }));
 
 // this goes after every other middleware
 app.use(passport.initialize());
-app.use(passport.session());
+app.use(passport.session()); // persistent login sessions
 
 // models
 const db = require('./models');
@@ -50,7 +50,7 @@ const { User, Card } = db; // object destructuring
 
 // routes
 app.use('/api/board', cardRoute);
-app.use('/api/user', user);
+app.use('/api/user', userRoute);
 
 // authenticate password
 passport.use(new LocalStrategy(
@@ -62,13 +62,13 @@ passport.use(new LocalStrategy(
 		}
 	}).then( user => {
 		if (user === null) {
-			console.log('user failed');
+			// console.log('user failed');
 			return done(null, false, {message: 'bad username'});
 		} else {
 			bcrypt.compare(password, user.password)
 			.then(res => {
 				if(res){
-					console.log('user logged in');
+					// console.log('user logged in');
 					return done(null, user);
 				} else {
 					return done(null, false, {message: 'bad password'});

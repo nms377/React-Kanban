@@ -1,3 +1,4 @@
+const server = require('../server');
 const express = require('express');
 const db = require('../models');
 const { Card, User } = db;
@@ -5,8 +6,18 @@ const { Card, User } = db;
 const app = express();
 const router = express.Router();
 
+let isAuth = (function isAuthenticated(req,res, next) {
+	console.log('running is authenticated');
+	if (req.isAuthenticated()) {
+		console.log('passed');
+		next();
+	} else {
+		console.log('NOPE');
+		res.redirect(303, '/api/user/login');
+	}
+});
+
 router.get('/', (req, res) => {
-	console.log('cards get', req.body);
 		Card.findAll()
 		.then((cards => {
 			console.log('cards', cards);

@@ -1,3 +1,4 @@
+const server = require('../server');
 const express = require('express');
 const db = require('../models');
 const { User } = db;
@@ -20,7 +21,7 @@ router.route('/new')
 		res.send('Create a user on this page');
 	})
 	.post(function (req, res) {
-		console.log('Body', req.body);
+		// console.log('Body', req.body);
 		if (req.body.first_name !== '' && req.body.last_name !== '' && req.body.email !== '' && req.body.username !== '' && req.body.password !== '') {
 
 			bcrypt.genSalt(saltRounds, function(err, salt) {
@@ -33,7 +34,7 @@ router.route('/new')
 						password: hash
 					})
 					.then ( (users) => {
-						console.log('Server User: ', users);
+						// console.log('Server User: ', users);
 						res.send(users);
 					});
 				});
@@ -54,7 +55,7 @@ router.route('/login')
       }
     })
     .then(result => {
-    	console.log('result ', result);
+    	// console.log('result ', result);
       res.send({
       	id: result.dataValues.id,
       	username: result.dataValues.username
@@ -65,7 +66,7 @@ router.route('/login')
     });
   });
 
-function isAuthenticated(req,res, next) {
+let isAuth = (function isAuthenticated(req,res, next) {
 	console.log('running is authenticated');
 	if (req.isAuthenticated()) {
 		console.log('passed');
@@ -74,9 +75,9 @@ function isAuthenticated(req,res, next) {
 		console.log('NOPE');
 		res.redirect(303, 'login');
 	}
-}
+})
 
-router.get('/profile', isAuthenticated, (req,res) => {
+router.get('/profile', isAuth, (req,res) => {
 	console.log('secret', req.user);
 	res.send('Hello', req.user);
 });
