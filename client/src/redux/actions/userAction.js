@@ -16,12 +16,11 @@ export function addUser(id, first_name, last_name, email, username, password) {
 	};
 }
 
-export function addUserToState(id, username, loggedIn){
+export function addUserToState(id, username){
 	return {
 		type: 'ADD_USER_TO_STATE',
 		id,
-		username,
-		loggedIn
+		username
 	};
 }
 

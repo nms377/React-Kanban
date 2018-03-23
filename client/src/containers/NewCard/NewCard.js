@@ -42,8 +42,8 @@ class NewCard extends Component {
 			priority: this.state.priority,
 			status: this.state.status,
 			assignedTo: this.state.assignedTo,
-			createdBy: this.props.users.username,
-			user: this.props.users.id
+			createdBy: this.props.users.loggedInUser.username,
+			user: this.props.users.loggedInUser.id
 		});
 		this.setState({
 			title: '',

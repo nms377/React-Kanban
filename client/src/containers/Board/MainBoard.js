@@ -27,7 +27,7 @@ class MainBoard extends Component {
   }
 
   render() {
-    console.log('props cards', this.props);
+    console.log('props cards', this.props.users.loggedInUser);
     return (
       <div className="MainBoard">
         <Queue cards={this.props.cards} updateTask={this.updateTask} deleteTask={this.deleteTask}/>
