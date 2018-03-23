@@ -8,6 +8,11 @@ body {
 }
 
 // Root Container
+#root {
+	text-align: center;
+}
+
+// Homepage
 .App {
 	display: flex;
 	flex-flow: row wrap;
@@ -18,9 +23,15 @@ body {
 	padding-bottom: 1.5rem;
 }
 
+// Nav
+.Nav {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+}
+
 // Header of Kanban
 .MainHeader {
-
 	display: flex;
 	flex-flow: row nowrap;
 
@@ -40,7 +51,8 @@ body {
 	}
 
 	a {
-			border: 2px solid green;
+			color: rgb(255,255,255);
+			text-decoration: none;
 			flex: 0 0 auto;
 			align-self: center;
 			margin: .5rem;
@@ -63,11 +75,8 @@ body {
 	}
 }
 
-
 //	NewCard Component
-
 #newCard {
-
 	flex: 0 0 22rem;
 	order: 1;
 	background-color: rgb(255,255,255);
@@ -89,6 +98,7 @@ body {
 	}
 }
 
+// Buttons
 input[type=submit] {
 
 	border: none;
@@ -100,7 +110,6 @@ input[type=submit] {
 }
 
 //	Card Component
-
 .Cards {
 	order: 1;
   border-radius: .25rem;
@@ -180,8 +189,8 @@ input[type=submit] {
 		max-height: 40rem;
 		overflow-x: auto;
 		overflow-y: hidden;
-		position: relative;
-		margin-top: 1.5rem;
+		/*position: relative;*/
+		margin: 1.5rem auto 0 auto;
 	}
 
 	#Queue,#InProgress,#Done {

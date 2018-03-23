@@ -69,6 +69,9 @@ body {
   background-color: #00aecc;
   width: 100%; }
 
+#root {
+  text-align: center; }
+
 .App {
   display: flex;
   flex-flow: row wrap;
@@ -76,6 +79,11 @@ body {
   text-align: center;
   background-color: #00aecc;
   padding-bottom: 1.5rem; }
+
+.Nav {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center; }
 
 .MainHeader {
   display: flex;
@@ -93,7 +101,8 @@ body {
     padding: 1rem 0;
     letter-spacing: .125rem; }
   .MainHeader a {
-    border: 2px solid green;
+    color: white;
+    text-decoration: none;
     flex: 0 0 auto;
     align-self: center;
     margin: .5rem; }
@@ -190,8 +199,8 @@ input[type=submit] {
     max-height: 40rem;
     overflow-x: auto;
     overflow-y: hidden;
-    position: relative;
-    margin-top: 1.5rem; }
+    /*position: relative;*/
+    margin: 1.5rem auto 0 auto; }
   #Queue, #InProgress, #Done {
     flex: 0 0 30%;
     overflow: scroll; }
