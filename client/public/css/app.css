@@ -132,6 +132,13 @@ body {
   #newCard input[type=text] {
     margin-bottom: .5rem; }
 
+.UserInfo {
+  width: 22rem;
+  color: black;
+  margin: 1.5rem auto 0 auto; }
+  .UserInfo input[type=text], .UserInfo input[type=email] {
+    margin-bottom: .5rem; }
+
 input[type=submit] {
   border: none;
   background-color: #00c2e0;
@@ -187,7 +194,7 @@ input[type=submit] {
 @media screen and (min-width: 600px) {
   body {
     overflow-x: scroll; }
-  form {
+  #newCard {
     flex: 0 0 27%;
     max-width: 17rem;
     margin: 1.5rem 45% 0 45%; }

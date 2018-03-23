@@ -98,6 +98,17 @@ body {
 	}
 }
 
+// Form styling for Log In and Sign Up
+.UserInfo {
+	width: 22rem;
+	color: rgb(0,0,0);
+	margin: 1.5rem auto 0 auto;
+
+	input[type=text], input[type=email] {
+		margin-bottom: .5rem;
+	}
+}
+
 // Buttons
 input[type=submit] {
 
@@ -175,7 +186,7 @@ input[type=submit] {
 		overflow-x: scroll;
 	}
 
-	form {
+	#newCard {
 		flex: 0 0 27%;
 		max-width: 17rem;
 		margin: 1.5rem 45% 0 45%;
