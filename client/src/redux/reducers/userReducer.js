@@ -1,7 +1,8 @@
 import { ADD_USER, ADD_USER_TO_STATE, LOG_OUT_USER_FROM_STATE, USER_ERROR_MESSAGE } from '../actions/userAction';
 
 const initialState = {
-	users: []
+	loggedInUser: null,
+	users: [],
 };
 
 function users( state = initialState, action) {

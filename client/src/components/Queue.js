@@ -17,6 +17,7 @@ class Queue extends Component {
 							status={cards.status}
 							createdBy={cards.createdBy}
 							assignedTo={cards.assignedTo}
+							user={cards.user}
 							updateTask={this.props.updateTask}
 							deleteTask={this.props.deleteTask}
 						/>
