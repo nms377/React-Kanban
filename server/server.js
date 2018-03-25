@@ -36,8 +36,12 @@ app.use(cookieParser());
 app.use(session({
 	store: new RedisStore(),
 	secret: 'letitstand',
-	saveUninitialized: true,
-	resave: true
+	resave: true,
+	saveUninitialized: true
+}));
+
+app.use(session({
+	secret: 'letitstand'
 }));
 
 // this goes after every other middleware
@@ -58,7 +62,7 @@ passport.use(new LocalStrategy(
 
 	User.findOne({
 		where: {
-			username: username,
+			username: username
 		}
 	}).then( user => {
 		if (user === null) {
