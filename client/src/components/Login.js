@@ -94,7 +94,8 @@ class Login extends Component {
 
 const mapStateToProps = (state) => {
 	return {
-		users: state.users
+		users: state.users,
+		loggedInUser: state.loggedInUser
 	}
 }
 

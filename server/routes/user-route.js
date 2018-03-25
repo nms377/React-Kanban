@@ -35,7 +35,7 @@ router.route('/new')
 					})
 					.then ( (users) => {
 						// console.log('Server User: ', users);
-						res.send(users);
+						res.json(users);
 					});
 				});
 			});
@@ -56,15 +56,18 @@ router.route('/login')
     })
     .then(result => {
     	// console.log('result ', result);
-      res.send({
-      	id: result.dataValues.id,
-      	username: result.dataValues.username
-      });
+      res.send(req.user);
     })
     .catch(err => {
       console.log('error',err);
     });
   });
+
+  router.route('/checkLogin')
+  	.get((req,res) =>{
+  		console.log('checkLogin', req.user);
+  		res.send(req.user);
+  	});
 
 let isAuth = (function isAuthenticated(req,res, next) {
 	console.log('running is authenticated');

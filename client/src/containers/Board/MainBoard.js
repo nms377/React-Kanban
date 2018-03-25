@@ -13,9 +13,36 @@ import getCardsReq from '../../lib';
 //  actions
 import { addTask, updateTask, deleteTask } from '../../redux/actions/cardAction.js';
 
+import {
+  BrowserRouter as Router,
+  Route,
+  Redirect,
+  Link
+} from 'react-router-dom';
+
+
 class MainBoard extends Component {
 
+  xhrLoginCheck(){
+    return new Promise (function(res,rej){
+      function reqListener(){
+        res(this.responseText);
+      }
+      let oReq = new XMLHttpRequest();
+      oReq.open('GET', '/api/user/checkLogin');
+      oReq.addEventListener('load', reqListener);
+      oReq.send();
+    });
+  }
+
   componentWillMount() {
+
+    this.xhrLoginCheck()
+    .then((userData) => {
+      let user = userData;
+      this.props.onAddUser(user.id, user.username);
+    });
+
     getCardsReq()
       .then( data => {
         console.log('data: ', data);
@@ -27,16 +54,23 @@ class MainBoard extends Component {
   }
 
   render() {
-    console.log('props cards', this.props.users.loggedInUser);
-    return (
-      <div className="MainBoard">
-        <Queue cards={this.props.cards} updateTask={this.updateTask} deleteTask={this.deleteTask}/>
+    if(this.props.users.loggedInUser){      
+      return (
+        <div className="MainBoard">
+          <Queue cards={this.props.cards} updateTask={this.updateTask} deleteTask={this.deleteTask}/>
 
-        <InProgress cards={this.props.cards} updateTask={this.updateTask} deleteTask={this.deleteTask}/>
+          <InProgress cards={this.props.cards} updateTask={this.updateTask} deleteTask={this.deleteTask}/>
 
-        <Done cards={this.props.cards} updateTask={this.updateTask} deleteTask={this.deleteTask}/>
-      </div>
-    );
+          <Done cards={this.props.cards} updateTask={this.updateTask} deleteTask={this.deleteTask}/>
+        </div>
+      );
+    } else {
+      return (
+        <Redirect to={{
+          pathname: '/login'
+        }}/>
+      )
+    }
   }
 }
 

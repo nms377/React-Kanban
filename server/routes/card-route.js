@@ -1,4 +1,3 @@
-const server = require('../server');
 const express = require('express');
 const db = require('../models');
 const { Card } = db;
@@ -8,20 +7,24 @@ const router = express.Router();
 
 // Authentication keeps failing. Will return to this issue at a later time.
 // Think I need to authenticate on client side and connect to server auth
-// let isAuth = (function isAuthenticated(req,res, next) {
-// 	console.log('running is authenticated');
-// 	if (req.isAuthenticated()) {
-// 		console.log('passed');
-// 		next();
-// 	} else {
-// 		console.log('NOPE');
-// 		res.redirect(303, '/api/user/login');
-// 	}
-// });
+let isAuth = (function isAuthenticated(req, res, next) {
+	console.log('running is authenticated');
+	if (req.isAuthenticated()) {
+		console.log('passed');
+		next();
+	} else {
+		console.log('NOPE');
+		res.redirect(303, '/api/user/login');
+	}
+});
 
-router.get('/', (req, res) => {
-		console.log('GET', req.params.id);
-		Card.findAll()
+router.get('/', isAuth, (req, res) => {
+		console.log('board/', req.user);
+		Card.findAll({
+			where: {
+				user: req.user.id
+			}
+		})
 		.then((cards => {
 				res.json(cards);
 			}))
