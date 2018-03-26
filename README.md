@@ -56,7 +56,7 @@ The server has:
 Sequelize (ORM) and Postgresql. Created a UML Schema for the database.
 
 ### Styles
-Replicated similar color schemes and layouts as Trello.
+Replicated similar color schemes and layouts as Trello. Used SASS and gulp to manage my CSS styling.
 
 #### Responsive Layout
 Created a desktop and mobile view.
