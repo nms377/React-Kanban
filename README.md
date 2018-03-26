@@ -22,6 +22,7 @@ A Card has 6 properties:
   1. A status of a card that should match the column the card can be found in. Columns: "Queue", "In Progress", or "Done".
   1. A "Created by" field. This displays the name of the user who created the task. This field is automatically completed when a user submits a new card.
   1. An "Assigned to field". This should display the name of the person who is currently working on the task.
+  1. A unique identifier to relate the card to a user in the User database by matching their User id.
 
 #### Creating a new Card
 A form which is used to create a new Card. A card is first created with minimal information like:
@@ -31,7 +32,7 @@ A form which is used to create a new Card. A card is first created with minimal 
   - Created By (Username)
   - Assigned To (Name)
 
-All other fields are not needed when creating a new Card. The other fields: "Unique Identifier".
+All other fields are not needed when creating a new Card. The other fields: "Unique Identifier" or "User".
 
 ### Cards in Columns
 A card can be moved to either the next or previous column using the Status selection field.
@@ -59,3 +60,6 @@ Replicated similar color schemes and layouts as Trello.
 
 #### Responsive Layout
 Created a desktop and mobile view.
+
+![Desktop View](./images/Desktop.png "Desktop View")
+![Desktop View](./images/Mobile.png "Mobile View")
