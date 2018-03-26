@@ -63,12 +63,14 @@ router.route('/login')
     });
   });
 
-  router.route('/checkLogin')
-  	.get((req,res) =>{
-  		console.log('checkLogin', req.user);
-  		res.send(req.user);
-  	});
+// checks if a user is logged in and returns the user information via req.user
+router.route('/checkLogin')
+	.get((req,res) =>{
+		console.log('checkLogin', req.user);
+		res.send(req.user);
+	});
 
+// authenticates user when certain routes are requested (i.e. /api/board)
 let isAuth = (function isAuthenticated(req,res, next) {
 	console.log('running is authenticated');
 	if (req.isAuthenticated()) {
@@ -78,8 +80,9 @@ let isAuth = (function isAuthenticated(req,res, next) {
 		console.log('NOPE');
 		res.redirect(303, 'login');
 	}
-})
+});
 
+// not rendered on client side
 router.get('/profile', isAuth, (req,res) => {
 	console.log('secret', req.user);
 	res.send('Hello', req.user);
