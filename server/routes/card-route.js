@@ -5,8 +5,7 @@ const { Card } = db;
 const app = express();
 const router = express.Router();
 
-// Authentication keeps failing. Will return to this issue at a later time.
-// Think I need to authenticate on client side and connect to server auth
+// authenticates certain routes requiring user information
 let isAuth = (function isAuthenticated(req, res, next) {
 	console.log('running is authenticated');
 	if (req.isAuthenticated()) {
@@ -53,7 +52,6 @@ router.route('/new')
 			res.send('error', err);
 		});
 });
-
 
 router.route('/edit')
 	.put((req,res) => {
