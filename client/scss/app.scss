@@ -7,7 +7,6 @@ body {
 	width: 100%;
 }
 
-// Root Container
 #root {
 	text-align: center;
 }
@@ -17,7 +16,6 @@ body {
 	display: flex;
 	flex-flow: row wrap;
 	justify-content: center;
-
 	text-align: center;
 	background-color: rgb(0, 174, 204);
 	padding-bottom: 1.5rem;
@@ -34,7 +32,6 @@ body {
 .MainHeader {
 	display: flex;
 	flex-flow: row nowrap;
-
 	flex: 0 0 100%;
 	order: 0;
 	background-color: rgb(0, 152, 183);
@@ -68,7 +65,6 @@ body {
 		width: 4rem;
 		background: rgb(228, 247, 250);
 		font-size: 1.75rem;
-
 		color: rgb(0, 0, 0);
 		padding: 1rem 0;
 	}
@@ -79,7 +75,6 @@ body {
 	flex: 0 0 22rem;
 	order: 1;
 	background-color: rgb(255, 255, 255);
-
 	color: rgb(0, 0, 0);
 	border-radius: 0.5rem;
 	box-shadow: 0 1px 1px rgb(0, 130, 160);
@@ -150,7 +145,6 @@ input[type="submit"] {
 
 .MainBoard {
 	order: 2;
-
 	display: flex;
 	flex-flow: row wrap;
 	justify-content: center;
@@ -204,7 +198,6 @@ input[type="submit"] {
 		max-height: 40rem;
 		overflow-x: auto;
 		overflow-y: hidden;
-		/*position: relative;*/
 		margin: 1.5rem auto 0 auto;
 	}
 

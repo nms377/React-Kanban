@@ -89,8 +89,7 @@ video,
   border: 0;
   font-size: 100%;
   font: inherit;
-  vertical-align: baseline;
-}
+  vertical-align: baseline; }
 
 /* HTML5 display-role reset for older browsers */
 article,
@@ -104,35 +103,29 @@ hgroup,
 menu,
 nav,
 section {
-  display: block;
-}
+  display: block; }
 
 body {
-  line-height: 1;
-}
+  line-height: 1; }
 
 ol,
 ul {
-  list-style: none;
-}
+  list-style: none; }
 
 blockquote,
 q {
-  quotes: none;
-}
+  quotes: none; }
 
 blockquote:before,
 blockquote:after,
 q:before,
 q:after {
   content: "";
-  content: none;
-}
+  content: none; }
 
 table {
   border-collapse: collapse;
-  border-spacing: 0;
-}
+  border-spacing: 0; }
 
 .clearfix:after {
   visibility: hidden;
@@ -140,32 +133,26 @@ table {
   font-size: 0;
   content: " ";
   clear: both;
-  height: 0;
-}
+  height: 0; }
 
 .clearfix {
-  display: inline-block;
-}
+  display: inline-block; }
 
 /* start commented backslash hack \*/
 * html .clearfix {
-  height: 1%;
-}
+  height: 1%; }
 
 .clearfix {
-  display: block;
-}
+  display: block; }
 
 /* close commented backslash hack */
 body {
   font-family: Arial, Helvetica, sans-serif;
   background-color: #00aecc;
-  width: 100%;
-}
+  width: 100%; }
 
 #root {
-  text-align: center;
-}
+  text-align: center; }
 
 .App {
   display: flex;
@@ -173,14 +160,12 @@ body {
   justify-content: center;
   text-align: center;
   background-color: #00aecc;
-  padding-bottom: 1.5rem;
-}
+  padding-bottom: 1.5rem; }
 
 .Nav {
   display: flex;
   flex-flow: row wrap;
-  justify-content: center;
-}
+  justify-content: center; }
 
 .MainHeader {
   display: flex;
@@ -188,35 +173,30 @@ body {
   flex: 0 0 100%;
   order: 0;
   background-color: #0098b7;
-  box-shadow: 0 0 2px #0082a0;
-}
-.MainHeader h1 {
-  text-align: center;
-  width: 100%;
-  font-family: "Aladin", cursive;
-  color: #29cce5;
-  font-size: 1.5rem;
-  padding: 1rem 0;
-  letter-spacing: 0.125rem;
-}
-.MainHeader a {
-  color: white;
-  text-decoration: none;
-  flex: 0 0 auto;
-  align-self: center;
-  margin: 0.5rem;
-}
-.MainHeader a input[type="text"] {
-  margin-bottom: 0.5rem;
-}
-.MainHeader #addCard {
-  text-align: center;
-  width: 4rem;
-  background: #e4f7fa;
-  font-size: 1.75rem;
-  color: black;
-  padding: 1rem 0;
-}
+  box-shadow: 0 0 2px #0082a0; }
+  .MainHeader h1 {
+    text-align: center;
+    width: 100%;
+    font-family: "Aladin", cursive;
+    color: #29cce5;
+    font-size: 1.5rem;
+    padding: 1rem 0;
+    letter-spacing: 0.125rem; }
+  .MainHeader a {
+    color: white;
+    text-decoration: none;
+    flex: 0 0 auto;
+    align-self: center;
+    margin: 0.5rem; }
+    .MainHeader a input[type="text"] {
+      margin-bottom: 0.5rem; }
+  .MainHeader #addCard {
+    text-align: center;
+    width: 4rem;
+    background: #e4f7fa;
+    font-size: 1.75rem;
+    color: black;
+    padding: 1rem 0; }
 
 #newCard {
   flex: 0 0 22rem;
@@ -226,26 +206,21 @@ body {
   border-radius: 0.5rem;
   box-shadow: 0 1px 1px #0082a0;
   padding: 1rem 0 0.75rem 0;
-  margin-top: 1.5rem;
-}
-#newCard select {
-  background: #e4f7fa;
-  border: none;
-  margin-bottom: 0.5rem;
-}
-#newCard input[type="text"] {
-  margin-bottom: 0.5rem;
-}
+  margin-top: 1.5rem; }
+  #newCard select {
+    background: #e4f7fa;
+    border: none;
+    margin-bottom: 0.5rem; }
+  #newCard input[type="text"] {
+    margin-bottom: 0.5rem; }
 
 .UserInfo {
   width: 22rem;
   color: black;
-  margin: 1.5rem auto 0 auto;
-}
-.UserInfo input[type="text"],
-.UserInfo input[type="email"] {
-  margin-bottom: 0.5rem;
-}
+  margin: 1.5rem auto 0 auto; }
+  .UserInfo input[type="text"],
+  .UserInfo input[type="email"] {
+    margin-bottom: 0.5rem; }
 
 input[type="submit"] {
   border: none;
@@ -253,8 +228,7 @@ input[type="submit"] {
   border-radius: 2px;
   color: white;
   margin: 0.5rem 0;
-  font-size: 0.75rem;
-}
+  font-size: 0.75rem; }
 
 .Cards {
   order: 1;
@@ -264,30 +238,25 @@ input[type="submit"] {
   align-self: center;
   background-color: white;
   box-shadow: 0 1px 1px #ccc;
-  padding: 0.625rem 0;
-}
-.Cards .Title {
-  font-weight: bold;
-}
-.Cards .Title,
-.Cards .Priority,
-.Cards .Status,
-.Cards .CreatedBy,
-.Cards .AssignedTo {
-  padding: 0.25rem 0;
-}
-.Cards select {
-  border: none;
-  background: #e4f7fa;
-}
+  padding: 0.625rem 0; }
+  .Cards .Title {
+    font-weight: bold; }
+  .Cards .Title,
+  .Cards .Priority,
+  .Cards .Status,
+  .Cards .CreatedBy,
+  .Cards .AssignedTo {
+    padding: 0.25rem 0; }
+  .Cards select {
+    border: none;
+    background: #e4f7fa; }
 
 .MainBoard {
   order: 2;
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  margin-top: 1.5rem;
-}
+  margin-top: 1.5rem; }
 
 #Queue,
 #InProgress,
@@ -299,31 +268,27 @@ input[type="submit"] {
   margin-bottom: 1rem;
   display: flex;
   flex-flow: column nowrap;
-  justify-content: flex-start;
-}
-#Queue h2,
-#InProgress h2,
-#Done h2 {
-  flex: 0 0 auto;
-  order: 0;
-  font-size: 1.25rem;
-  font-weight: bold;
-  padding: 1rem 0;
-  margin-bottom: 1rem;
-  background-color: white;
-  border-radius: 0.5rem 0.5rem 0 0;
-  box-shadow: 0 1px 1px #ccc;
-}
+  justify-content: flex-start; }
+  #Queue h2,
+  #InProgress h2,
+  #Done h2 {
+    flex: 0 0 auto;
+    order: 0;
+    font-size: 1.25rem;
+    font-weight: bold;
+    padding: 1rem 0;
+    margin-bottom: 1rem;
+    background-color: white;
+    border-radius: 0.5rem 0.5rem 0 0;
+    box-shadow: 0 1px 1px #ccc; }
 
 @media screen and (min-width: 600px) {
   body {
-    overflow-x: scroll;
-  }
+    overflow-x: scroll; }
   #newCard {
     flex: 0 0 27%;
     max-width: 17rem;
-    margin: 1.5rem 45% 0 45%;
-  }
+    margin: 1.5rem 45% 0 45%; }
   .MainBoard {
     flex: 0 0 90%;
     flex-flow: row nowrap;
@@ -332,19 +297,14 @@ input[type="submit"] {
     max-height: 40rem;
     overflow-x: auto;
     overflow-y: hidden;
-    /*position: relative;*/
-    margin: 1.5rem auto 0 auto;
-  }
+    margin: 1.5rem auto 0 auto; }
   #Queue,
   #InProgress,
   #Done {
     flex: 0 0 30%;
-    overflow: scroll;
-  }
-  #Queue h2,
-  #InProgress h2,
-  #Done h2 {
-    position: sticky;
-    top: 0;
-  }
-}
+    overflow: scroll; }
+    #Queue h2,
+    #InProgress h2,
+    #Done h2 {
+      position: sticky;
+      top: 0; } }
