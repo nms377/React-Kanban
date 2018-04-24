@@ -13,7 +13,7 @@ class Nav extends Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
-      showForm: false
+      showNewCardForm: false
     };
 
     this.logOut = this.logOut.bind(this);
@@ -22,7 +22,7 @@ class Nav extends Component {
   // Toggle to Hide and Show Task Form
   operation() {
     this.setState({
-      showForm: !this.state.showForm
+      showNewCardForm: !this.state.showNewCardForm
     });
   }
 
@@ -65,7 +65,7 @@ class Nav extends Component {
               +
             </div>
           </div>
-          {this.state.showForm ? <NewCard /> : null}
+          {this.state.showNewCardForm ? <NewCard /> : null}
         </div>
       );
     } else {
