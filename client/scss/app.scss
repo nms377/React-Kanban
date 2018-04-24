@@ -3,7 +3,7 @@
 
 body {
 	font-family: Arial, Helvetica, sans-serif;
-	background-color: rgb(0,174,204);
+	background-color: rgb(0, 174, 204);
 	width: 100%;
 }
 
@@ -19,7 +19,7 @@ body {
 	justify-content: center;
 
 	text-align: center;
-	background-color: rgb(0,174,204);
+	background-color: rgb(0, 174, 204);
 	padding-bottom: 1.5rem;
 }
 
@@ -37,40 +37,39 @@ body {
 
 	flex: 0 0 100%;
 	order: 0;
-	background-color: rgb(0,152,183);
-	box-shadow: 0 0 2px rgb(0,130,160);
+	background-color: rgb(0, 152, 183);
+	box-shadow: 0 0 2px rgb(0, 130, 160);
 
 	h1 {
 		text-align: center;
 		width: 100%;
-		font-family: 'Aladin', cursive;
-		color: rgb(41,204,229);
+		font-family: "Aladin", cursive;
+		color: rgb(41, 204, 229);
 		font-size: 1.5rem;
 		padding: 1rem 0;
-		letter-spacing: .125rem;
+		letter-spacing: 0.125rem;
 	}
 
 	a {
-			color: rgb(255,255,255);
-			text-decoration: none;
-			flex: 0 0 auto;
-			align-self: center;
-			margin: .5rem;
+		color: rgb(255, 255, 255);
+		text-decoration: none;
+		flex: 0 0 auto;
+		align-self: center;
+		margin: 0.5rem;
 
-			input[type=text] {
-				margin-bottom: .5rem;
-			}
+		input[type="text"] {
+			margin-bottom: 0.5rem;
 		}
-
+	}
 
 	// Button to add new card to Kanban
 	#addCard {
 		text-align: center;
 		width: 4rem;
-		background:  rgb(228,247,250);
+		background: rgb(228, 247, 250);
 		font-size: 1.75rem;
 
-		color: rgb(0,0,0);
+		color: rgb(0, 0, 0);
 		padding: 1rem 0;
 	}
 }
@@ -79,109 +78,114 @@ body {
 #newCard {
 	flex: 0 0 22rem;
 	order: 1;
-	background-color: rgb(255,255,255);
+	background-color: rgb(255, 255, 255);
 
-	color: rgb(0,0,0);
-	border-radius: .5rem;
-	box-shadow: 0 1px 1px rgb(0,130,160);
-	padding: 1rem 0 .75rem 0;
+	color: rgb(0, 0, 0);
+	border-radius: 0.5rem;
+	box-shadow: 0 1px 1px rgb(0, 130, 160);
+	padding: 1rem 0 0.75rem 0;
 	margin-top: 1.5rem;
 
 	select {
-		background:  rgb(228,247,250);
+		background: rgb(228, 247, 250);
 		border: none;
-		margin-bottom: .5rem;
+		margin-bottom: 0.5rem;
 	}
 
-	input[type=text] {
-		margin-bottom: .5rem;
+	input[type="text"] {
+		margin-bottom: 0.5rem;
 	}
 }
 
 // Form styling for Log In and Sign Up
 .UserInfo {
 	width: 22rem;
-	color: rgb(0,0,0);
+	color: rgb(0, 0, 0);
 	margin: 1.5rem auto 0 auto;
 
-	input[type=text], input[type=email] {
-		margin-bottom: .5rem;
+	input[type="text"],
+	input[type="email"] {
+		margin-bottom: 0.5rem;
 	}
 }
 
 // Buttons
-input[type=submit] {
-
+input[type="submit"] {
 	border: none;
-	background-color: rgb(0,194,224);
+	background-color: rgb(0, 194, 224);
 	border-radius: 2px;
-	color: rgb(255,255,255);
-	margin: .5rem 0;
-	font-size: .75rem;
+	color: rgb(255, 255, 255);
+	margin: 0.5rem 0;
+	font-size: 0.75rem;
 }
 
 //	Card Component
 .Cards {
 	order: 1;
-  border-radius: .25rem;
-  margin: 0 0 1rem 0;
-  width: 90%;
-  align-self: center;
-  background-color: rgb(255,255,255);
-  box-shadow: 0 1px 1px #ccc;
-  padding: .625rem 0;
+	border-radius: 0.25rem;
+	margin: 0 0 1rem 0;
+	width: 90%;
+	align-self: center;
+	background-color: rgb(255, 255, 255);
+	box-shadow: 0 1px 1px #ccc;
+	padding: 0.625rem 0;
 
-  .Title {
+	.Title {
 		font-weight: bold;
 	}
 
-	.Title, .Priority, .Status, .CreatedBy, .AssignedTo {
-		padding: .25rem 0;
+	.Title,
+	.Priority,
+	.Status,
+	.CreatedBy,
+	.AssignedTo {
+		padding: 0.25rem 0;
 	}
 
 	select {
 		border: none;
-		background:  rgb(228,247,250);
+		background: rgb(228, 247, 250);
 	}
 }
 
-	.MainBoard {
-		order: 2;
-		
-		display: flex;
-		flex-flow: row wrap;
-		justify-content: center;
-		margin-top: 1.5rem;
-	}
+.MainBoard {
+	order: 2;
 
-	#Queue,#InProgress,#Done {
-		flex: 0 0 90%;
-		background-color: rgb(224,224,224);
-		height: auto;
-		border-radius: .5rem;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+	margin-top: 1.5rem;
+}
+
+#Queue,
+#InProgress,
+#Done {
+	flex: 0 0 90%;
+	background-color: rgb(224, 224, 224);
+	height: auto;
+	border-radius: 0.5rem;
+	margin-bottom: 1rem;
+
+	// Flexbox on cards
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: flex-start;
+
+	h2 {
+		flex: 0 0 auto;
+		order: 0;
+		font-size: 1.25rem;
+		font-weight: bold;
+		padding: 1rem 0;
 		margin-bottom: 1rem;
-
-		// Flexbox on cards
-		display: flex;
-		flex-flow: column nowrap;
-		justify-content: flex-start;
-
-		h2 {
-			flex: 0 0 auto;
-			order: 0;
-			font-size: 1.25rem;
-			font-weight: bold;
-			padding: 1rem 0;
-			margin-bottom: 1rem;
-			background-color: rgb(255,255,255);
-			border-radius: .5rem .5rem 0 0;
-  		box-shadow: 0 1px 1px #ccc;
-		}
+		background-color: rgb(255, 255, 255);
+		border-radius: 0.5rem 0.5rem 0 0;
+		box-shadow: 0 1px 1px #ccc;
 	}
+}
 
 // Desktop
 @media screen and (min-width: 600px) {
-
 	body {
 		overflow-x: scroll;
 	}
@@ -204,7 +208,9 @@ input[type=submit] {
 		margin: 1.5rem auto 0 auto;
 	}
 
-	#Queue,#InProgress,#Done {
+	#Queue,
+	#InProgress,
+	#Done {
 		flex: 0 0 30%;
 		overflow: scroll;
 
