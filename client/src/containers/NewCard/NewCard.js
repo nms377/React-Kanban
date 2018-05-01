@@ -87,42 +87,40 @@ class NewCard extends Component {
 	render() {
 		return (
 			<form id="newCard" onSubmit={this.handleSubmit}>
-				<label>
-					Task:
+				<label for="task" className="input_card">
+					<span className="input_card_label">Task</span>
 					<input
 						type="text"
+						id="task"
 						value={this.state.title}
 						onChange={this.handleTitle}
 					/>
 				</label>
-				<br />
-				<label>
-					Priority:
+				<label for="priority" className="input_card">
+					<span className="input_card_label">Priority</span>
 					<select value={this.state.priority} onChange={this.handlePriority}>
 						<option value="low">Low</option>
 						<option value="high">High</option>
 					</select>
 				</label>
-				<br />
-				<label>
-					Status:
-					<select value={this.state.status} onChange={this.handleStatus}>
+				<label for="status" className="input_card">
+					<span className="input_card_label">Status</span>
+					<select id="status" value={this.state.status} onChange={this.handleStatus}>
 						<option value="queue">Queue</option>
 						<option value="in progress">In Progress</option>
 						<option value="done">Done</option>
 					</select>
 				</label>
-				<br />
-				<label>
-					Assigned To:
+				<label for="assigned" className="input_card">
+					<span className="input_card_label">Assigned To</span>
 					<input
 						type="text"
+						id="assigned"
 						value={this.state.assignedTo}
 						onChange={this.handleAssignedTo}
 					/>
 				</label>
-				<br />
-				<input type="submit" value="Add Task" />
+				<input type="submit" className="newCardBtn" value="Add Task" />
 			</form>
 		);
 	}

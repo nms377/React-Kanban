@@ -56,7 +56,7 @@ class Card extends Component {
 				</label>
 				<p className="CreatedBy">Created By: {this.props.createdBy}</p>
 				<p className="AssignTo">Assign To: {this.props.assignedTo}</p>
-				<input type="submit" value="Delete" onClick={this.handleDelete} />
+				<input type="submit" className="cardBtn" value="Delete" onClick={this.handleDelete} />
 			</div>
 		);
 	}

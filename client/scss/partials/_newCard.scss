@@ -1,0 +1,53 @@
+//	NewCard Component
+#newCard {
+	flex: 0 0 22rem;
+	order: 1;
+	margin-top: 1.5rem;
+	padding: 1rem 0 0.75rem 0;
+	box-shadow: 0 1px 1px rgb(0, 130, 160);
+	border-radius: 0.5rem;
+	background-color: rgb(255, 255, 255);
+	color: rgb(0, 0, 0);
+
+	select {
+		background: rgb(228, 247, 250);
+		border: none;
+		margin-bottom: 0.5rem;
+		outline: 0;
+		flex: 1 1 auto;
+		border: none;
+		font-size: 1rem;
+	}
+
+	input[type="text"] {
+		margin-bottom: 0.5rem;
+		padding: 0.25rem 0.5rem;
+		outline: 0;
+		flex: 1 1 auto;
+		border: none;
+		background: rgba(0, 0, 0, 0);
+		font-size: 1rem;
+	}
+}
+
+.input_card {
+	width: 90%;
+	display: flex;
+	align-items: center;
+	margin: 0.5rem 0;
+	border-bottom: 1px solid rgb(0, 194, 224);
+	
+	&:first-child {
+		margin-top: 0;
+	}
+
+	&:nth-of-type(4) {
+		margin-bottom: 0;
+	}
+}
+
+.input_card_label {
+	font-weight: 600;
+	text-transform: uppercase;
+	color: rgb(0, 0, 0);
+}
