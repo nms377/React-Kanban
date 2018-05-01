@@ -83,7 +83,7 @@ class Login extends Component {
 			<div>
 				<p>{this.props.users.userErrorMsg}</p>
 				<form className="userInfo" onSubmit={this.handleSubmit}>
-					<label for="username" className="input_base">
+					<label htmlFor="username" className="input_base">
 						<span className="input_label">Username</span>
 						<input
 							type="text"
@@ -94,7 +94,7 @@ class Login extends Component {
 							required
 						/>
 					</label>
-					<label for="password" className="input_base">
+					<label htmlFor="password" className="input_base">
 						<span className="input_label">Password</span>
 						<input
 							type="password"

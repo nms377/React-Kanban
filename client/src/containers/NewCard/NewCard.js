@@ -87,7 +87,7 @@ class NewCard extends Component {
 	render() {
 		return (
 			<form id="newCard" onSubmit={this.handleSubmit}>
-				<label for="task" className="input_card">
+				<label htmlFor="task" className="input_card">
 					<span className="input_card_label">Task</span>
 					<input
 						type="text"
@@ -96,14 +96,14 @@ class NewCard extends Component {
 						onChange={this.handleTitle}
 					/>
 				</label>
-				<label for="priority" className="input_card">
+				<label htmlFor="priority" className="input_card">
 					<span className="input_card_label">Priority</span>
-					<select value={this.state.priority} onChange={this.handlePriority}>
+					<select id="priority" value={this.state.priority} onChange={this.handlePriority}>
 						<option value="low">Low</option>
 						<option value="high">High</option>
 					</select>
 				</label>
-				<label for="status" className="input_card">
+				<label htmlFor="status" className="input_card">
 					<span className="input_card_label">Status</span>
 					<select id="status" value={this.state.status} onChange={this.handleStatus}>
 						<option value="queue">Queue</option>
@@ -111,7 +111,7 @@ class NewCard extends Component {
 						<option value="done">Done</option>
 					</select>
 				</label>
-				<label for="assigned" className="input_card">
+				<label htmlFor="assigned" className="input_card">
 					<span className="input_card_label">Assigned To</span>
 					<input
 						type="text"
