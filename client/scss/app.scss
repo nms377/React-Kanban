@@ -1,5 +1,6 @@
-@import "./partials/reset";
+@import "./partials/_reset";
 @import "./partials/_clearfix";
+@import "./partials/_userforms";
 
 body {
 	font-family: Arial, Helvetica, sans-serif;
@@ -92,25 +93,15 @@ body {
 	}
 }
 
-// Form styling for Log In and Sign Up
-.UserInfo {
-	width: 22rem;
-	color: rgb(0, 0, 0);
-	margin: 1.5rem auto 0 auto;
-
-	input[type="text"],
-	input[type="email"] {
-		margin-bottom: 0.5rem;
-	}
-}
-
 // Buttons
 input[type="submit"] {
+	margin-bottom: 0.5rem;
 	border: none;
-	background-color: rgb(0, 194, 224);
 	border-radius: 2px;
+	padding: 10px;
+	background-color: rgb(0, 194, 224);
+	cursor: pointer;
 	color: rgb(255, 255, 255);
-	margin: 0.5rem 0;
 	font-size: 0.75rem;
 }
 

@@ -112,49 +112,69 @@ class NewUser extends Component {
 
 	render() {
 		return (
-			<div>
+			<div className="userForm">
 				<p>{this.props.userErrMsg}</p>
-				<form className="UserInfo" onSubmit={this.handleSubmit} ref="reset">
-					<input
-						id="first_name"
-						placeholder="First Name"
-						type="text"
-						value={this.state.first_name}
-						onChange={this.handleFirstName}
-					/>
-					<br />
-					<input
-						id="last_name"
-						placeholder="Last Name"
-						type="text"
-						value={this.state.last_name}
-						onChange={this.handleLastName}
-					/>
-					<br />
-					<input
-						id="email"
-						placeholder="Email"
-						type="email"
-						value={this.state.email}
-						onChange={this.handleEmail}
-					/>
-					<br />
-					<input
-						id="username"
-						placeholder="Username"
-						type="text"
-						value={this.state.username}
-						onChange={this.handleUsername}
-					/>
-					<br />
-					<input
-						id="password"
-						placeholder="Password"
-						type="password"
-						value={this.state.password}
-						onChange={this.handlePassword}
-					/>
-					<br />
+				<form className="userInfo" onSubmit={this.handleSubmit} ref="reset">
+					<label htmlFor="firstname" className="input_base">
+						<span className="input_label">First Name</span>
+						<input
+							type="text"
+							name="firstname"
+							className="question"
+							id="firstname"
+							value={this.state.first_name}
+							onChange={this.handleFirstName}
+							required
+						/>
+					</label>
+					<label htmlFor="lastname" className="input_base">
+						<span className="input_label">Last Name</span>
+						<input
+							type="text"
+							name="lastname"
+							className="question"
+							id="lastname"
+							value={this.state.last_name}
+							onChange={this.handleLastName}
+							required
+						/>
+					</label>
+					<label htmlFor="email" className="input_base">
+						<span className="input_label">Email</span>
+						<input
+							type="email"
+							name="email"
+							className="question"						
+							id="email"
+							value={this.state.email}
+							onChange={this.handleEmail}
+							required
+						/>
+					</label>
+					<label htmlFor="username" className="input_base">
+						<span className="input_label">Username</span>
+						<input
+							type="text"
+							name="username"
+							className="question"
+							id="username"
+							value={this.state.username}
+							onChange={this.handleUsername}
+							required
+						/>
+					</label>
+					<label htmlFor="password" className="input_base">
+						<span className="input_label">Password</span>
+						<input
+							type="password"
+							name="password"
+							className="question"
+							id="password"
+							value={this.state.password}
+							onChange={this.handlePassword}
+							required
+						/>
+					</label>
 					<input type="submit" value="Sign Up" />
 				</form>
 			</div>
