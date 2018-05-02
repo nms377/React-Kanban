@@ -81,7 +81,7 @@ class Login extends Component {
 
 	render() {
 		return (
-			<div>
+			<div className="userForm">
 				<p>{this.props.users.userErrorMsg}</p>
 				<form className="userInfo" onSubmit={this.handleSubmit}>
 					<label htmlFor="username" className="input_base">
@@ -106,7 +106,7 @@ class Login extends Component {
 							required
 						/>
 					</label>	
-					<input type="submit" value="Log In" />
+					<input className="userBtn" type="submit" value="Log In" />
 				</form>
 			</div>
 		);

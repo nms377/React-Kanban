@@ -175,7 +175,7 @@ class NewUser extends Component {
 							required
 						/>
 					</label>
-					<input type="submit" value="Sign Up" />
+					<input className="userBtn" type="submit" value="Sign Up" />
 				</form>
 			</div>
 		);
