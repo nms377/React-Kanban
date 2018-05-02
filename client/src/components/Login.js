@@ -17,6 +17,7 @@ class Login extends Component {
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.handleUsername = this.handleUsername.bind(this);
 		this.handlePassword = this.handlePassword.bind(this);
+		this.handleErrMsg = this.handleErrMsg.bind(this);
 	}
 
 	userIsLoggedIn(user) {
@@ -57,6 +58,7 @@ class Login extends Component {
 				if (data) {
 					let userInfo = JSON.parse(data);
 					this.props.onSignIn(userInfo.id, userInfo.username);
+					this.props.onUserErrorMsg("");
 					this.props.history.push("/board");
 				}
 			})
@@ -76,6 +78,12 @@ class Login extends Component {
 	handlePassword(event) {
 		this.setState({
 			password: event.target.value
+		});
+	}
+
+	handleErrMsg(event) {
+		this.setState({
+			userErrorMsg: ""
 		});
 	}
 
