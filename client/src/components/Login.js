@@ -11,13 +11,11 @@ class Login extends Component {
 		this.state = {
 			username: "",
 			password: "",
-			userErrorMsg: ""
 		};
 
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.handleUsername = this.handleUsername.bind(this);
 		this.handlePassword = this.handlePassword.bind(this);
-		this.handleErrMsg = this.handleErrMsg.bind(this);
 	}
 
 	userIsLoggedIn(user) {
@@ -78,12 +76,6 @@ class Login extends Component {
 	handlePassword(event) {
 		this.setState({
 			password: event.target.value
-		});
-	}
-
-	handleErrMsg(event) {
-		this.setState({
-			userErrorMsg: ""
 		});
 	}
 
