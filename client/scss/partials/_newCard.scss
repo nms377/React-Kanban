@@ -1,5 +1,8 @@
 //	NewCard Component
 #newCard {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
 	flex: 0 0 22rem;
 	order: 1;
 	margin-top: 1.5rem;
@@ -8,23 +11,43 @@
 	border-radius: 0.5rem;
 	background-color: rgb(255, 255, 255);
 	color: rgb(0, 0, 0);
+	-webkit-animation: appear 1s forwards;
+	animation: appear 1s forwards;
+
+	@-webkit-keyframes appear {
+		0% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 1;
+		}
+	}
+
+	@keyframes appear {
+		0% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 1;
+		}
+	}
 
 	select {
-		background: rgb(228, 247, 250);
-		border: none;
-		margin-bottom: 0.5rem;
-		outline: 0;
 		flex: 1 1 auto;
-		border: none;
+		margin-bottom: 0.25rem;
+		margin-left: 0.5rem;
+		outline: 0;
+		border: none; 
+		background: rgb(228, 247, 250);
 		font-size: 1rem;
 	}
 
 	input[type="text"] {
-		margin-bottom: 0.5rem;
-		padding: 0.25rem 0.5rem;
-		outline: 0;
 		flex: 1 1 auto;
+		margin-bottom: 0.0125rem;
+		outline: 0;
 		border: none;
+		padding: 0.25rem 0.5rem;
 		background: rgba(0, 0, 0, 0);
 		font-size: 1rem;
 	}
@@ -36,7 +59,7 @@
 	align-items: center;
 	margin: 0.5rem 0;
 	border-bottom: 1px solid rgb(0, 194, 224);
-	
+
 	&:first-child {
 		margin-top: 0;
 	}
@@ -47,7 +70,9 @@
 }
 
 .input_card_label {
+	font-size: 1rem;
 	font-weight: 600;
+	text-align: left;
 	text-transform: uppercase;
 	color: rgb(0, 0, 0);
 }

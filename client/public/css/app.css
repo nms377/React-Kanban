@@ -176,6 +176,9 @@ input.question {
   font-size: 1rem; }
 
 #newCard {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
   flex: 0 0 22rem;
   order: 1;
   margin-top: 1.5rem;
@@ -183,21 +186,35 @@ input.question {
   box-shadow: 0 1px 1px #0082a0;
   border-radius: 0.5rem;
   background-color: white;
-  color: black; }
+  color: black;
+  -webkit-animation: appear 1s forwards;
+  animation: appear 1s forwards; }
+
+@-webkit-keyframes appear {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@keyframes appear {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
   #newCard select {
-    background: #e4f7fa;
-    border: none;
-    margin-bottom: 0.5rem;
-    outline: 0;
     flex: 1 1 auto;
+    margin-bottom: 0.25rem;
+    margin-left: 0.5rem;
+    outline: 0;
     border: none;
+    background: #e4f7fa;
     font-size: 1rem; }
   #newCard input[type="text"] {
-    margin-bottom: 0.5rem;
-    padding: 0.25rem 0.5rem;
-    outline: 0;
     flex: 1 1 auto;
+    margin-bottom: 0.0125rem;
+    outline: 0;
     border: none;
+    padding: 0.25rem 0.5rem;
     background: transparent;
     font-size: 1rem; }
 
@@ -213,14 +230,16 @@ input.question {
     margin-bottom: 0; }
 
 .input_card_label {
+  font-size: 1rem;
   font-weight: 600;
+  text-align: left;
   text-transform: uppercase;
   color: black; }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  width: 100%;
   background-color: #00aecc;
-  width: 100%; }
+  font-family: Arial, Helvetica, sans-serif; }
 
 #root {
   text-align: center; }
@@ -229,9 +248,9 @@ body {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  text-align: center;
+  padding-bottom: 1.5rem;
   background-color: #00aecc;
-  padding-bottom: 1.5rem; }
+  text-align: center; }
 
 .Nav {
   display: flex;
@@ -243,31 +262,31 @@ body {
   flex-flow: row nowrap;
   flex: 0 0 100%;
   order: 0;
-  background-color: #0098b7;
-  box-shadow: 0 0 2px #0082a0; }
+  box-shadow: 0 0 2px #0082a0;
+  background-color: #0098b7; }
   .MainHeader h1 {
-    text-align: center;
     width: 100%;
-    font-family: "Aladin", cursive;
-    color: #29cce5;
-    font-size: 1.5rem;
     padding: 1rem 0;
-    letter-spacing: 0.125rem; }
+    font-size: 1.5rem;
+    font-family: "Aladin", cursive;
+    text-align: center;
+    letter-spacing: 0.125rem;
+    color: #29cce5; }
   .MainHeader a {
-    color: white;
-    text-decoration: none;
     flex: 0 0 auto;
     align-self: center;
-    margin: 0.5rem; }
+    margin: 0.5rem;
+    text-decoration: none;
+    color: white; }
     .MainHeader a input[type="text"] {
       margin-bottom: 0.5rem; }
   .MainHeader #addCard {
-    text-align: center;
     width: 4rem;
     padding: 1rem 0;
-    background: #e4f7fa;
     font-size: 1.75rem;
+    text-align: center;
     color: black;
+    background: #e4f7fa;
     cursor: pointer; }
 
 input[type="submit"] {
@@ -275,22 +294,22 @@ input[type="submit"] {
   border: none;
   border-radius: 2px;
   padding: 10px;
-  background-color: #00c2e0;
-  cursor: pointer;
+  font-size: 0.75rem;
   color: white;
-  font-size: 0.75rem; }
+  background-color: #00c2e0;
+  cursor: pointer; }
   input[type="submit"].cardBtn, input[type="submit"].newCardBtn {
     margin-top: 1rem; }
 
 .Cards {
+  width: 90%;
   order: 1;
   border-radius: 0.25rem;
   margin: 0 0 1rem 0;
-  width: 90%;
   align-self: center;
+  padding: 0.625rem 0;
   background-color: white;
-  box-shadow: 0 1px 1px #ccc;
-  padding: 0.625rem 0; }
+  box-shadow: 0 1px 1px #ccc; }
   .Cards .Title {
     font-weight: bold; }
   .Cards .Title,
@@ -304,9 +323,9 @@ input[type="submit"] {
     background: #e4f7fa; }
 
 .MainBoard {
-  order: 2;
   display: flex;
   flex-flow: row wrap;
+  order: 2;
   justify-content: center;
   margin-top: 1.5rem; }
 
@@ -314,10 +333,10 @@ input[type="submit"] {
 #InProgress,
 #Done {
   flex: 0 0 90%;
-  background-color: #e0e0e0;
   height: auto;
-  border-radius: 0.5rem;
   margin-bottom: 1rem;
+  border-radius: 0.5rem;
+  background-color: #e0e0e0;
   display: flex;
   flex-flow: column nowrap;
   justify-content: flex-start; }
@@ -326,30 +345,27 @@ input[type="submit"] {
   #Done h2 {
     flex: 0 0 auto;
     order: 0;
+    margin-bottom: 1rem;
+    box-shadow: 0 1px 1px #ccc;
+    border-radius: 0.5rem 0.5rem 0 0;
+    padding: 1rem 0;
     font-size: 1.25rem;
     font-weight: bold;
-    padding: 1rem 0;
-    margin-bottom: 1rem;
-    background-color: white;
-    border-radius: 0.5rem 0.5rem 0 0;
-    box-shadow: 0 1px 1px #ccc; }
+    text-transform: uppercase;
+    background-color: white; }
 
 @media screen and (min-width: 600px) {
   body {
     overflow-x: scroll; }
-  #newCard {
-    flex: 0 0 27%;
-    max-width: 17rem;
-    margin: 1.5rem 45% 0 45%; }
   .MainBoard {
+    max-width: 58rem;
+    max-height: 40rem;
     flex: 0 0 90%;
     flex-flow: row nowrap;
     justify-content: space-around;
-    max-width: 58rem;
-    max-height: 40rem;
+    margin: 1.5rem auto 0 auto;
     overflow-x: auto;
-    overflow-y: hidden;
-    margin: 1.5rem auto 0 auto; }
+    overflow-y: hidden; }
   #Queue,
   #InProgress,
   #Done {
