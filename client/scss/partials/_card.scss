@@ -1,0 +1,41 @@
+
+//	Card Component
+.Cards {
+	width: 90%;
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+	flex: 0 0 auto;
+	order: 1;
+	border-radius: 0.25rem;
+	margin: 0 0 1rem 0;
+	align-self: center;
+	padding: 0.625rem 0;
+	background-color: rgb(255, 255, 255);
+	box-shadow: 0 1px 1px #ccc;
+
+	.Title {
+		padding: 0.25rem 0;
+		font-weight: bold;
+		text-align: center;
+		text-transform: capitalize;
+	}
+
+	.Priority,
+	.Status,
+	.CreatedBy,
+	.AssignTo {
+		padding: 0.25rem 2rem;
+		text-align: left !important ;
+	}
+
+	select {
+		border: none;
+		background: rgb(228, 247, 250);
+	}
+
+	.cardBtn {
+		align-self: center;
+	}
+
+}
