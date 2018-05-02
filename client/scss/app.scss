@@ -1,6 +1,7 @@
 @import "./partials/_reset";
 @import "./partials/_clearfix";
 @import "./partials/_userforms";
+@import "./partials/_card";
 @import "./partials/_newCard";
 
 body {
@@ -9,10 +10,10 @@ body {
 	font-family: Arial, Helvetica, sans-serif;
 }
 
-#root {
+/*#root {
 	text-align: center;
 }
-
+*/
 // Homepage
 .App {
 	display: flex;
@@ -89,35 +90,6 @@ input[type="submit"] {
 	}
 }
 
-//	Card Component
-.Cards {
-	width: 90%;
-	order: 1;
-	border-radius: 0.25rem;
-	margin: 0 0 1rem 0;
-	align-self: center;
-	padding: 0.625rem 0;
-	background-color: rgb(255, 255, 255);
-	box-shadow: 0 1px 1px #ccc;
-
-	.Title {
-		font-weight: bold;
-	}
-
-	.Title,
-	.Priority,
-	.Status,
-	.CreatedBy,
-	.AssignedTo {
-		padding: 0.25rem 0;
-	}
-
-	select {
-		border: none;
-		background: rgb(228, 247, 250);
-	}
-}
-
 .MainBoard {
 	display: flex;
 	flex-flow: row wrap;
@@ -149,6 +121,7 @@ input[type="submit"] {
 		padding: 1rem 0;
 		font-size: 1.25rem;
 		font-weight: bold;
+		text-align: center;
 		text-transform: uppercase;
 		background-color: rgb(255, 255, 255);
 	}

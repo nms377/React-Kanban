@@ -1,16 +1,23 @@
 .userInfo {
 	width: 22rem;
+	display: flex;
+	flex-flow: column wrap;
 	max-width: 1125px;
 	margin: 5% auto 0 auto;
 	border-radius: 4px;
 	padding: 2rem 2rem;
 	background-color: rgb(255, 255, 255);
+
+	.userBtn {
+		margin-top: 1rem;
+	}
 }
 
 label.input_base {
 	display: flex;
 	align-items: center;
-	margin: 2rem 0;
+	flex: 0 0 auto;
+	margin: 0.5rem 0;
 	border-bottom: 1px solid rgb(0, 194, 224);
 
 	&:first-child {

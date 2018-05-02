@@ -148,16 +148,21 @@ table {
 /* close commented backslash hack */
 .userInfo {
   width: 22rem;
+  display: flex;
+  flex-flow: column wrap;
   max-width: 1125px;
   margin: 5% auto 0 auto;
   border-radius: 4px;
   padding: 2rem 2rem;
   background-color: white; }
+  .userInfo .userBtn {
+    margin-top: 1rem; }
 
 label.input_base {
   display: flex;
   align-items: center;
-  margin: 2rem 0;
+  flex: 0 0 auto;
+  margin: 0.5rem 0;
   border-bottom: 1px solid #00c2e0; }
   label.input_base:first-child {
     margin-top: 0; }
@@ -174,6 +179,36 @@ input.question {
   border: none;
   background: transparent;
   font-size: 1rem; }
+
+.Cards {
+  width: 90%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  flex: 0 0 auto;
+  order: 1;
+  border-radius: 0.25rem;
+  margin: 0 0 1rem 0;
+  align-self: center;
+  padding: 0.625rem 0;
+  background-color: white;
+  box-shadow: 0 1px 1px #ccc; }
+  .Cards .Title {
+    padding: 0.25rem 0;
+    font-weight: bold;
+    text-align: center;
+    text-transform: capitalize; }
+  .Cards .Priority,
+  .Cards .Status,
+  .Cards .CreatedBy,
+  .Cards .AssignTo {
+    padding: 0.25rem 2rem;
+    text-align: left !important; }
+  .Cards select {
+    border: none;
+    background: #e4f7fa; }
+  .Cards .cardBtn {
+    align-self: center; }
 
 #newCard {
   display: flex;
@@ -241,9 +276,10 @@ body {
   background-color: #00aecc;
   font-family: Arial, Helvetica, sans-serif; }
 
-#root {
-  text-align: center; }
-
+/*#root {
+	text-align: center;
+}
+*/
 .App {
   display: flex;
   flex-flow: row wrap;
@@ -301,27 +337,6 @@ input[type="submit"] {
   input[type="submit"].cardBtn, input[type="submit"].newCardBtn {
     margin-top: 1rem; }
 
-.Cards {
-  width: 90%;
-  order: 1;
-  border-radius: 0.25rem;
-  margin: 0 0 1rem 0;
-  align-self: center;
-  padding: 0.625rem 0;
-  background-color: white;
-  box-shadow: 0 1px 1px #ccc; }
-  .Cards .Title {
-    font-weight: bold; }
-  .Cards .Title,
-  .Cards .Priority,
-  .Cards .Status,
-  .Cards .CreatedBy,
-  .Cards .AssignedTo {
-    padding: 0.25rem 0; }
-  .Cards select {
-    border: none;
-    background: #e4f7fa; }
-
 .MainBoard {
   display: flex;
   flex-flow: row wrap;
@@ -351,6 +366,7 @@ input[type="submit"] {
     padding: 1rem 0;
     font-size: 1.25rem;
     font-weight: bold;
+    text-align: center;
     text-transform: uppercase;
     background-color: white; }
 
