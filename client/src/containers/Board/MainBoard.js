@@ -15,7 +15,13 @@ import {
   addTask,
   updateTask,
   deleteTask
-} from "../../redux/actions/cardAction.js";
+} from "../../redux/actions/cardAction";
+
+//  actions
+import {
+  addUserToState, 
+  userErrorMsg
+} from "../../redux/actions/userAction";
 
 import {
   BrowserRouter as Router,
@@ -97,12 +103,16 @@ class MainBoard extends Component {
 const mapStateToProps = state => {
   return {
     cards: state.cards,
-    users: state.users
+    users: state.users,
+    loggedInUser: state.loggedInUser
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
+    onAddUser: (id, username, loggedIn) => {
+      dispatch(addUserToState(id, username, loggedIn));
+    },
     onAddTask: (id, title, priority, status, createdBy, assignedTo) => {
       dispatch(addTask(id, title, priority, status, createdBy, assignedTo));
     },

@@ -23,6 +23,7 @@ class Login extends Component {
 		return new Promise(function(res, rej) {
 			function reqListener(userData) {
 				let results = this.responseText;
+				console.log('Results: ', results);
 				if (results === null) {
 					rej(results);
 				} else {

@@ -38,7 +38,7 @@ router
 						username: req.body.username,
 						password: hash
 					}).then(users => {
-						// console.log('Server User: ', users);
+						console.log('Server User: ', users);
 						res.json(users);
 					});
 				});
@@ -51,6 +51,11 @@ router
 router
 	.route("/login")
 	.get((req, res) => {
+		console.log('Users: ', req.user);
+		console.log('============');
+		console.log('Cookies: ', req.cookies);
+		console.log('============');
+		console.log('Session: ', req.session);
 		res.send(req.user);
 	})
 	.post(passport.authenticate("local"), function(req, res) {
@@ -60,8 +65,9 @@ router
 			}
 		})
 			.then(result => {
-				// console.log('result ', result);
-				res.send(req.user);
+				console.log('result ', result);
+				req.session.isLoggedIn = true;
+				res.send(200, req.user);
 			})
 			.catch(err => {
 				console.log("error", err);
@@ -75,14 +81,14 @@ router.route("/checkLogin").get((req, res) => {
 });
 
 // authenticates user when certain routes are requested (i.e. /api/board)
-let isAuth = function isAuthenticated(req, res, next) {
+let isAuth = function userAuth(req, res, next) {
 	console.log("running is authenticated");
 	if (req.isAuthenticated()) {
 		console.log("passed");
 		next();
 	} else {
 		console.log("NOPE");
-		res.redirect(303, "login");
+		res.redirect(303, "/login");
 	}
 };
 

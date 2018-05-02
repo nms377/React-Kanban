@@ -18,6 +18,11 @@ let isAuth = function isAuthenticated(req, res, next) {
 };
 
 router.get("/", isAuth, (req, res) => {
+	console.log('Users: ', req.user);
+	console.log('============');
+	console.log('Cookies: ', req.cookies);
+	console.log('============');
+	console.log('Session: ', req.session);
 	console.log("board/", req.user);
 	Card.findAll({
 		where: {

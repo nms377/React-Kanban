@@ -11,10 +11,10 @@ const PORT = 9000;
 const saltRounds = 10; // defaults to 10 regardless
 
 // Password middleware for User auth
-const LocalStrategy = require("passport-local").Strategy;
 const session = require("express-session");
-const RedisStore = require("connect-redis")(session);
 const passport = require("passport");
+const LocalStrategy = require("passport-local").Strategy;
+const RedisStore = require("connect-redis")(session);
 const cookieParser = require("cookie-parser");
 
 app.use(express.static("public"));
@@ -37,10 +37,10 @@ app.use(cookieParser());
 // express-session
 app.use(
 	session({
-		store: new RedisStore(),
+		store: new RedisStore,
 		secret: "letitstand",
 		resave: true,
-		saveUninitialized: true
+		saveUninitialized: true,
 	})
 );
 
@@ -53,14 +53,6 @@ app.use(
 // this goes after every other middleware
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
-
-// models
-const db = require("./models");
-const { User, Card } = db; // object destructuring
-
-// routes
-app.use("/api/board", cardRoute);
-app.use("/api/user", userRoute);
 
 // authenticate password
 passport.use(
@@ -110,6 +102,14 @@ passport.deserializeUser(function(user, done) {
 			return done(err, user);
 		});
 });
+
+// models
+const db = require("./models");
+const { User, Card } = db; // object destructuring
+
+// routes
+app.use("/api/board", cardRoute);
+app.use("/api/user", userRoute);
 
 // listending on port
 
