@@ -1,8 +1,5 @@
 import React, { Component } from "react";
 
-//  misc
-import "./styles.css";
-
 class App extends Component {
 	render() {
 		return (
