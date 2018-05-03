@@ -58,11 +58,14 @@ class Nav extends Component {
         <div className="Nav">
           <div className="MainHeader">
             <h1>React Kanban</h1>
-              <a href="#" onClick={this.logOut}>
-                Sign Out
-              </a>
-              <div id="addCard" onClick={() => this.operation()}>
-                +
+              <div id="userNav">
+                <span><a href="#" onClick={this.logOut}>
+                  Sign Out
+                </a>
+                <a id="addCard" onClick={() => this.operation()}>
+                  +
+                </a>
+                </span>
               </div>
           </div>
           {this.state.showNewCardForm ? <NewCard /> : null}
@@ -73,8 +76,10 @@ class Nav extends Component {
         <div className="Nav">
           <div className="MainHeader">
             <h1>React Kanban</h1>
-            <Link to="/login">Log In</Link>
-            <Link to="/newuser">Sign Up</Link>
+              <div id="setupNav">          
+                <Link to="/login">Log In</Link>
+                <Link to="/newuser">Sign Up</Link>
+              </div>
           </div>
         </div>
       );
