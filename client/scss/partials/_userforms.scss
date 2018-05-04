@@ -1,9 +1,17 @@
+.userForm {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
 .userInfo {
+	position: relative;
+	top: 2rem;
+	margin-top: 1.5rem;
 	width: 75%;
 	max-width: 22rem;
 	display: flex;
 	flex-flow: column wrap;
-	margin: 5% auto 0 auto;
 	border-radius: 4px;
 	padding: 2rem 2rem;
 	background-color: rgb(255, 255, 255);
