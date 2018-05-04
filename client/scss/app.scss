@@ -104,33 +104,3 @@ input[type="submit"] {
 		margin-top: 1rem;
 	}
 }
-
-// Desktop
-@media screen and (min-width: 600px) {
-	body {
-		overflow-x: scroll;
-	}
-
-	.MainBoard {
-		max-width: 58rem;
-		max-height: 40rem;
-		flex: 0 0 90%;
-		flex-flow: row nowrap;
-		justify-content: space-around;
-		margin: 1.5rem auto 0 auto;
-		overflow-x: auto;
-		overflow-y: hidden;
-	}
-
-	#Queue,
-	#InProgress,
-	#Done {
-		flex: 0 0 30%;
-		overflow: scroll;
-
-		h2 {
-			position: sticky;
-			top: 0;
-		}
-	}
-}
