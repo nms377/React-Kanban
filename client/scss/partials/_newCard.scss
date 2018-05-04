@@ -1,19 +1,18 @@
 //	NewCard Component
 #newCard {
-	position: relative;
-	top: 2rem;
-	margin-top: 1.5rem;
 	display: flex;
 	flex-flow: row wrap;
 	justify-content: center;
 	flex: 0 0 22rem;
 	order: 1;
+	position: relative;
+	top: 2rem;
 	margin-top: 1.5rem;
 	padding: 1rem 0 0.75rem 0;
-	box-shadow: 0 1px 1px rgb(0, 130, 160);
+	box-shadow: 0 1px 1px $trello-sky-800;
 	border-radius: 0.5rem;
-	background-color: rgb(255, 255, 255);
-	color: rgb(0, 0, 0);
+	background-color: $white;
+	color: $black;
 	-webkit-animation: appear 1s forwards;
 	animation: appear 1s forwards;
 
@@ -41,7 +40,7 @@
 		margin-left: 0.5rem;
 		outline: 0;
 		border: none; 
-		background: rgb(228, 247, 250);
+		background: $trello-sky-50;
 		font-size: 1rem;
 	}
 
@@ -51,7 +50,6 @@
 		outline: 0;
 		border: none;
 		padding: 0.25rem 0.5rem;
-		background: rgba(0, 0, 0, 0);
 		font-size: 1rem;
 	}
 }
@@ -61,7 +59,7 @@
 	display: flex;
 	align-items: center;
 	margin: 0.5rem 0;
-	border-bottom: 1px solid rgb(0, 194, 224);
+	border-bottom: 1px solid $trello-sky-500;
 
 	&:first-child {
 		margin-top: 0;
@@ -77,5 +75,5 @@
 	font-weight: 600;
 	text-align: left;
 	text-transform: uppercase;
-	color: rgb(0, 0, 0);
+	color: $black;
 }

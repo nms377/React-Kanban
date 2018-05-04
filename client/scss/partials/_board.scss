@@ -1,39 +1,38 @@
 .MainBoard {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+	height: 100%;
 	position: relative;
 	top: 2rem;
 	margin-top: 1.5rem; // need this to sustain top spacing between Nav in mobile view
-	display: flex;
-	flex-flow: row wrap;
-	order: 2;
-	justify-content: center;
 }
 
 #Queue,
 #InProgress,
 #Done {
-	flex: 0 0 90%;
-	height: auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	flex: 0 0 auto;
+	max-height: 100%;
 	margin-bottom: 1rem;
+	position: relative;
 	border-radius: 0.5rem;
 	background-color: rgb(224, 224, 224);
 
-	// Flexbox on cards
-	display: flex;
-	flex-flow: column nowrap;
-	justify-content: flex-start;
-
 	h2 {
 		flex: 0 0 auto;
-		order: 0;
 		margin-bottom: 1rem;
+		padding: 1rem 0;
 		box-shadow: 0 1px 1px #ccc;
 		border-radius: 0.5rem 0.5rem 0 0;
-		padding: 1rem 0;
 		font-size: 1.25rem;
 		font-weight: bold;
 		text-align: center;
 		text-transform: uppercase;
-		background-color: rgb(255, 255, 255);
+		background-color: $white;
+		color: $black;
 	}
 }
 
@@ -44,11 +43,11 @@
 	}
 
 	.MainBoard {
-		max-width: 58rem;
-		max-height: 40rem;
 		flex: 0 0 90%;
 		flex-flow: row nowrap;
 		justify-content: space-around;
+		max-width: 58rem;
+		max-height: 40rem;
 		margin: 1.5rem auto 0 auto;
 		overflow-x: auto;
 		overflow-y: hidden;
