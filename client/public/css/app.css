@@ -368,10 +368,14 @@ body {
   box-shadow: 0 0 2px #0082a0;
   background-color: #0098b7; }
   .MainHeader h1 {
-    width: 100%;
+    width: 150px;
+    height: 14px;
+    margin-left: auto;
+    margin-right: auto;
     position: absolute;
     top: -0.625rem;
     left: 0;
+    right: 0;
     padding: 1rem 0;
     font-size: 1.5rem;
     font-family: "Aladin", cursive;
@@ -381,10 +385,7 @@ body {
   .MainHeader a {
     margin: 0.5rem;
     text-decoration: none;
-    color: white;
-    /*		input[type="text"] {
-			margin-bottom: 0.5rem;
-		}*/ }
+    color: white; }
 
 #setupNav, #userNav {
   position: absolute;

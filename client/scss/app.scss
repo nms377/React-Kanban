@@ -43,10 +43,14 @@ body {
 	background-color: $trello-sky-700;
 
 	h1 {
-		width: 100%;
+		width: 150px;
+		height: 14px;
+		margin-left: auto;
+		margin-right: auto;
 		position: absolute;
 		top: -0.625rem;
 		left: 0;
+		right: 0;
 		padding: 1rem 0;
 		font-size: 1.5rem;
 		font-family: "Aladin", cursive;
@@ -59,10 +63,6 @@ body {
 		margin: 0.5rem;
 		text-decoration: none;
 		color: $white;
-
-/*		input[type="text"] {
-			margin-bottom: 0.5rem;
-		}*/
 	}
 }
 
