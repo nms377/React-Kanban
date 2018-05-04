@@ -57,7 +57,7 @@ class Nav extends Component {
       return (
         <div className="Nav">
           <div className="MainHeader">
-            <h1>React Kanban</h1>
+            <Link to="/"><h1>React Kanban</h1></Link>
               <div id="userNav">
                 <span><a href="#" onClick={this.logOut}>
                   Sign Out
@@ -75,7 +75,7 @@ class Nav extends Component {
       return (
         <div className="Nav">
           <div className="MainHeader">
-            <h1>React Kanban</h1>
+            <Link to="/"><h1>React Kanban</h1></Link>
               <div id="setupNav">          
                 <Link to="/login">Log In</Link>
                 <Link to="/newuser">Sign Up</Link>
